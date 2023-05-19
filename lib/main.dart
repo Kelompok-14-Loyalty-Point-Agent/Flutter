@@ -1,3 +1,6 @@
+import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
+import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
+import 'package:capstone_14/ui/splash_screen/splash_screen_3.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,58 +13,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen1(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case SplashScreen1.routeName:
+            return _buildFadeRoute(const SplashScreen1());
+          case SplashScreen2.routeName:
+            return _buildFadeRoute(const SplashScreen2());
+          case SplashScreen3.routeName:
+            return _buildFadeRoute(const SplashScreen3());
+          default:
+            return null;
+        }
+      },
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+  PageRouteBuilder _buildFadeRoute(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
     );
   }
 }
