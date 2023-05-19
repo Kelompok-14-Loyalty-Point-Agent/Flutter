@@ -30,7 +30,7 @@ class _SplashScreen3State extends State<SplashScreen3> {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.fromLTRB(43, 0, 43, 41),
+                padding: EdgeInsets.fromLTRB(43, 0, 43, 50),
                 child: Text(
                   "Reedem for voucher",
                   textAlign: TextAlign.center,

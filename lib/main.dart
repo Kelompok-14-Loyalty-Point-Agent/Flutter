@@ -13,12 +13,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: const SplashScreen1(),
-        routes: {
-          SplashScreen1.routeName: (context) => const SplashScreen1(),
-          SplashScreen2.routeName: (context) => const SplashScreen2(),
-          SplashScreen3.routeName: (context) => const SplashScreen3(),
-        });
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen1(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case SplashScreen1.routeName:
+            return _buildFadeRoute(const SplashScreen1());
+          case SplashScreen2.routeName:
+            return _buildFadeRoute(const SplashScreen2());
+          case SplashScreen3.routeName:
+            return _buildFadeRoute(const SplashScreen3());
+          default:
+            return null;
+        }
+      },
+    );
+  }
+
+  PageRouteBuilder _buildFadeRoute(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+    );
   }
 }
