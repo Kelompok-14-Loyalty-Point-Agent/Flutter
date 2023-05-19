@@ -1,4 +1,4 @@
-import 'package:capstone_14/widgets/button_custom_widget.dart';
+import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -54,9 +54,10 @@ class _SplashScreen3State extends State<SplashScreen3> {
                   ),
                 ),
               ),
-              ButtonCustom(
+              ButtonCustome(
                 onPressed: () {},
                 backgroundColour: const Color(0xFF030F51),
+                width: 274,
                 title: "Sign In",
                 style: const TextStyle(fontSize: 16),
               ),

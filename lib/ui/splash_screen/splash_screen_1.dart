@@ -1,4 +1,4 @@
-import 'package:capstone_14/widgets/button_custom_widget.dart';
+import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -55,10 +55,11 @@ class _SplashScreen1State extends State<SplashScreen1> {
                     ),
                   ),
                 ),
-                ButtonCustom(
+                ButtonCustome(
                   onPressed: () {
                     Navigator.pushNamed(context, '/splashScreen2');
                   },
+                  width: 274,
                   backgroundColour: const Color(0xFF030F51),
                   title: "Next",
                   style: const TextStyle(fontSize: 16),
