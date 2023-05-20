@@ -17,6 +17,8 @@ dependencies:
   dartz: ^0.10.1
   google_fonts: ^4.0.4
   dots_indicator:
+  flutter_otp_text_field: ^1.1.1
+  font_awesome_flutter: ^10.4.0
 
 dev_dependencies:
   flutter_test:
