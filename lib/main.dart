@@ -1,3 +1,4 @@
+import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_3.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen1(),
+      home: const SplashScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case SplashScreen1.routeName:
