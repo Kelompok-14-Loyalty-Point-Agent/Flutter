@@ -24,7 +24,7 @@ class TextFieldCustome extends StatelessWidget {
     this.isReadOnly = false,
     this.suffixIconWidget,
     this.keyboardType = TextInputType.text,
-    this.initialValue,
+    this.initialValue, required InputDecoration decoration, required bool obscureText,
   });
 
   @override
