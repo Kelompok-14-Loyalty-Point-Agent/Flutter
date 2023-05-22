@@ -73,29 +73,56 @@ class _ForgotPasswordscreenState extends State<ForgotPasswordscreen> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Email Address',
-                        style: TextStyle(
-                          fontSize: 12,
+                      const Padding(
+                        padding: EdgeInsets.only(left: 5, bottom: 6),
+                        child: Text(
+                          'Email Address',
+                          style: TextStyle(
+                            fontSize: 12,
+                          ),
                         ),
                       ),
-                      const SizedBox(height: 8),
                       SizedBox(
                         width: 234,
                         height: 36,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Enter Your Email',
-                            hintStyle: const TextStyle(
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Enter Your Password',
+                            hintStyle: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
                             ),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(5),
+                              ),
                             ),
                           ),
                         ),
                       ),
+                      // const Text(
+                      //   'Email Address',
+                      //   style: TextStyle(
+                      //     fontSize: 12,
+                      //   ),
+                      // ),
+                      // const SizedBox(height: 8),
+                      // SizedBox(
+                      //   width: 234,
+                      //   height: 36,
+                      //   child: TextField(
+                      //     decoration: InputDecoration(
+                      //       hintText: 'Enter Your Email',
+                      //       hintStyle: const TextStyle(
+                      //         fontSize: 12,
+                      //         fontWeight: FontWeight.w400,
+                      //       ),
+                      //       border: OutlineInputBorder(
+                      //         borderRadius: BorderRadius.circular(5),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   ),
                   const SizedBox(height: 41),
