@@ -1,4 +1,3 @@
-import 'package:capstone_14/ui/forgot_password/verify_email_screen.dart';
 import 'package:capstone_14/ui/password_update/password_success_update.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -45,31 +44,34 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  const CircleAvatar(
-                    radius: 33.5,
-                    backgroundColor: Color(0xffC8D6F7),
-                    child: Image(
-                      width: 44,
-                      height: 44,
-                      image: AssetImage('assets/images/new-password.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  const SizedBox(height: 15),
-                  const SizedBox(
-                    width: 212,
-                    height: 37,
-                    child: Text(
-                      'Your new password must be different from previously password',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 12,
+                  const Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: CircleAvatar(
+                      radius: 33.5,
+                      backgroundColor: Color(0xffC8D6F7),
+                      child: Image(
+                        width: 44,
+                        height: 44,
+                        image: AssetImage('assets/images/new-password.png'),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 23),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 15, bottom: 23),
+                    child: SizedBox(
+                      width: 212,
+                      height: 37,
+                      child: Text(
+                        'Your new password must be different from previously password',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -114,7 +116,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                         height: 36,
                         child: TextFormField(
                           decoration: const InputDecoration(
-                            hintText: 'Enter Your Password',
+                            hintText: 'Confirm Your Password',
                             hintStyle: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
@@ -127,54 +129,6 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                           ),
                         ),
                       ),
-
-                      // const Text(
-                      //   'Password',
-                      //   style: TextStyle(
-                      //     fontSize: 12,
-                      //   ),
-                      // ),
-                      // const SizedBox(height: 8),
-                      // SizedBox(
-                      //   width: 234,
-                      //   height: 36,
-                      //   child: TextField(
-                      //     decoration: InputDecoration(
-                      //       hintText: 'Enter Your Password',
-                      //       hintStyle: const TextStyle(
-                      //         fontSize: 12,
-                      //         fontWeight: FontWeight.w400,
-                      //       ),
-                      //       border: OutlineInputBorder(
-                      //         borderRadius: BorderRadius.circular(5),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
-                      // const SizedBox(height: 20),
-                      // const Text(
-                      //   'Confirm Password',
-                      //   style: TextStyle(
-                      //     fontSize: 12,
-                      //   ),
-                      // ),
-                      // const SizedBox(height: 8),
-                      // SizedBox(
-                      //   width: 234,
-                      //   height: 36,
-                      //   child: TextField(
-                      //     decoration: InputDecoration(
-                      //       hintText: 'Confirm Your Password',
-                      //       hintStyle: const TextStyle(
-                      //         fontSize: 12,
-                      //         fontWeight: FontWeight.w400,
-                      //       ),
-                      //       border: OutlineInputBorder(
-                      //         borderRadius: BorderRadius.circular(5),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   ),
                   const SizedBox(height: 31),
