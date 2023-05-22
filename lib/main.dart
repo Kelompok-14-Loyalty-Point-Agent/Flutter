@@ -16,7 +16,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      //Ganti disini kalau mau coba screen
       home: const SplashScreen(),
+      // home: const CreditDataScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case SplashScreen1.routeName:
