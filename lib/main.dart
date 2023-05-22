@@ -1,4 +1,5 @@
 import 'package:capstone_14/ui/forgot_password/forgot_password_screen.dart';
+import 'package:capstone_14/ui/password_update/password_success_update.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
