@@ -37,13 +37,16 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(
               top: 78,
             ),
             child: Text(
               'Detail Reward',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ),
           Padding(
