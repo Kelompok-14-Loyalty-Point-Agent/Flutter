@@ -48,4 +48,40 @@ class TextStyleConst {
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
+
+  TextStyle heading1WithColor(Color color) {
+    return heading1.copyWith(color: color);
+  }
+
+  TextStyle heading2WithColor(Color color) {
+    return heading2.copyWith(color: color);
+  }
+
+  TextStyle heading3WithColor(Color color) {
+    return heading3.copyWith(color: color);
+  }
+
+  TextStyle heading4WithColor(Color color) {
+    return heading4.copyWith(color: color);
+  }
+
+  TextStyle heading5WithColor(Color color) {
+    return heading5.copyWith(color: color);
+  }
+
+  TextStyle description1WithColor(Color color) {
+    return description1.copyWith(color: color);
+  }
+
+  TextStyle description2WithColor(Color color) {
+    return description2.copyWith(color: color);
+  }
+
+  TextStyle description3WithColor(Color color) {
+    return description3.copyWith(color: color);
+  }
+
+  TextStyle description4WithColor(Color color) {
+    return description4.copyWith(color: color);
+  }
 }
