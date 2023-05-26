@@ -1,7 +1,9 @@
+import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/ui/get_reward/detail_reward_screen.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GetRewardScreen extends StatefulWidget {
   const GetRewardScreen({Key? key});
@@ -26,19 +28,12 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
               ),
               useContainer: true,
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.fromLTRB(32, 14, 0, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Get Reward",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(0xFF1d1d1d),
-                    ),
-                  ),
+                  Text("Get Reward", style: TextStyleConst.description3),
                 ],
               ),
             ),
