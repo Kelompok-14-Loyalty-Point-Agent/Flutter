@@ -1,3 +1,4 @@
+import 'package:capstone_14/ui/auth/login/login_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //Ganti disini kalau mau coba screen
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+      home: const LoginScreen(),
       // home: const CreditDataScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TextFieldCustome extends StatelessWidget {
   final Function(String)? onChanged;
@@ -24,7 +25,9 @@ class TextFieldCustome extends StatelessWidget {
     this.isReadOnly = false,
     this.suffixIconWidget,
     this.keyboardType = TextInputType.text,
-    this.initialValue, required InputDecoration decoration, required bool obscureText,
+    this.initialValue,
+    required InputDecoration decoration,
+    bool obscureText = false,
   });
 
   @override
@@ -34,10 +37,9 @@ class TextFieldCustome extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: GoogleFonts.expletusSans(
             fontSize: 14,
             fontWeight: FontWeight.w700,
-            fontFamily: fontFamily,
           ),
         ),
         const SizedBox(
