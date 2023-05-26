@@ -1,4 +1,3 @@
-import 'package:capstone_14/ui/home/home_page.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';

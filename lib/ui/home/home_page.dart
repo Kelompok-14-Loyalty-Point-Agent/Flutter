@@ -15,18 +15,127 @@ List<Widget> images = [
   SizedBox(
     height: 180,
     width: 250,
-    child: Image.asset('assets/images/phone.png'),
+    child: Column(
+      children: [
+        Image.asset('assets/images/phone.png'),
+        const SizedBox(
+          height: 25,
+        ),
+        const Text(
+          "Stay Charge, Stay Connected: Phone Balance Voucher for Uninterrupted Communication!",
+          style: TextStyle(
+            color: Color(
+              0xff030F51,
+            ),
+            fontWeight: FontWeight.w700,
+            fontSize: 14,
+          ),
+        ),
+        const SizedBox(
+          height: 9,
+        ),
+        const Text(
+          "Let's get your transaction with the benefical voucher. Hurry up! Don't run out.",
+          style: TextStyle(
+            color: Color(
+              0xff1D1D1D,
+            ),
+            fontWeight: FontWeight.w400,
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        InkWell(
+          onTap: () {},
+          child: const Text(
+            "See Details",
+            style: TextStyle(
+              color: Color(
+                0xff008284,
+              ),
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+            ),
+          ),
+        ),
+      ],
+    ),
   ),
   SizedBox(
     height: 180,
     width: 250,
-    child: Image.asset('assets/images/internet-data.png'),
+    child: Column(
+      children: [
+        Image.asset('assets/images/internet-data.png'),
+        const SizedBox(
+          height: 25,
+        ),
+        const Text(
+          "Special Combo Internet Data Package Get Your Suprise Deal Now!",
+          style: TextStyle(
+            color: Color(
+              0xff030F51,
+            ),
+            fontWeight: FontWeight.w700,
+            fontSize: 14,
+          ),
+        ),
+        const SizedBox(
+          height: 9,
+        ),
+        const Text(
+          "Let's get your transaction with the benefical voucher. Hurry up! Don't run out.",
+          style: TextStyle(
+            color: Color(
+              0xff1D1D1D,
+            ),
+            fontWeight: FontWeight.w400,
+            fontSize: 12,
+          ),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        InkWell(
+          onTap: () {},
+          child: const Text(
+            "See Details",
+            style: TextStyle(
+              color: Color(
+                0xff008284,
+              ),
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+            ),
+          ),
+        ),
+      ],
+    ),
   ),
-  SizedBox(
-    height: 180,
-    width: 250,
-    child: Image.asset('assets/images/pubg.png'),
-  ),
+  // SizedBox(
+  //   height: 180,
+  //   width: 250,
+  //   child: Column(
+  //     children: [
+  //       Image.asset('assets/images/pubg.png'),
+  //       const SizedBox(
+  //         height: 25,
+  //       ),
+  //       Text("Special Combo Internet Data Package Get Your Suprise Deal Now!"),
+  //       const SizedBox(
+  //         height: 9,
+  //       ),
+  //       Text(
+  //           "Let's get your transaction with the benefical voucher. Hurry up! Don't run out."),
+  //       const SizedBox(
+  //         height: 9,
+  //       ),
+  //       Text("See Details"),
+  //     ],
+  //   ),
+  // ),
 ];
 
 class _HomePageState extends State<HomePage> {
@@ -246,7 +355,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   Container(
                     width: 336,
-                    height: 372,
+                    height: 380,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
@@ -261,9 +370,9 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.only(top: 23),
+                          padding: EdgeInsets.only(top: 23, bottom: 10),
                           child: Text(
-                            "Article",
+                            "What's New",
                             style: TextStyle(
                               color: Color(0xff030F51),
                               fontSize: 16,
@@ -271,13 +380,65 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
+                        // PageView(
+                        //   onPageChanged: (index) {},
+                        //   children: <Widget>[
+                        //     SizedBox(
+                        //       height: 300,
+                        //       width: double.infinity,
+                        //       child: Column(
+                        //         children: [
+                        //           Image.asset('assets/images/phone.png'),
+                        //           const SizedBox(
+                        //             height: 25,
+                        //           ),
+                        //           Text(
+                        //               "Special Combo Internet Data Package Get Your Suprise Deal Now!"),
+                        //           const SizedBox(
+                        //             height: 9,
+                        //           ),
+                        //           Text(
+                        //               "Let's get your transaction with the benefical voucher. Hurry up! Don't run out."),
+                        //           const SizedBox(
+                        //             height: 9,
+                        //           ),
+                        //           Text("See Details"),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: 300,
+                        //       width: double.infinity,
+                        //       child: Column(
+                        //         children: [
+                        //           Image.asset('assets/images/phone.png'),
+                        //           const SizedBox(
+                        //             height: 25,
+                        //           ),
+                        //           Text(
+                        //               "Special Combo Internet Data Package Get Your Suprise Deal Now!"),
+                        //           const SizedBox(
+                        //             height: 9,
+                        //           ),
+                        //           Text(
+                        //               "Let's get your transaction with the benefical voucher. Hurry up! Don't run out."),
+                        //           const SizedBox(
+                        //             height: 9,
+                        //           ),
+                        //           Text("See Details"),
+                        //         ],
+                        //       ),
+                        //     ),
+                        //   ],
+                        // ),
                         CarouselSlider(
                           items: images,
                           carouselController: _controller,
                           options: CarouselOptions(
-                              autoPlay: true,
-                              enlargeCenterPage: true,
-                              aspectRatio: 2.0,
+                              aspectRatio: double.infinity,
+                              height: 300,
+                              autoPlay: false,
+                              enlargeCenterPage: false,
                               onPageChanged: (index, reason) {
                                 setState(() {
                                   _current = index;
@@ -309,9 +470,6 @@ class _HomePageState extends State<HomePage> {
                               );
                             },
                           ).toList(),
-                        ),
-                        const SizedBox(
-                          height: 27,
                         ),
                       ],
                     ),
