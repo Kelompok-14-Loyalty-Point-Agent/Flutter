@@ -1,4 +1,4 @@
-import 'package:capstone_14/ui/forgot_password/forgot_password_screen.dart';
+import 'package:capstone_14/ui/auth/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/button_custome_widget.dart';
@@ -77,10 +77,10 @@ class _PasswordSuccessScreenState extends State<PasswordSuccessScreen> {
                     padding: const EdgeInsets.only(top: 48),
                     child: ButtonCustome(
                       onPressed: () {
-                        Navigator.pop(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const ForgotPasswordscreen(),
+                            builder: (context) => const LoginScreen(),
                           ),
                         );
                       },

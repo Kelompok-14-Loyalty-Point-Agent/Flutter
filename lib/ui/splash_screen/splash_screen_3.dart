@@ -1,3 +1,4 @@
+import 'package:capstone_14/ui/auth/login/login_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +55,14 @@ class _SplashScreen3State extends State<SplashScreen3> {
               ),
             ),
             ButtonCustome(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                );
+              },
               backgroundColour: const Color(0xFF030F51),
               width: 274,
               title: "Sign In",
