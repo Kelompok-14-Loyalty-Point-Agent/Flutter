@@ -1,3 +1,7 @@
+import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
+import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+
+// import 'package:capstone_14/ui/auth/login/login_screen.dart';
 
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
@@ -24,6 +28,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //Ganti disini kalau mau coba screen
       home: const SplashScreen(),
+
+      // home: const CreditDataScreen(),
+
+      // home: const LoginScreen(),
+      // home: const CreditDataScreen(),
+
 //       home: const LoginScreen(),
       // home: const CreditDataScreen(),
 
