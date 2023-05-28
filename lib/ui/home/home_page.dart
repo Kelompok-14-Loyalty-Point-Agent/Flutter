@@ -1,3 +1,4 @@
+import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -142,7 +143,13 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               InkWell(
                                 onTap: () {
-                                  // navigatornya disini
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const CreditDataScreen(),
+                                    ),
+                                  );
                                 },
                                 child: Container(
                                   width: 54,
