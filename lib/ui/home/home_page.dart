@@ -1,7 +1,9 @@
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../../constant/textstyle_constant.dart';
 import '../../widgets/top_bar_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,127 +17,89 @@ List<Widget> images = [
   SizedBox(
     height: 180,
     width: 250,
-    child: Column(
-      children: [
-        Image.asset('assets/images/phone.png'),
-        const SizedBox(
-          height: 25,
-        ),
-        const Text(
-          "Stay Charge, Stay Connected: Phone Balance Voucher for Uninterrupted Communication!",
-          style: TextStyle(
-            color: Color(
-              0xff030F51,
-            ),
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset('assets/images/phone.png'),
+          const SizedBox(
+            height: 25,
           ),
-        ),
-        const SizedBox(
-          height: 9,
-        ),
-        const Text(
-          "Let's get your transaction with the benefical voucher. Hurry up! Don't run out.",
-          style: TextStyle(
-            color: Color(
-              0xff1D1D1D,
-            ),
-            fontWeight: FontWeight.w400,
-            fontSize: 12,
+          Text(
+            "Stay Charge, Stay Connected: Phone Balance Voucher for Uninterrupted Communication!",
+            style: TextStyleConst.heading4,
           ),
-        ),
-        const SizedBox(
-          height: 24,
-        ),
-        InkWell(
-          onTap: () {},
-          child: const Text(
-            "See Details",
-            style: TextStyle(
-              color: Color(
-                0xff008284,
+          const SizedBox(
+            height: 9,
+          ),
+          Text(
+            "Let's get your transaction with the benefical voucher. Hurry up! Don't run out.",
+            style: TextStyleConst.description3WithColor(
+              const Color(0xff1D1D1D),
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          InkWell(
+            onTap: () {},
+            child: const Text(
+              "See Details",
+              style: TextStyle(
+                color: Color(
+                  0xff008284,
+                ),
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
               ),
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   ),
   SizedBox(
     height: 180,
     width: 250,
-    child: Column(
-      children: [
-        Image.asset('assets/images/internet-data.png'),
-        const SizedBox(
-          height: 25,
-        ),
-        const Text(
-          "Special Combo Internet Data Package Get Your Suprise Deal Now!",
-          style: TextStyle(
-            color: Color(
-              0xff030F51,
-            ),
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
+    child: SingleChildScrollView(
+      child: Column(
+        children: [
+          Image.asset('assets/images/internet-data.png'),
+          const SizedBox(
+            height: 25,
           ),
-        ),
-        const SizedBox(
-          height: 9,
-        ),
-        const Text(
-          "Let's get your transaction with the benefical voucher. Hurry up! Don't run out.",
-          style: TextStyle(
-            color: Color(
-              0xff1D1D1D,
-            ),
-            fontWeight: FontWeight.w400,
-            fontSize: 12,
+          Text(
+            "Special Combo Internet Data Package Get Your Suprise Deal Now!",
+            style: TextStyleConst.heading4,
           ),
-        ),
-        const SizedBox(
-          height: 30,
-        ),
-        InkWell(
-          onTap: () {},
-          child: const Text(
-            "See Details",
-            style: TextStyle(
-              color: Color(
-                0xff008284,
+          const SizedBox(
+            height: 9,
+          ),
+          Text(
+            "Let's get your transaction with the benefical voucher. Hurry up! Don't run out.",
+            style: TextStyleConst.description3WithColor(
+              const Color(0xff1D1D1D),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Text(
+              "See Details",
+              style: GoogleFonts.ptSans(
+                color: const Color(
+                  0xff008284,
+                ),
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
               ),
-              fontWeight: FontWeight.w400,
-              fontSize: 12,
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     ),
   ),
-  // SizedBox(
-  //   height: 180,
-  //   width: 250,
-  //   child: Column(
-  //     children: [
-  //       Image.asset('assets/images/pubg.png'),
-  //       const SizedBox(
-  //         height: 25,
-  //       ),
-  //       Text("Special Combo Internet Data Package Get Your Suprise Deal Now!"),
-  //       const SizedBox(
-  //         height: 9,
-  //       ),
-  //       Text(
-  //           "Let's get your transaction with the benefical voucher. Hurry up! Don't run out."),
-  //       const SizedBox(
-  //         height: 9,
-  //       ),
-  //       Text("See Details"),
-  //     ],
-  //   ),
-  // ),
 ];
 
 class _HomePageState extends State<HomePage> {
@@ -203,12 +167,12 @@ class _HomePageState extends State<HomePage> {
                               const SizedBox(
                                 height: 14,
                               ),
-                              const Text(
+                              Text(
                                 "Credit/Data",
-                                style: TextStyle(
+                                style: GoogleFonts.ptSans(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: Color(0xffECECEC)),
+                                    color: const Color(0xffECECEC)),
                               )
                             ],
                           ),
@@ -244,12 +208,12 @@ class _HomePageState extends State<HomePage> {
                               const SizedBox(
                                 height: 14,
                               ),
-                              const Text(
+                              Text(
                                 "Bill",
-                                style: TextStyle(
+                                style: GoogleFonts.ptSans(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: Color(0xffECECEC)),
+                                    color: const Color(0xffECECEC)),
                               ),
                             ],
                           ),
@@ -285,12 +249,12 @@ class _HomePageState extends State<HomePage> {
                               const SizedBox(
                                 height: 14,
                               ),
-                              const Text(
+                              Text(
                                 "Voucher",
-                                style: TextStyle(
+                                style: GoogleFonts.ptSans(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: Color(0xffECECEC)),
+                                    color: const Color(0xffECECEC)),
                               ),
                             ],
                           ),
@@ -326,12 +290,12 @@ class _HomePageState extends State<HomePage> {
                               const SizedBox(
                                 height: 14,
                               ),
-                              const Text(
+                              Text(
                                 "E-Wallet",
-                                style: TextStyle(
+                                style: GoogleFonts.ptSans(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w400,
-                                    color: Color(0xffECECEC)),
+                                    color: const Color(0xffECECEC)),
                               ),
                             ],
                           ),
@@ -347,8 +311,10 @@ class _HomePageState extends State<HomePage> {
                     title: "Get Reward",
                     backgroundColour: const Color(0xff931136),
                     width: 210,
-                    style: const TextStyle(
-                        fontSize: 12, fontWeight: FontWeight.w400),
+                    style: GoogleFonts.ptSans(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                   const SizedBox(
                     height: 30,
@@ -369,76 +335,27 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Column(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 23, bottom: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 23, bottom: 10),
                           child: Text(
                             "What's New",
-                            style: TextStyle(
-                              color: Color(0xff030F51),
+                            style: GoogleFonts.expletusSans(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
+                              color: const Color(0xFF030F51),
                             ),
                           ),
                         ),
-                        // PageView(
-                        //   onPageChanged: (index) {},
-                        //   children: <Widget>[
-                        //     SizedBox(
-                        //       height: 300,
-                        //       width: double.infinity,
-                        //       child: Column(
-                        //         children: [
-                        //           Image.asset('assets/images/phone.png'),
-                        //           const SizedBox(
-                        //             height: 25,
-                        //           ),
-                        //           Text(
-                        //               "Special Combo Internet Data Package Get Your Suprise Deal Now!"),
-                        //           const SizedBox(
-                        //             height: 9,
-                        //           ),
-                        //           Text(
-                        //               "Let's get your transaction with the benefical voucher. Hurry up! Don't run out."),
-                        //           const SizedBox(
-                        //             height: 9,
-                        //           ),
-                        //           Text("See Details"),
-                        //         ],
-                        //       ),
-                        //     ),
-                        //     SizedBox(
-                        //       height: 300,
-                        //       width: double.infinity,
-                        //       child: Column(
-                        //         children: [
-                        //           Image.asset('assets/images/phone.png'),
-                        //           const SizedBox(
-                        //             height: 25,
-                        //           ),
-                        //           Text(
-                        //               "Special Combo Internet Data Package Get Your Suprise Deal Now!"),
-                        //           const SizedBox(
-                        //             height: 9,
-                        //           ),
-                        //           Text(
-                        //               "Let's get your transaction with the benefical voucher. Hurry up! Don't run out."),
-                        //           const SizedBox(
-                        //             height: 9,
-                        //           ),
-                        //           Text("See Details"),
-                        //         ],
-                        //       ),
-                        //     ),
-                        //   ],
-                        // ),
                         CarouselSlider(
                           items: images,
                           carouselController: _controller,
                           options: CarouselOptions(
+                              enlargeFactor: double.infinity,
+                              enlargeStrategy: CenterPageEnlargeStrategy.scale,
                               aspectRatio: double.infinity,
                               height: 300,
-                              autoPlay: false,
-                              enlargeCenterPage: false,
+                              autoPlay: true,
+                              enlargeCenterPage: true,
                               onPageChanged: (index, reason) {
                                 setState(() {
                                   _current = index;
