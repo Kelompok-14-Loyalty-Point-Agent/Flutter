@@ -2,6 +2,7 @@ import 'package:capstone_14/ui/password_update/password_success_update.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
+import '../../constant/textstyle_constant.dart';
 import '../../widgets/button_custome_widget.dart';
 
 class NewPasswordScreen extends StatefulWidget {
@@ -33,16 +34,10 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
               ]),
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 26),
-                    child: Text(
-                      'Create New Password',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        // fontFamily: 'expletus_sans',
-                      ),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 26),
+                    child: Text('Create New Password',
+                        style: TextStyleConst.heading3),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 20),
@@ -57,44 +52,37 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15, bottom: 23),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15, bottom: 23),
                     child: SizedBox(
                       width: 212,
                       height: 37,
                       child: Text(
                         'Your new password must be different from previously password',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                        ),
+                        style: TextStyleConst.description3WithColor(
+                            const Color(0xFF008284)),
                       ),
                     ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(left: 5, bottom: 5),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 5, bottom: 5),
                         child: Text(
                           'Password',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
+                          style: TextStyleConst.description2,
                         ),
                       ),
                       SizedBox(
                         width: 234,
                         height: 36,
                         child: TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: 'Enter Your Password',
-                            hintStyle: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            border: OutlineInputBorder(
+                            hintStyle: TextStyleConst.description3,
+                            border: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(5),
                               ),
@@ -102,26 +90,22 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                           ),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 5, bottom: 5),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 20, left: 5, bottom: 5),
                         child: Text(
                           'Confirm Password',
-                          style: TextStyle(
-                            fontSize: 12,
-                          ),
+                          style: TextStyleConst.description2,
                         ),
                       ),
                       SizedBox(
                         width: 234,
                         height: 36,
                         child: TextFormField(
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: 'Confirm Your Password',
-                            hintStyle: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            border: OutlineInputBorder(
+                            hintStyle: TextStyleConst.description3,
+                            border: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(
                                 Radius.circular(5),
                               ),
@@ -144,7 +128,7 @@ class _NewPasswordScreenState extends State<NewPasswordScreen> {
                     backgroundColour: const Color(0xFF030F51),
                     width: 234,
                     title: "Save",
-                    style: const TextStyle(fontSize: 16),
+                    style: TextStyleConst.description2WithColor(Colors.white),
                   ),
                 ],
               ),
