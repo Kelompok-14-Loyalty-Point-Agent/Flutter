@@ -29,11 +29,13 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
               useContainer: true,
             ),
             Padding(
-              padding: EdgeInsets.fromLTRB(32, 14, 0, 0),
+              padding: const EdgeInsets.fromLTRB(32, 14, 0, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Get Reward", style: TextStyleConst.description3),
+                  Text("Get Reward",
+                      style:
+                          TextStyleConst.description3WithColor(Colors.black)),
                 ],
               ),
             ),
@@ -47,9 +49,9 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                 ),
                 height: 80,
                 width: double.infinity,
-                child: const Row(
+                child: Row(
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 20),
                       child: CircleAvatar(
                         radius: 25,
@@ -64,24 +66,23 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 13, top: 13),
+                      padding: const EdgeInsets.only(left: 13, top: 13),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Your tPoint',
-                            style: TextStyle(fontSize: 14, color: Colors.white),
-                          ),
-                          SizedBox(height: 5),
+                          Text('Your tPoint',
+                              style: TextStyleConst.description2WithColor(
+                                  Colors.white)),
+                          const SizedBox(height: 5),
                           Text(
                             '1030',
-                            style: TextStyle(fontSize: 16, color: Colors.white),
+                            style: TextStyleConst.description1WithColor(
+                                Colors.white),
                           ),
-                          SizedBox(height: 8),
-                          Text(
-                            'Redeem your point before December 31, 2023',
-                            style: TextStyle(fontSize: 8, color: Colors.white),
-                          ),
+                          const SizedBox(height: 5),
+                          Text('Redeem your point before December 31, 2023',
+                              style: TextStyleConst.description4WithColor(
+                                  Colors.white)),
                         ],
                       ),
                     ),
@@ -89,15 +90,10 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                 ),
               ),
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(top: 24, left: 27),
-              child: Text(
-                'Redeem your point',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.black),
-              ),
+              child: Text('Redeem your tPoint',
+                  style: TextStyleConst.heading3WithColor(Colors.black)),
             ),
             Expanded(
               child: Padding(
@@ -114,10 +110,11 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                         );
                       },
                       child: ArticleBox(
-                          images: 'images',
-                          description: 'description',
-                          title: 'title',
-                          price: 'price'),
+                        images: 'images',
+                        description: 'description',
+                        title: 'title',
+                        price: 'price',
+                      ),
                     ),
                     const SizedBox(height: 20),
                     GestureDetector(

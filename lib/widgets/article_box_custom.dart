@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constant/textstyle_constant.dart';
+
 class ArticleBox extends StatelessWidget {
   final String images;
   final String description;
@@ -43,25 +45,19 @@ class ArticleBox extends StatelessWidget {
               const SizedBox(height: 10),
               Row(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20, top: 5),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 5),
                     child: Column(
                       children: [
                         Text(
                           'Phone Balance',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
+                          style: TextStyleConst.description4WithColor(
+                              Colors.black),
                         ),
-                        SizedBox(height: 7),
-                        Text(
-                          'Rp. 10.000',
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        const SizedBox(height: 6),
+                        Text('Rp. 10.000',
+                            style:
+                                TextStyleConst.heading5WithColor(Colors.black)),
                       ],
                     ),
                   ),
@@ -73,9 +69,11 @@ class ArticleBox extends StatelessWidget {
                       height: 20,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 10, left: 2),
-                    child: Text('1000'),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10, left: 4),
+                    child: Text('1000',
+                        style: TextStyleConst.heading5WithColor(
+                            Color(0xffFFC107))),
                   )
                 ],
               ),
