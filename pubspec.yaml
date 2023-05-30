@@ -1,12 +1,12 @@
 name: capstone_14
 description: A new Flutter project.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: ">=2.18.6 <3.0.0"
 
 dependencies:
   flutter:
@@ -19,7 +19,7 @@ dependencies:
   dots_indicator:
   flutter_otp_text_field: ^1.1.1
   font_awesome_flutter: ^10.4.0
-
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

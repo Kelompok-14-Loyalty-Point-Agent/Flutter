@@ -38,15 +38,17 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                top: 78,
+                top: 50,
               ),
               child: Text('Detail Reward', style: TextStyleConst.heading2),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 26),
+              padding: const EdgeInsets.only(
+                  top: 20, bottom: 10, right: 15, left: 15),
               child: ArticleBox(
                   images: "images",
                   description: "description",
@@ -100,10 +102,10 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                   style: TextStyleConst.description3WithColor(Colors.black)),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 25),
+                  padding: const EdgeInsets.only(left: 1),
                   child: SizedBox(
                     width: 295,
                     height: 45,
@@ -121,7 +123,7 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(6),
                         ),
-                        contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
+                        contentPadding: const EdgeInsets.fromLTRB(5, 0, 0, 10),
                         suffixIcon: _phoneNumberController.text.length >= 4
                             ? providerIcons(_phoneNumberController.text)
                             : null,
@@ -130,13 +132,13 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(right: 25),
+                  padding: EdgeInsets.only(left: 10),
                   child: Icon(Icons.contact_phone),
                 )
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10, bottom: 30, right: 180),
+              padding: const EdgeInsets.only(top: 10, bottom: 30, right: 190),
               child: Text(
                 'Input your phone number',
                 style: TextStyleConst.description3WithColor(

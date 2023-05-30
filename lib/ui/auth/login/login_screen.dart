@@ -5,6 +5,8 @@ import 'package:capstone_14/widgets/text_field_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../home/home_page.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -199,7 +201,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },
@@ -222,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         );
                       },
                       child: Text(
-                        "Don’t have an account? Create Account",
+                        "Don't have an account? Create Account",
                         style: GoogleFonts.ptSans(
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.w400,
