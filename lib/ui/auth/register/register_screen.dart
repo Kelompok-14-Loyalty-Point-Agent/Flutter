@@ -14,24 +14,24 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   // Full Name Property
-  String _fullName = "";
-  bool _isFullNameValid = true;
-  String _errorFullNameMessage = "";
+  final String _fullName = "";
+  final bool _isFullNameValid = true;
+  final String _errorFullNameMessage = "";
 
   // Email Property
-  String _email = "";
-  bool _isEmailValid = true;
-  String _errorEmailMessage = "";
+  final String _email = "";
+  final bool _isEmailValid = true;
+  final String _errorEmailMessage = "";
 
   // Password Property
-  String _password = "";
-  bool _isPasswordValid = true;
-  String _errorPasswordMessage = "";
+  final String _password = "";
+  final bool _isPasswordValid = true;
+  final String _errorPasswordMessage = "";
 
   // Confirm Password Property
-  String _confirmPassword = "";
-  bool _isConfirmPasswordValid = true;
-  String _errorConfirmPasswordMessage = "";
+  final String _confirmPassword = "";
+  final bool _isConfirmPasswordValid = true;
+  final String _errorConfirmPasswordMessage = "";
 
   @override
   Widget build(BuildContext context) {
