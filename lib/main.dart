@@ -1,6 +1,7 @@
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
+import 'package:capstone_14/ui/history_transaction/history_transaction_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //Ganti disini kalau mau coba screen
-      home: const SplashScreen(),
+      home: const HistoryTransaction(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case SplashScreen1.routeName:
