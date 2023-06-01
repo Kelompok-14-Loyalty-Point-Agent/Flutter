@@ -1,13 +1,12 @@
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
-import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
-import 'package:capstone_14/ui/home/home_page.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_3.dart';
 import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
+import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,6 +32,8 @@ class MyApp extends StatelessWidget {
             return _buildFadeRoute(const SplashScreen3());
           case CreditDataScreen.routeName:
             return _buildFadeRoute(const CreditDataScreen());
+          case TransactionSuccesScreen.routeName:
+            return _buildFadeRoute(const TransactionSuccesScreen());
           case CreditDataPaymentScreen.routeName:
             final selectedTestModel = settings.arguments as TestModel;
             return _buildFadeRoute(

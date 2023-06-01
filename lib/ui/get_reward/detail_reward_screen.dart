@@ -1,6 +1,7 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
+import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -146,7 +147,12 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
               ),
             ),
             ButtonCustome(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TransactionSuccesScreen()));
+              },
               title: 'Reedem your point',
               backgroundColour: const Color(0xff030F51),
               width: 336,

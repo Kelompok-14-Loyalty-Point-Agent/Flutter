@@ -182,7 +182,6 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavBar(),
     );
   }
 }
