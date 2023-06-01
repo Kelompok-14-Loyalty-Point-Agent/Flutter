@@ -1,6 +1,7 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/ui/get_reward/detail_reward_screen.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
+import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 
