@@ -147,8 +147,8 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                       ),
                     ),
                     PriceContainerWidget(
-                      amount: widget.selectedTestModel.amount,
-                      price: widget.selectedTestModel.price,
+                      amount: widget.selectedTestModel.amount!,
+                      price: widget.selectedTestModel.price!,
                       containerShadow: BoxShadow(
                         offset: const Offset(2, 3),
                         color: Color.fromARGB(0.25.toInt(), 0, 0, 0)
