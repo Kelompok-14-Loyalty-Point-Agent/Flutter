@@ -3,47 +3,56 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TextStyleConst {
   static TextStyle heading1 = GoogleFonts.expletusSans(
+    decoration: TextDecoration.none,
     fontSize: 32,
     fontWeight: FontWeight.w700,
     color: const Color(0xFF030F51),
   );
   static TextStyle heading2 = GoogleFonts.expletusSans(
+    decoration: TextDecoration.none,
     fontSize: 24,
     fontWeight: FontWeight.w700,
     color: const Color(0xFF030F51),
   );
   static TextStyle heading3 = GoogleFonts.expletusSans(
+    decoration: TextDecoration.none,
     fontSize: 20,
     fontWeight: FontWeight.w700,
     color: const Color(0xFF030F51),
   );
   static TextStyle heading4 = GoogleFonts.expletusSans(
+    decoration: TextDecoration.none,
     fontSize: 14,
     fontWeight: FontWeight.w700,
     color: const Color(0xFF030F51),
   );
   static TextStyle heading5 = GoogleFonts.expletusSans(
+    decoration: TextDecoration.none,
     fontSize: 12,
     fontWeight: FontWeight.w700,
     color: const Color(0xFF030F51),
   );
 
   static TextStyle description1 = GoogleFonts.ptSans(
+    decoration: TextDecoration.none,
     fontSize: 16,
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
   static TextStyle description2 = GoogleFonts.ptSans(
+    decoration: TextDecoration.none,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
   static TextStyle description3 = GoogleFonts.ptSans(
+    decoration: TextDecoration.none,
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: Colors.black,
   );
   static TextStyle description4 = GoogleFonts.ptSans(
+    decoration: TextDecoration.none,
     fontSize: 10,
     fontWeight: FontWeight.w400,
     color: Colors.black,
