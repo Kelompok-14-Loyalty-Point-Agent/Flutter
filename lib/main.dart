@@ -1,5 +1,6 @@
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+import 'package:capstone_14/ui/profile/profile_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       //Ganti disini kalau mau coba screen
-      home: const TransactionSuccesScreen(),
+      home: const ProfileScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case SplashScreen1.routeName:
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
             return _buildFadeRoute(const SplashScreen3());
           case CreditDataScreen.routeName:
             return _buildFadeRoute(const CreditDataScreen());
+          case TransactionSuccesScreen.routeName:
+            return _buildFadeRoute(const TransactionSuccesScreen());
           case CreditDataPaymentScreen.routeName:
             final selectedTestModel = settings.arguments as TestModel;
             return _buildFadeRoute(
