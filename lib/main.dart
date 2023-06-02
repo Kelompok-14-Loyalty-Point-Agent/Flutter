@@ -1,5 +1,6 @@
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+import 'package:capstone_14/ui/profile/profile_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
