@@ -152,14 +152,12 @@ class TransactionSuccesScreen extends StatelessWidget {
             ),
             ButtonCustome(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const BottomNavBar(
-                      currentIndex: 0,
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavBar(currentIndex: 0),
                     ),
-                  ),
-                );
+                    (route) => false);
               },
               title: "Done",
               backgroundColour: const Color(0xff030F51),
