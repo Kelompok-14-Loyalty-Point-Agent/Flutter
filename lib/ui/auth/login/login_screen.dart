@@ -1,4 +1,5 @@
 import 'package:capstone_14/ui/auth/register/register_screen.dart';
+import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/ui/forgot_password/forgot_password_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/text_field_custome_widget.dart';
@@ -201,7 +202,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                            builder: (context) => const BottomNavBar(
+                              currentIndex: 0,
+                            ),
                           ),
                         );
                       },

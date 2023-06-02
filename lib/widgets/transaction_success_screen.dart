@@ -1,4 +1,6 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
+import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
@@ -134,7 +136,14 @@ class TransactionSuccesScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 34, bottom: 10),
               child: ButtonCustome(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GetRewardScreen(),
+                    ),
+                  );
+                },
                 title: "Detail Point",
                 backgroundColour: const Color(0xff347C17),
                 width: 234,
@@ -142,7 +151,14 @@ class TransactionSuccesScreen extends StatelessWidget {
               ),
             ),
             ButtonCustome(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavBar(currentIndex: 0),
+                    ),
+                    (route) => false);
+              },
               title: "Done",
               backgroundColour: const Color(0xff030F51),
               width: 234,

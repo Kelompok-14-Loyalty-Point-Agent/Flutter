@@ -1,4 +1,5 @@
 import 'package:capstone_14/constant/provider_icon_constant.dart';
+import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
@@ -268,7 +269,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '/creditDataPaymentScreen',
+                    "/transactionSuccessScreen",
                     // arguments: selectTestModel,
                   );
                 },

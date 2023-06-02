@@ -6,6 +6,8 @@ import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../bottom_navbar_page/bottom_navbar.dart';
+
 class CreditDataScreen extends StatefulWidget {
   static const routeName = '/creditDataScreen';
   const CreditDataScreen({super.key});
