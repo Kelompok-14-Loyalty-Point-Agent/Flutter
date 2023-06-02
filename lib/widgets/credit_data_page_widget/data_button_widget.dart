@@ -45,8 +45,8 @@ class _DataButtonState extends State<DataButton> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
-                    amount: listTest[index].amount,
-                    price: listTest[index].price,
+                    amount: listTest[index].amount!,
+                    price: listTest[index].price!,
                     containerShadow: selectTestModel == listTest[index]
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
@@ -91,11 +91,11 @@ class _DataButtonState extends State<DataButton> {
 }
 
 class TestModel {
-  final String amount;
-  final String price;
+  String? amount;
+  String? price;
 
   TestModel({
-    required this.amount,
-    required this.price,
+    this.amount,
+    this.price,
   });
 }
