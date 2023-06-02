@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HistoryButtonWidget extends StatefulWidget {
-  const HistoryButtonWidget({super.key});
+import 'history_button_widget.dart';
+
+class OnProcessButtonWidget extends StatefulWidget {
+  const OnProcessButtonWidget({super.key});
 
   @override
-  State<HistoryButtonWidget> createState() => _HistoryButtonWidgetState();
+  State<OnProcessButtonWidget> createState() => _OnProcessButtonWidgetState();
 }
 
-class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
+class _OnProcessButtonWidgetState extends State<OnProcessButtonWidget> {
   List<HistoryModel> listHistory = [
     HistoryModel(
       image: Image.asset('assets/icons/simcard.png'),
       transaction: "Data (Telkomsel)",
-      process: "Successful",
+      process: "On-Process",
       price: "45.000",
       dateTime: "23/04/2023 | 13:23:10 WIB",
     ),
-    HistoryModel(
-      image: Image.asset('assets/icons/simcard.png'),
-      transaction: "Credit (Axis)",
-      process: "Successful",
-      price: "52.000",
-      dateTime: "23/04/2023 | 13:23:10 WIB",
-    )
+    // HistoryModel(
+    //   image: Image.asset('assets/icons/simcard.png'),
+    //   transaction: "Credit (Axis)",
+    //   process: "Successful",
+    //   price: "52.000",
+    //   dateTime: "23/04/2023 | 13:23:10 WIB",
+    // )
   ];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -105,20 +106,4 @@ class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
       ),
     );
   }
-}
-
-class HistoryModel {
-  final Image image;
-  final String transaction;
-  final String process;
-  final String price;
-  final String dateTime;
-
-  HistoryModel({
-    required this.image,
-    required this.transaction,
-    required this.process,
-    required this.price,
-    required this.dateTime,
-  });
 }

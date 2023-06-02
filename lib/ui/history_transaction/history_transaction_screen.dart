@@ -2,6 +2,7 @@ import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/history_transaction_widget/history_button_widget.dart';
+import '../../widgets/history_transaction_widget/on_process_button_widget.dart';
 
 class HistoryTransaction extends StatefulWidget {
   const HistoryTransaction({super.key});
@@ -50,24 +51,41 @@ class _HistoryTransactionState extends State<HistoryTransaction> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 62),
-            child: TopBarPage(
-              icon: Image.asset(
-                "assets/images/arrow_back.png",
-                scale: 4,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 62),
+              child: TopBarPage(
+                icon: Image.asset(
+                  "assets/images/arrow_back.png",
+                  scale: 4,
+                ),
+                useContainer: true,
               ),
-              useContainer: true,
             ),
-          ),
-          Row(
-            children: [
-              // _buttonBuilder(HistoryButton(), "History", 0)
-            ],
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 32,
+                right: 32,
+                top: 32,
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      _buttonBuilder(const HistoryButtonWidget(), "History", 0),
+                      _buttonBuilder(
+                          const OnProcessButtonWidget(), "On Process", 1),
+                    ],
+                  ),
+                  if (_selectedIndex == 0) const HistoryButtonWidget(),
+                  if (_selectedIndex == 1) const OnProcessButtonWidget(),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
