@@ -58,7 +58,7 @@ class _HistoryTransactionState extends State<HistoryTransaction> {
               padding: const EdgeInsets.only(top: 62),
               child: TopBarPage(
                 icon: Image.asset(
-                  "assets/images/arrow_back.png",
+                  "assets/icons/history_icon.png",
                   scale: 4,
                 ),
                 useContainer: true,
