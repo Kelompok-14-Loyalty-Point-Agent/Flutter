@@ -1,6 +1,7 @@
 import 'package:capstone_14/ui/auth/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../constant/textstyle_constant.dart';
 import '../../widgets/button_custome_widget.dart';
 
 class PasswordSuccessScreen extends StatefulWidget {
@@ -40,37 +41,28 @@ class _PasswordSuccessScreenState extends State<PasswordSuccessScreen> {
                       height: 67.5,
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 32.74),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 32.74),
                     child: SizedBox(
                       width: 146,
-                      height: 44,
+                      height: 55,
                       child: Text(
-                        'New Password Updated',
+                        'New Password Update!',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                          fontFamily: 'PT Sans',
-                          color: Color(0xff008284),
-                        ),
+                        style: TextStyleConst.heading3,
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 34),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 34),
                     child: SizedBox(
                       width: 212,
                       height: 37,
                       child: Text(
-                        'Your new password has been update now! Let’s login to your acc!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'PT Sans',
-                          color: Color(0xff030F51),
-                        ),
-                      ),
+                          'Your new password has been update now! Let’s login to your acc!',
+                          textAlign: TextAlign.center,
+                          style: TextStyleConst.description3WithColor(
+                              const Color(0xff008284))),
                     ),
                   ),
                   Padding(
@@ -87,7 +79,7 @@ class _PasswordSuccessScreenState extends State<PasswordSuccessScreen> {
                       backgroundColour: const Color(0xFF030F51),
                       width: 234,
                       title: "Go to Sign In",
-                      style: const TextStyle(fontSize: 16),
+                      style: TextStyleConst.description2WithColor(Colors.white),
                     ),
                   ),
                 ],

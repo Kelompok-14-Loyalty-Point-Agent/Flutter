@@ -1,3 +1,4 @@
+import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/ui/forgot_password/verify_email_screen.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -33,16 +34,13 @@ class _ForgotPasswordscreenState extends State<ForgotPasswordscreen> {
               ]),
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(
+                  Padding(
+                    padding: const EdgeInsets.only(
                       top: 51,
                     ),
                     child: Text(
                       'Forgot Password',
-                      style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: 'expletus_sans'),
+                      style: TextStyleConst.heading3,
                     ),
                   ),
                   const Padding(
@@ -58,20 +56,16 @@ class _ForgotPasswordscreenState extends State<ForgotPasswordscreen> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
                     child: SizedBox(
                       width: 212,
                       height: 37,
                       child: Text(
                         'Please Enter Your Email Address to Receive a Verification Number',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                          fontFamily: 'PT Sans',
-                          color: Color(0xff008284),
-                        ),
+                        style: TextStyleConst.description3WithColor(
+                            const Color(0xFF008284)),
                       ),
                     ),
                   ),
@@ -80,26 +74,22 @@ class _ForgotPasswordscreenState extends State<ForgotPasswordscreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5, bottom: 6),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 5, bottom: 6),
                           child: Text(
                             'Email Address',
-                            style: TextStyle(
-                              fontSize: 12,
-                            ),
+                            style:
+                                TextStyleConst.heading4WithColor(Colors.black),
                           ),
                         ),
                         SizedBox(
                           width: 234,
                           height: 36,
                           child: TextFormField(
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               hintText: 'Enter Your Email',
-                              hintStyle: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                              ),
-                              border: OutlineInputBorder(
+                              hintStyle: TextStyleConst.description3,
+                              border: const OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(5),
                                 ),
@@ -123,7 +113,9 @@ class _ForgotPasswordscreenState extends State<ForgotPasswordscreen> {
                     backgroundColour: const Color(0xFF030F51),
                     width: 234,
                     title: "Send",
-                    style: const TextStyle(fontSize: 16),
+                    style: TextStyleConst.description2WithColor(
+                      const Color(0xFFFFFFFF),
+                    ),
                   ),
                 ],
               ),

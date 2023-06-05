@@ -1,3 +1,4 @@
+import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/ui/forgot_password/create_new_password_screen.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -34,15 +35,10 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               ]),
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 51),
-                    child: Text(
-                      'Verify Your Email',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 51),
+                    child: Text('Verify Your Email',
+                        style: TextStyleConst.heading3),
                   ),
                   const Padding(
                     padding: EdgeInsets.only(top: 20),
@@ -57,18 +53,16 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15),
                     child: SizedBox(
                       width: 212,
                       height: 37,
                       child: Text(
                         'Please enter the 4 digit code sent to your email address',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12,
-                        ),
+                        style: TextStyleConst.description3WithColor(
+                            const Color(0xFF008284)),
                       ),
                     ),
                   ),
@@ -91,30 +85,29 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                     padding: const EdgeInsets.only(top: 20, bottom: 32),
                     child: InkWell(
                       onTap: () {},
-                      child: const Text(
+                      child: Text(
                         'Resend code',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Color(0xFFB26801),
-                          fontWeight: FontWeight.w400,
+                        style: TextStyleConst.description3WithColor(
+                          const Color(0xFFB26801),
                         ),
                       ),
                     ),
                   ),
                   ButtonCustome(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const NewPasswordScreen(),
-                        ), //
-                      );
-                    },
-                    backgroundColour: const Color(0xFF030F51),
-                    width: 234,
-                    title: "verify",
-                    style: const TextStyle(fontSize: 16),
-                  ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const NewPasswordScreen(),
+                          ), //
+                        );
+                      },
+                      backgroundColour: const Color(0xFF030F51),
+                      width: 234,
+                      title: "verify",
+                      style: TextStyleConst.description2WithColor(
+                        const Color(0xFFFFFFFF),
+                      )),
                 ],
               ),
             ),

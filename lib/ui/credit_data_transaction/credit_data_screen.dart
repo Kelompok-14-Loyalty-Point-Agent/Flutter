@@ -1,9 +1,15 @@
 import 'package:capstone_14/constant/provider_icon_constant.dart';
+import 'package:capstone_14/widgets/credit_data_page_widget/credit_button_widget.dart';
+import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
+
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../bottom_navbar_page/bottom_navbar.dart';
+
 class CreditDataScreen extends StatefulWidget {
+  static const routeName = '/creditDataScreen';
   const CreditDataScreen({super.key});
 
   @override
@@ -30,7 +36,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
     super.dispose();
   }
 
-  Widget _buttonBuilder(String title, int myIndex) {
+  Widget _buttonBuilder(Widget selectedButton, String title, int myIndex) {
     return GestureDetector(
       onTap: () {
         setState(() {
@@ -67,100 +73,113 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 62),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TopBarPage(
-              icon: Image.asset(
-                "assets/icons/simcard.png",
-                scale: 4,
+      resizeToAvoidBottomInset: false,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 62),
+          child: Column(
+            children: [
+              TopBarPage(
+                icon: Image.asset(
+                  "assets/icons/simcard.png",
+                  scale: 4,
+                ),
+                useContainer: true,
               ),
-              useContainer: true,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(32, 14, 0, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    "Credit/Data",
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                      color: Color(
-                        0xFF1d1d1d,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(32, 14, 0, 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Credit/Data",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        color: Color(
+                          0xFF1d1d1d,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SizedBox(
-                          width: 295,
-                          height: 45,
-                          child: TextField(
-                            keyboardType: TextInputType.number,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            controller: _phoneNumberController,
-                            style: const TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFF1d1d1d),
-                            ),
-                            decoration: InputDecoration(
-                              hintText: "Phone Number",
-                              hintStyle: const TextStyle(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            width: 295,
+                            height: 45,
+                            child: TextField(
+                              keyboardType: TextInputType.number,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              controller: _phoneNumberController,
+                              style: const TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
+                                color: Color(0xFF1d1d1d),
                               ),
-                              floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(6),
+                              decoration: InputDecoration(
+                                hintText: "Phone Number",
+                                hintStyle: const TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                                floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                contentPadding:
+                                    const EdgeInsets.fromLTRB(10, 0, 0, 10),
+                                suffixIcon: _phoneNumberController
+                                            .text.length >=
+                                        4
+                                    ? providerIcons(_phoneNumberController.text)
+                                    : null,
                               ),
-                              contentPadding:
-                                  const EdgeInsets.fromLTRB(10, 0, 0, 10),
-                              suffixIcon: _phoneNumberController.text.length >=
-                                      4
-                                  ? providerIcons(_phoneNumberController.text)
-                                  : null,
                             ),
                           ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(right: 32),
-                          child: Icon(Icons.book),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.only(right: 32),
+                            child: Image.asset(
+                              "assets/icons/contact_icon.png",
+                              scale: 3,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                  _phoneNumberController.text.length >= 4
-                      ? Row(
-                          children: [
-                            _buttonBuilder("Credit", 0),
-                            _buttonBuilder("Data", 1),
-                          ],
-                        )
-                      : const Text(
-                          "Input your phone number.",
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            color: Color(
-                              0xFF008284,
+                    _phoneNumberController.text.length >= 4
+                        ? Column(
+                            children: [
+                              Row(
+                                children: [
+                                  _buttonBuilder(
+                                      const CreditButton(), "Credit", 0),
+                                  _buttonBuilder(const DataButton(), "Data", 1),
+                                ],
+                              ),
+                              if (_selectedIndex == 0) const CreditButton(),
+                              if (_selectedIndex == 1) const DataButton(),
+                            ],
+                          )
+                        : const Text(
+                            "Input your phone number.",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Color(
+                                0xFF008284,
+                              ),
                             ),
                           ),
-                        ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
