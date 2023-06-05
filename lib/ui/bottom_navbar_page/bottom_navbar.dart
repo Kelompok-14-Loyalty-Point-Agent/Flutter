@@ -1,4 +1,4 @@
-import 'package:capstone_14/ui/profile/profile_screen.dart';
+
 import 'package:flutter/material.dart';
 
 import '../credit_data_transaction/credit_data_screen.dart';
@@ -19,8 +19,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> pages = [
     const HomePage(),
-    const CreditDataScreen(),
-    const ProfileScreen(),
+    // const CreditDataScreen(),
+    // const ProfileScreen(),
   ];
 
   @override
