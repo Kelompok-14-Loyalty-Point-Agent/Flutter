@@ -1,4 +1,5 @@
 import 'package:capstone_14/ui/auth/login/login_screen.dart';
+import 'package:capstone_14/ui/auth/register/register_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +22,14 @@ class _SplashScreen3State extends State<SplashScreen3> {
         color: const Color(0xFFFFFFFF),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(50, 147, 50, 29),
-              child: Image.asset(
-                "assets/images/Finance-leaders-amico.png",
-                width: 260,
-                height: 260,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(50, 147, 50, 29),
+                child: Image.asset(
+                  "assets/images/Finance-leaders-amico.png",
+                  width: 260,
+                  height: 260,
+                ),
               ),
             ),
             const Padding(
@@ -70,7 +73,14 @@ class _SplashScreen3State extends State<SplashScreen3> {
             ),
             const SizedBox(height: 12),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterScreen(),
+                  ),
+                );
+              },
               child: const Text(
                 "Create a new account",
                 textAlign: TextAlign.center,
