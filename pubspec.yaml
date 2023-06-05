@@ -19,6 +19,9 @@ dependencies:
   dots_indicator:
   flutter_otp_text_field: ^1.1.1
   font_awesome_flutter: ^10.4.0
+  email_validator: ^2.1.17
+  shared_preferences: ^2.1.1
+
   carousel_slider: ^4.2.1
   intl: ^0.18.1
 

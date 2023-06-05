@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextFieldCustome extends StatelessWidget {
+  final TextEditingController? controller;
   final Function(String)? onChanged;
+  final String? Function(String?)? validator;
   final bool isValidTextField;
   final String errorMessage;
   final String title;
@@ -13,9 +15,12 @@ class TextFieldCustome extends StatelessWidget {
   final bool isReadOnly;
   final TextInputType? keyboardType;
   final String? initialValue;
+
   const TextFieldCustome({
     super.key,
+    this.controller,
     this.onChanged,
+    this.validator,
     required this.title,
     required this.isValidTextField,
     required this.errorMessage,
@@ -49,9 +54,11 @@ class TextFieldCustome extends StatelessWidget {
           width: 234,
           height: 36,
           child: TextFormField(
+            controller: controller,
             readOnly: isReadOnly,
             keyboardType: keyboardType,
             onChanged: onChanged,
+            validator: validator,
             obscureText: isObsucreText,
             initialValue: initialValue,
             decoration: InputDecoration(

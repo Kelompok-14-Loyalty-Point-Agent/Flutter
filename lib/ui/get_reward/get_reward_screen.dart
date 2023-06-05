@@ -1,5 +1,6 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/ui/get_reward/detail_reward_screen.dart';
+import 'package:capstone_14/ui/history_transaction/history_transaction_screen.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
 import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 
 import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
+import '../profile/profile_screen.dart';
 
 
 class GetRewardScreen extends StatefulWidget {
@@ -21,8 +23,8 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
 
   final List<Widget> pages = [
     const HomePage(),
-    // const CreditDataScreen(),
-    // const ProfileScreen(),
+    const HistoryTransaction(),
+    const ProfileScreen(),
   ];
 
   @override
