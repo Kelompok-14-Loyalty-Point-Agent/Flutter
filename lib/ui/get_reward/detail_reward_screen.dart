@@ -37,13 +37,18 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        foregroundColor: const Color(0xff030F51),
+        shadowColor: Colors.transparent,
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.only(
-                top: 50,
+                top: 5,
               ),
               child: Text('Detail Reward', style: TextStyleConst.heading2),
             ),
