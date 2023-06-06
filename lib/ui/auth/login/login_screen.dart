@@ -10,8 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../home/home_page.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
+  // const LoginScreen({super.key});
+  const LoginScreen({Key? key}) : super(key: key);
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -244,7 +244,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const RegisterScreen(),
+                                  builder: (context) =>
+                                      BottomNavBar(currentIndex: 0),
                                 ),
                               );
                             } else {
