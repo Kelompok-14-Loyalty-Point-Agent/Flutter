@@ -66,7 +66,7 @@ class _DataButtonState extends State<DataButton> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 32, top: 18),
+            padding: const EdgeInsets.only(right: 32, top: 18, bottom: 21),
             child: ButtonCustome(
               width: 296,
               backgroundColour: const Color(0xFF030F51),
