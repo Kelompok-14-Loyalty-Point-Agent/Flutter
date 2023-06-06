@@ -8,6 +8,7 @@ class UpdateFeatureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        foregroundColor: const Color(0xff030F51),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
