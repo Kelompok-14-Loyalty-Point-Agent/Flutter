@@ -27,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   void initState() {
     super.initState();
-    index = widget.currentIndex?? 0;
+    index = widget.currentIndex ?? 0;
   }
 
   @override
@@ -52,7 +52,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Padding(
+                padding: EdgeInsets.only(left: 100),
+                child: Icon(Icons.home),
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
@@ -60,7 +63,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
               label: "history transaction",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Padding(
+                padding: EdgeInsets.only(right: 100),
+                child: Icon(Icons.person),
+              ),
               label: "profile",
             ),
           ],

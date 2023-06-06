@@ -214,7 +214,10 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Padding(
+                padding: EdgeInsets.only(left: 100),
+                child: Icon(Icons.home),
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
@@ -222,7 +225,10 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
               label: "history transaction",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Padding(
+                padding: EdgeInsets.only(right: 100),
+                child: Icon(Icons.person),
+              ),
               label: "profile",
             ),
           ],

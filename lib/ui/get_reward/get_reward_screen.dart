@@ -10,7 +10,6 @@ import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
 
-
 class GetRewardScreen extends StatefulWidget {
   const GetRewardScreen({Key? key});
 
@@ -199,7 +198,10 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Padding(
+                padding: EdgeInsets.only(left: 100),
+                child: Icon(Icons.home),
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
@@ -207,7 +209,10 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
               label: "history transaction",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Padding(
+                padding: EdgeInsets.only(right: 100),
+                child: Icon(Icons.person),
+              ),
               label: "profile",
             ),
           ],
