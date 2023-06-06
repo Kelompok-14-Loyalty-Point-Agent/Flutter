@@ -6,7 +6,10 @@ import '../profile/profile_screen.dart';
 class BottomNavBar extends StatefulWidget {
   final int? currentIndex;
 
-  const BottomNavBar({Key? key, required this.currentIndex}) : super(key: key);
+  const BottomNavBar({
+    Key? key,
+    required this.currentIndex,
+  }) : super(key: key);
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();

@@ -1,6 +1,7 @@
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
 import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/ui/update_feature/update_feature_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -211,7 +212,13 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    // navigatornya disini
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const UpdateFeatureScreen(),
+                                      ),
+                                    );
                                   },
                                   child: Container(
                                     width: 54,
@@ -252,7 +259,13 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    // navigatornya disini
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const UpdateFeatureScreen(),
+                                      ),
+                                    );
                                   },
                                   child: Container(
                                     width: 54,
@@ -293,7 +306,13 @@ class _HomePageState extends State<HomePage> {
                               children: [
                                 InkWell(
                                   onTap: () {
-                                    // navigatornya disini
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const UpdateFeatureScreen(),
+                                      ),
+                                    );
                                   },
                                   child: Container(
                                     width: 54,
