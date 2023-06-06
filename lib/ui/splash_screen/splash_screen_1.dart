@@ -22,12 +22,14 @@ class _SplashScreen1State extends State<SplashScreen1> {
           color: const Color(0xFFFFFFFF),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(50, 146, 50, 41),
-                child: Image.asset(
-                  "assets/images/E-Wallet-amico.png",
-                  width: 260,
-                  height: 260,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(50, 146, 50, 41),
+                  child: Image.asset(
+                    "assets/images/E-Wallet-amico.png",
+                    width: 260,
+                    height: 260,
+                  ),
                 ),
               ),
               const Padding(

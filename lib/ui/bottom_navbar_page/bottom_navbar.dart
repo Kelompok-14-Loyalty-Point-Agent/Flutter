@@ -1,12 +1,10 @@
-import 'package:capstone_14/ui/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../credit_data_transaction/credit_data_screen.dart';
-import '../get_reward/get_reward_screen.dart';
+import '../history_transaction/history_transaction_screen.dart';
 import '../home/home_page.dart';
+import '../profile/profile_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
-  final int currentIndex;
+  final int? currentIndex;
 
   const BottomNavBar({
     Key? key,
@@ -22,14 +20,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final List<Widget> pages = [
     const HomePage(),
-    const CreditDataScreen(),
+    const HistoryTransaction(),
     const ProfileScreen(),
   ];
 
   @override
   void initState() {
     super.initState();
-    index = widget.currentIndex;
+    index = widget.currentIndex?? 0;
   }
 
   @override

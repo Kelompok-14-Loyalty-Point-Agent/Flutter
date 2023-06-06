@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //Ganti disini kalau mau coba screen
       home: const SplashScreen(),
+      // home: const LoginScreen(),
+      // home: const CreditDataScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
           case SplashScreen1.routeName:
