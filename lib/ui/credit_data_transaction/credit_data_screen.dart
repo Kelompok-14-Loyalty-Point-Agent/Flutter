@@ -1,4 +1,5 @@
 import 'package:capstone_14/constant/provider_icon_constant.dart';
+import 'package:capstone_14/ui/history_transaction/history_transaction_screen.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/credit_button_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 
@@ -7,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../bottom_navbar_page/bottom_navbar.dart';
+import '../home/home_page.dart';
+import '../profile/profile_screen.dart';
 
 class CreditDataScreen extends StatefulWidget {
   static const routeName = '/creditDataScreen';
@@ -70,6 +73,12 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
     );
   }
 
+  int? index;
+  final List<Widget> pages = [
+    const HomePage(),
+    const HistoryTransaction(),
+    const ProfileScreen(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +116,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                            width: 272,
+                            width: 295,
                             height: 45,
                             child: TextField(
                               keyboardType: TextInputType.number,
@@ -142,9 +151,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                            ),
+                            padding: const EdgeInsets.only(right: 32),
                             child: Image.asset(
                               "assets/icons/contact_icon.png",
                               scale: 3,

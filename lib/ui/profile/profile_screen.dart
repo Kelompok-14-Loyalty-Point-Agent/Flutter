@@ -1,5 +1,6 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/ui/auth/login/login_screen.dart';
+import 'package:capstone_14/ui/faq/faq_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -213,7 +214,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 7),
                       child: ButtonCustome(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const FaqScreen(),
+                            ),
+                          );
+                        },
                         title: "FAQ",
                         backgroundColour: const Color(0xff030F51),
                         width: 295,

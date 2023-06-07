@@ -1,12 +1,15 @@
-import 'package:capstone_14/ui/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 import '../history_transaction/history_transaction_screen.dart';
 import '../home/home_page.dart';
+import '../profile/profile_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
-  final int currentIndex;
+  final int? currentIndex;
 
-  const BottomNavBar({Key? key, required this.currentIndex}) : super(key: key);
+  const BottomNavBar({
+    Key? key,
+    required this.currentIndex,
+  }) : super(key: key);
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -24,7 +27,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   void initState() {
     super.initState();
-    index = widget.currentIndex;
+    index = widget.currentIndex ?? 0;
   }
 
   @override
@@ -49,7 +52,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           showUnselectedLabels: false,
           items: const [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Padding(
+                padding: EdgeInsets.only(left: 100),
+                child: Icon(Icons.home),
+              ),
               label: "Home",
             ),
             BottomNavigationBarItem(
@@ -57,7 +63,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
               label: "history transaction",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Padding(
+                padding: EdgeInsets.only(right: 100),
+                child: Icon(Icons.person),
+              ),
               label: "profile",
             ),
           ],
