@@ -7,6 +7,7 @@ import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_3.dart';
 import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/ui/voucher/voucher_screen.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:flutter/material.dart';
