@@ -1,7 +1,11 @@
 import 'dart:async';
 
+import 'package:capstone_14/service/auth/login/login_service.dart';
+import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/ui/home/home_page.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,12 +21,23 @@ class _SplashScreenState extends State<SplashScreen> {
 
     //Untuk pengecekan nanti ganti disini
     //ini cuman hardcore codenya
+    checkToken();
+  }
+
+  void checkToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
     Timer(
       const Duration(seconds: 5),
       () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const SplashScreen1()),
+          MaterialPageRoute(
+              builder: (context) => token != null
+                  ? const BottomNavBar(
+                      currentIndex: 0,
+                    )
+                  : const SplashScreen1()),
         );
       },
     );

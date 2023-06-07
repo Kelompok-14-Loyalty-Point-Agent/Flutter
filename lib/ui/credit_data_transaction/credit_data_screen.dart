@@ -107,7 +107,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
-                            width: 295,
+                            width: 272,
                             height: 45,
                             child: TextField(
                               keyboardType: TextInputType.number,
@@ -142,7 +142,9 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 32),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                            ),
                             child: Image.asset(
                               "assets/icons/contact_icon.png",
                               scale: 3,
