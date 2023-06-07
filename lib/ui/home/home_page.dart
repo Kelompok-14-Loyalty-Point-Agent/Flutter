@@ -3,6 +3,7 @@ import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
 import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/ui/update_feature/update_feature_screen.dart';
+import 'package:capstone_14/ui/voucher/voucher_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -133,7 +134,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 62),
+          padding: const EdgeInsets.only(top: 50),
           child: Column(
             children: [
               TopBarPage(
@@ -264,7 +265,7 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const UpdateFeatureScreen(),
+                                            const VoucherScreen(),
                                       ),
                                     );
                                   },
