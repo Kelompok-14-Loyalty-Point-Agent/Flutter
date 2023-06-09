@@ -1,5 +1,6 @@
 import 'package:capstone_14/ui/bills/bills_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+import 'package:capstone_14/ui/ewallet/ewallet_screen.dart';
 import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
 import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/ui/update_feature/update_feature_screen.dart';
@@ -312,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            const UpdateFeatureScreen(),
+                                            const EwalletScreen(),
                                       ),
                                     );
                                   },

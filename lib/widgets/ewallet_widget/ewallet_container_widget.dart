@@ -1,15 +1,12 @@
-import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:flutter/material.dart';
 
-class BillsContainerWidget extends StatelessWidget {
+class EwalletContainer extends StatelessWidget {
   final String image;
-  final String? label;
   final BoxShadow containerShadow;
-  const BillsContainerWidget({
+  const EwalletContainer({
     super.key,
-    required this.containerShadow,
     required this.image,
-    this.label,
+    required this.containerShadow,
   });
 
   @override
@@ -29,11 +26,6 @@ class BillsContainerWidget extends StatelessWidget {
           Image.asset(
             image,
             scale: 4,
-          ),
-          const SizedBox(height: 10),
-          Text(
-            label?.toUpperCase() ?? "",
-            style: TextStyleConst.heading5,
           ),
         ],
       ),
