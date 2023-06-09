@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../constant/textstyle_constant.dart';
 import '../../widgets/top_bar_page.dart';
 import '../get_reward/detail_reward_screen.dart';
+import '../notification/notification_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -139,7 +140,14 @@ class _HomePageState extends State<HomePage> {
               TopBarPage(
                 useContainer: false,
                 icon: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const NotificationScreen(),
+                      ),
+                    );
+                  },
                   icon: const Icon(Icons.notifications),
                 ),
               ),
