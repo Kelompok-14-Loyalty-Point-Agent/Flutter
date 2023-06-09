@@ -45,8 +45,8 @@ class _CreditButtonState extends State<CreditButton> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
-                    amount: listTest[index].amount,
-                    price: listTest[index].price,
+                    amount: listTest[index].amount!,
+                    price: listTest[index].price!,
                     containerShadow: selectTestModel == listTest[index]
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
@@ -66,7 +66,7 @@ class _CreditButtonState extends State<CreditButton> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 32, top: 18),
+            padding: const EdgeInsets.only(right: 32, top: 18, bottom: 21),
             child: ButtonCustome(
               width: 296,
               backgroundColour: const Color(0xFF030F51),
