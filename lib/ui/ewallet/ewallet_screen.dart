@@ -181,7 +181,7 @@ class _EwalletScreenState extends State<EwalletScreen> {
                         },
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              bottom: 17, right: 10, left: 10),
+                              bottom: 12, right: 10, left: 10),
                           child: EwalletContainer(
                             image: listBills[index].image!,
                             containerShadow: BoxShadow(
