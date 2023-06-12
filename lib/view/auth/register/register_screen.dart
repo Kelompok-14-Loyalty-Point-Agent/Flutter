@@ -341,7 +341,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         const SizedBox(height: 18),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const LoginScreen(),
