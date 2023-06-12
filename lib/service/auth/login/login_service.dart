@@ -30,11 +30,6 @@ class LoginService {
         print(token);
       }
 
-      readToken(token) async {
-        final prefs = await SharedPreferences.getInstance();
-        prefs.getString('token');
-      }
-
       if (response.statusCode == 200) {
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(

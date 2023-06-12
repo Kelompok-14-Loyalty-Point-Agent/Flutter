@@ -1,4 +1,5 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
+import 'package:capstone_14/service/profile/profile_service.dart';
 import 'package:capstone_14/view/auth/login/login_screen.dart';
 import 'package:capstone_14/view/faq/faq_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
@@ -249,15 +250,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     ButtonCustome(
                       onPressed: () async {
-                        final prefs = await SharedPreferences.getInstance();
-                        prefs.remove('token');
-                        // ignore: use_build_context_synchronously
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ),
-                        );
+                        final successLogOut =
+                            await ProfileService().postLogout(context);
+                        if (successLogOut) {
+                          // ignore: use_build_context_synchronously
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginScreen(),
+                            ),
+                          );
+                        }
+                        // final prefs = await SharedPreferences.getInstance();
+                        // prefs.remove('token');
                       },
                       title: "Log Out",
                       backgroundColour: const Color(0xff931136),
