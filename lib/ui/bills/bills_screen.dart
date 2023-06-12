@@ -40,7 +40,7 @@ class _BillsScreenState extends State<BillsScreen> {
       body: index != null
           ? pages[index ?? 0]
           : Container(
-              width: 393,
+              width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               color: Colors.white,
               child: Column(
