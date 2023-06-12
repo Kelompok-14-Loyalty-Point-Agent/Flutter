@@ -1,5 +1,6 @@
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+import 'package:capstone_14/ui/credit_data_transaction/credit_data_view_model.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/ui/splash_screen/splash_screen_2.dart';
@@ -9,9 +10,22 @@ import 'package:capstone_14/ui/voucher/voucher_screen.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => CreditDataProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PaymentMethodProvider(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
