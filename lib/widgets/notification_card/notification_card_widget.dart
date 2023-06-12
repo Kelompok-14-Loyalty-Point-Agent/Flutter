@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../ui/notification/detail_notification_screen.dart';
+import '../../view/notification/detail_notification_screen.dart';
 
 class NotificationCardWidget extends StatelessWidget {
   final String title;

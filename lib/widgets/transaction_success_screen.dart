@@ -1,6 +1,6 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
-import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
-import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
+import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/view/get_reward/get_reward_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
