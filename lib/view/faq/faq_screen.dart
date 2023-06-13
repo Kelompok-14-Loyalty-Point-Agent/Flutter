@@ -40,66 +40,71 @@ class _FaqScreenState extends State<FaqScreen> {
     return Scaffold(
       body: index != null
           ? pages[index ?? 0]
-          : Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 45),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 50),
-                    child: Text(
-                      'FAQ',
-                      style: TextStyleConst.heading2,
+          : Container(
+              color: Colors.white,
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 45),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 50),
+                      child: Text(
+                        'FAQ',
+                        style: TextStyleConst.heading2,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 14),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: const Color(0xff030F51),
-                    ),
-                    width: 296,
-                    height: 620,
-                    child: ListView.builder(
-                      itemCount: list.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                          title: Container(
-                            height: 45,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(6),
-                              color: Colors.white,
-                            ),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    list[index],
-                                    style: TextStyleConst.description3,
-                                  ),
-                                ),
-                                const Icon(Icons.arrow_forward_ios, size: 12),
-                              ],
-                            ),
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Faq2Screen(),
+                    const SizedBox(height: 14),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: const Color(0xff030F51),
+                      ),
+                      width: 296,
+                      height: 620,
+                      child: ListView.builder(
+                        itemCount: list.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(
+                            title: Container(
+                              height: 45,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(6),
+                                color: Colors.white,
                               ),
-                            );
-                          },
-                        );
-                      },
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      list[index],
+                                      style: TextStyleConst.description3,
+                                    ),
+                                  ),
+                                  const Icon(Icons.arrow_forward_ios, size: 12),
+                                ],
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Faq2Screen(),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
       bottomNavigationBar: Container(
         height: 50,
         child: BottomNavigationBar(
-          currentIndex: index ?? 0,
+          currentIndex: index ?? 2,
           onTap: (int i) {
             setState(() {
               index = i;
