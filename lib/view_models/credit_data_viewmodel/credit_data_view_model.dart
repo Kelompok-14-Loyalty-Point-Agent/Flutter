@@ -1,4 +1,4 @@
-import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+// import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:flutter/foundation.dart';
 
 class CreditDataProvider extends ChangeNotifier {
