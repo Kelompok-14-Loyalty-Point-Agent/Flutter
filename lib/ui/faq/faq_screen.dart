@@ -60,6 +60,7 @@ class _FaqScreenState extends State<FaqScreen> {
                     width: 296,
                     height: 620,
                     child: ListView.builder(
+                      padding: const EdgeInsets.only(top: 2),
                       itemCount: list.length,
                       itemBuilder: (BuildContext context, int index) {
                         return ListTile(

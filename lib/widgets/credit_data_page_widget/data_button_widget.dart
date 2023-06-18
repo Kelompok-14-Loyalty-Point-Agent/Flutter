@@ -13,17 +13,17 @@ class _DataButtonState extends State<DataButton> {
   TestModel? selectTestModel;
 
   List<TestModel> listTest = [
-    TestModel(amount: "1GB 3D", price: "Pay : Rp 5.000"),
-    TestModel(amount: "3GB 3D", price: "Pay : Rp 10.000"),
-    TestModel(amount: "8GB 7D", price: "Pay : Rp 7.000"),
-    TestModel(amount: "16GB 7D", price: "Pay : Rp 32.000"),
-    TestModel(amount: "32GB 7D", price: "Pay : Rp 50.000"),
-    TestModel(amount: "10GB 14D", price: "Pay : Rp 25.000"),
-    TestModel(amount: "14GB 14D", price: "Pay : Rp 30.000"),
-    TestModel(amount: "28GB 14D", price: "Pay : Rp 45.000"),
-    TestModel(amount: "10GB 30D", price: "Pay : Rp 40.000"),
-    TestModel(amount: "50GB 30D", price: "Pay : Rp 80.000"),
-    TestModel(amount: "100GB", price: "Pay : Rp 120.000"),
+    TestModel(amount: "1GB 3D", price: "5.000", product: "Data"),
+    TestModel(amount: "3GB 3D", price: "10.000", product: "Data"),
+    TestModel(amount: "8GB 7D", price: "7.000", product: "Data"),
+    TestModel(amount: "16GB 7D", price: "32.000", product: "Data"),
+    TestModel(amount: "32GB 7D", price: "50.000", product: "Data"),
+    TestModel(amount: "10GB 14D", price: "25.000", product: "Data"),
+    TestModel(amount: "14GB 14D", price: "30.000", product: "Data"),
+    TestModel(amount: "28GB 14D", price: "45.000", product: "Data"),
+    TestModel(amount: "10GB 30D", price: "40.000", product: "Data"),
+    TestModel(amount: "50GB 30D", price: "80.000", product: "Data"),
+    TestModel(amount: "100GB", price: "120.000", product: "Data"),
   ];
 
   @override
@@ -45,8 +45,9 @@ class _DataButtonState extends State<DataButton> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
+                    product: listTest[index].product!,
                     amount: listTest[index].amount!,
-                    price: listTest[index].price!,
+                    price: "Pay : Rp ${listTest[index].price!}",
                     containerShadow: selectTestModel == listTest[index]
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
@@ -93,9 +94,11 @@ class _DataButtonState extends State<DataButton> {
 class TestModel {
   String? amount;
   String? price;
+  String? product;
 
   TestModel({
     this.amount,
     this.price,
+    this.product,
   });
 }

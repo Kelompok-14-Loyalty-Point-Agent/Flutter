@@ -22,6 +22,9 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => PaymentMethodProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => UserData(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -49,8 +52,7 @@ class MyApp extends StatelessWidget {
             return _buildFadeRoute(const SplashScreen3());
           case CreditDataScreen.routeName:
             return _buildFadeRoute(const CreditDataScreen());
-          case TransactionSuccesScreen.routeName:
-            return _buildFadeRoute(const TransactionSuccesScreen());
+
           case CreditDataPaymentScreen.routeName:
             final selectedTestModel = settings.arguments as TestModel;
             return _buildFadeRoute(

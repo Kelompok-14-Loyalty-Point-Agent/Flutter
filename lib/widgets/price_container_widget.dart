@@ -4,11 +4,13 @@ class PriceContainerWidget extends StatelessWidget {
   final String amount;
   final String price;
   final BoxShadow containerShadow;
+  final String product;
   const PriceContainerWidget({
     super.key,
     required this.amount,
     required this.price,
     required this.containerShadow,
+    required this.product,
   });
 
   @override
