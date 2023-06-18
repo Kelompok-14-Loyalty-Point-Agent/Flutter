@@ -14,17 +14,17 @@ class _CreditButtonState extends State<CreditButton> {
   TestModel? selectTestModel;
 
   List<TestModel> listTest = [
-    TestModel(amount: "5.000", price: "Pay : Rp 7.000"),
-    TestModel(amount: "10.000", price: "Pay : Rp 11.000"),
-    TestModel(amount: "15.000", price: "Pay : Rp 16.500"),
-    TestModel(amount: "25.000", price: "Pay : Rp 27.500"),
-    TestModel(amount: "30.000", price: "Pay : Rp 32.000"),
-    TestModel(amount: "50.000", price: "Pay : Rp 52.000"),
-    TestModel(amount: "100.000", price: "Pay : Rp 102.000"),
-    TestModel(amount: "200.000", price: "Pay : Rp 201.500"),
-    TestModel(amount: "300.000", price: "Pay : Rp 301.000"),
-    TestModel(amount: "500.000", price: "Pay : Rp 498.500"),
-    TestModel(amount: "1.000.000", price: "Pay : Rp 999.000"),
+    TestModel(amount: "5.000", price: "7.000", product: "Credit"),
+    TestModel(amount: "10.000", price: "11.000", product: "Credit"),
+    TestModel(amount: "15.000", price: "16.500", product: "Credit"),
+    TestModel(amount: "25.000", price: "27.500", product: "Credit"),
+    TestModel(amount: "30.000", price: "32.000", product: "Credit"),
+    TestModel(amount: "50.000", price: "52.000", product: "Credit"),
+    TestModel(amount: "100.000", price: "102.000", product: "Credit"),
+    TestModel(amount: "200.000", price: "201.500", product: "Credit"),
+    TestModel(amount: "300.000", price: "301.000", product: "Credit"),
+    TestModel(amount: "500.000", price: "498.500", product: "Credit"),
+    TestModel(amount: "1.000.000", price: "999.000", product: "Credit"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -45,8 +45,9 @@ class _CreditButtonState extends State<CreditButton> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
+                    product: listTest[index].product!,
                     amount: listTest[index].amount!,
-                    price: listTest[index].price!,
+                    price: "Pay : Rp ${listTest[index].price!}",
                     containerShadow: selectTestModel == listTest[index]
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),

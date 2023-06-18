@@ -5,6 +5,7 @@ import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
+import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -46,6 +47,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final userData = Provider.of<UserData>(context);
     return ChangeNotifierProvider(
       create: (context) => paymentMethodProvider,
       child: Scaffold(
@@ -88,7 +90,8 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly,
                                 ],
-                                controller: _phoneNumberController,
+                                controller: TextEditingController(
+                                    text: userData.phoneNumber),
                                 style: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -107,11 +110,9 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                                   ),
                                   contentPadding:
                                       const EdgeInsets.fromLTRB(10, 0, 0, 10),
-                                  suffixIcon:
-                                      _phoneNumberController.text.length >= 4
-                                          ? providerIcons(
-                                              _phoneNumberController.text)
-                                          : null,
+                                  suffixIcon: userData.phoneNumber.length >= 4
+                                      ? providerIcons(userData.phoneNumber)
+                                      : null,
                                 ),
                               ),
                             ),
@@ -126,8 +127,9 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                         ),
                       ),
                       PriceContainerWidget(
+                        product: widget.selectedTestModel.product!,
                         amount: widget.selectedTestModel.amount!,
-                        price: widget.selectedTestModel.price!,
+                        price: "Pay : Rp ${widget.selectedTestModel.price!}",
                         containerShadow: BoxShadow(
                           offset: const Offset(2, 3),
                           color: Color.fromARGB(0.25.toInt(), 0, 0, 0)
@@ -142,116 +144,119 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 27),
                   child: Consumer<PaymentMethodProvider>(
-                      builder: (context, paymentMethodProvider, _) {
-                    return Column(
-                      children: [
-                        GestureDetector(
-                          onTap: paymentMethodProvider.toggleDropdown,
-                          child: SizedBox(
-                            width: 303,
-                            height: 46,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 16),
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    "assets/icons/payment_icon.png",
-                                    scale: 3,
-                                  ),
-                                  const SizedBox(width: 8),
-                                  const Text(
-                                    "Payment Method",
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF1d1d1d),
-                                    ),
-                                  ),
-                                  const Spacer(),
-                                  if (paymentMethodProvider
-                                      .selectedPaymentMethodImage.isNotEmpty)
+                    builder: (context, paymentMethodProvider, _) {
+                      return Column(
+                        children: [
+                          GestureDetector(
+                            onTap: paymentMethodProvider.toggleDropdown,
+                            child: SizedBox(
+                              width: 303,
+                              height: 46,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 16),
+                                child: Row(
+                                  children: [
                                     Image.asset(
+                                      "assets/icons/payment_icon.png",
+                                      scale: 3,
+                                    ),
+                                    const SizedBox(width: 8),
+                                    const Text(
+                                      "Payment Method",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xFF1d1d1d),
+                                      ),
+                                    ),
+                                    const Spacer(),
+                                    if (paymentMethodProvider
+                                        .selectedPaymentMethodImage.isNotEmpty)
+                                      Image.asset(
+                                        paymentMethodProvider
+                                            .selectedPaymentMethodImage,
+                                        width: 24,
+                                        height: 24,
+                                      ),
+                                    const SizedBox(width: 8),
+                                    Text(
                                       paymentMethodProvider
-                                          .selectedPaymentMethodImage,
-                                      width: 24,
-                                      height: 24,
+                                          .selectedPaymentMethod,
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(0xFF1d1d1d),
+                                      ),
                                     ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    paymentMethodProvider.selectedPaymentMethod,
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: Color(0xFF1d1d1d),
+                                    const SizedBox(width: 8),
+                                    Image.asset(
+                                      "assets/icons/dropdown_icon.png",
+                                      width: 10,
+                                      height: 10,
                                     ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Image.asset(
-                                    "assets/icons/dropdown_icon.png",
-                                    width: 10,
-                                    height: 10,
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        if (paymentMethodProvider.isDropdownOpen)
-                          Container(
-                            width: 303,
-                            height: 165,
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            child: ListView.builder(
-                              itemCount:
-                                  paymentMethodProvider.paymentMethods.length,
-                              itemBuilder: (context, index) {
-                                final item =
-                                    paymentMethodProvider.paymentMethods[index];
-                                final image = paymentMethodProvider
-                                    .paymentMethodImages[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    final paymentProvider =
-                                        Provider.of<PaymentMethodProvider>(
-                                      context,
-                                      listen: false,
-                                    );
-                                    paymentProvider.selectPaymentMethod(item);
-                                    print(item);
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(bottom: 7),
-                                    child: Container(
-                                      height: 25,
-                                      alignment: Alignment.centerLeft,
-                                      child: Row(
-                                        children: [
-                                          Image.asset(
-                                            image,
-                                            width: 40,
-                                            height: 30,
-                                          ),
-                                          const SizedBox(width: 8),
-                                          Text(
-                                            item,
-                                            style: const TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xFF1d1d1d),
+                          if (paymentMethodProvider.isDropdownOpen)
+                            Container(
+                              width: 303,
+                              height: 165,
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              child: ListView.builder(
+                                itemCount:
+                                    paymentMethodProvider.paymentMethods.length,
+                                itemBuilder: (context, index) {
+                                  final item = paymentMethodProvider
+                                      .paymentMethods[index];
+                                  final image = paymentMethodProvider
+                                      .paymentMethodImages[index];
+                                  return GestureDetector(
+                                    onTap: () {
+                                      final paymentProvider =
+                                          Provider.of<PaymentMethodProvider>(
+                                        context,
+                                        listen: false,
+                                      );
+                                      paymentProvider.selectPaymentMethod(item);
+                                      print(item);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(bottom: 7),
+                                      child: Container(
+                                        height: 25,
+                                        alignment: Alignment.centerLeft,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              image,
+                                              width: 40,
+                                              height: 30,
                                             ),
-                                          ),
-                                        ],
+                                            const SizedBox(width: 8),
+                                            Text(
+                                              item,
+                                              style: const TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xFF1d1d1d),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              },
+                                  );
+                                },
+                              ),
                             ),
-                          ),
-                      ],
-                    );
-                  }),
+                        ],
+                      );
+                    },
+                  ),
                 ),
                 ButtonCustome(
                   width: 296,
@@ -262,11 +267,31 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                     fontWeight: FontWeight.w400,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      "/transactionSuccessScreen",
-                      // arguments: selectTestModel,
-                    );
+                    if (paymentMethodProvider.selectedPaymentMethod !=
+                        'Choose Payment') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TransactionSuccesScreen(
+                            product: widget.selectedTestModel.product!,
+                            method: paymentMethodProvider.selectedPaymentMethod,
+                            price: widget.selectedTestModel.price!,
+                          ),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          duration: Duration(seconds: 1),
+                          backgroundColor: Color(0xFF931136),
+                          content: Center(
+                            child: Text(
+                              'Please Choose Payment Method!',
+                            ),
+                          ),
+                        ),
+                      );
+                    }
                   },
                 ),
               ],

@@ -6,8 +6,15 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 class TransactionSuccesScreen extends StatelessWidget {
-  static const routeName = '/transactionSuccessScreen';
-  const TransactionSuccesScreen({super.key});
+  final String method;
+  final String price;
+  final String product;
+  const TransactionSuccesScreen({
+    Key? key,
+    required this.method,
+    required this.price,
+    required this.product,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
