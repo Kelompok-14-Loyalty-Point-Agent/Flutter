@@ -85,7 +85,7 @@ class TransactionSuccesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Credit Axis",
+                      product,
                       style: TextStyleConst.description4WithColor(
                         const Color(0xff1d1d1d),
                       ),
@@ -100,7 +100,7 @@ class TransactionSuccesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Transfer Bank",
+                      method,
                       style: TextStyleConst.description4WithColor(
                         const Color(0xff1d1d1d),
                       ),
@@ -115,7 +115,7 @@ class TransactionSuccesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "Rp. 7.000,00",
+                      " Rp. $price,00",
                       style: TextStyleConst.description4WithColor(
                         const Color(0xff1d1d1d),
                       ),
