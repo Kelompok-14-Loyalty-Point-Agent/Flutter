@@ -1,5 +1,5 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
-import 'package:capstone_14/ui/forgot_password/create_new_password_screen.dart';
+import 'package:capstone_14/view/forgot_password/create_new_password_screen.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';

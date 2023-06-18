@@ -1,5 +1,5 @@
 import 'package:capstone_14/service/auth/register/register_service.dart';
-import 'package:capstone_14/ui/auth/login/login_screen.dart';
+import 'package:capstone_14/view/auth/login/login_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -341,7 +341,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         const SizedBox(height: 18),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const LoginScreen(),

@@ -1,5 +1,5 @@
-import 'package:capstone_14/ui/auth/login/login_screen.dart';
-import 'package:capstone_14/ui/auth/register/register_screen.dart';
+import 'package:capstone_14/view/auth/login/login_screen.dart';
+import 'package:capstone_14/view/auth/register/register_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';

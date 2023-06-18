@@ -1,17 +1,14 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/view/get_reward/detail_reward_screen.dart';
-// import 'package:capstone_14/ui/get_reward/detail_reward_screen.dart';
-// import 'package:capstone_14/ui/history_transaction/history_transaction_screen.dart';
 import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
-import 'package:capstone_14/view/profile/profile_screen.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
-// import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 
-// import '../credit_data_transaction/credit_data_screen.dart';
+import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
-// import '../profile/profile_screen.dart';
+import '../profile/profile_screen.dart';
 
 class GetRewardScreen extends StatefulWidget {
   const GetRewardScreen({Key? key});
@@ -118,7 +115,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
+                              builder: (context) => DetailRewardScreen(),
                             ),
                           );
                         },
@@ -135,7 +132,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
+                              builder: (context) => DetailRewardScreen(),
                             ),
                           );
                         },
@@ -151,7 +148,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
+                              builder: (context) => DetailRewardScreen(),
                             ),
                           );
                         },
@@ -167,7 +164,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
+                              builder: (context) => DetailRewardScreen(),
                             ),
                           );
                         },

@@ -1,4 +1,4 @@
-import 'package:capstone_14/ui/auth/login/login_screen.dart';
+import 'package:capstone_14/view/auth/login/login_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/textstyle_constant.dart';

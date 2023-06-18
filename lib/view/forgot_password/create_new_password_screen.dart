@@ -1,4 +1,4 @@
-import 'package:capstone_14/ui/password_update/password_success_update.dart';
+import 'package:capstone_14/view/password_update/password_success_update.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 

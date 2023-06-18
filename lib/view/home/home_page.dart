@@ -1,12 +1,9 @@
-import 'package:capstone_14/ui/bills/bills_screen.dart';
-import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
-// import 'package:capstone_14/ui/ewallet/ewallet_screen.dart';
-import 'package:capstone_14/ui/get_reward/get_reward_screen.dart';
-// import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
-// import 'package:capstone_14/ui/update_feature/update_feature_screen.dart';
-// import 'package:capstone_14/ui/voucher/voucher_screen.dart';
+import 'package:capstone_14/view/bills/bills_screen.dart';
+import 'package:capstone_14/view/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/view/ewallet/ewallet_screen.dart';
-import 'package:capstone_14/view/get_reward/detail_reward_screen.dart';
+import 'package:capstone_14/view/get_reward/get_reward_screen.dart';
+import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/view/update_feature/update_feature_screen.dart';
 import 'package:capstone_14/view/voucher/voucher_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -15,7 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../constant/textstyle_constant.dart';
 import '../../widgets/top_bar_page.dart';
-// import '../get_reward/detail_reward_screen.dart';
+import '../get_reward/detail_reward_screen.dart';
 import '../notification/notification_screen.dart';
 
 class HomePage extends StatefulWidget {
@@ -62,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DetailRewardScreen(),
+                      builder: (context) => DetailRewardScreen(),
                     ),
                   );
                 },
@@ -112,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const DetailRewardScreen(),
+                      builder: (context) => DetailRewardScreen(),
                     ),
                   );
                 },

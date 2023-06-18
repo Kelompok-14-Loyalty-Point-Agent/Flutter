@@ -1,12 +1,10 @@
-import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
-import 'package:capstone_14/view/profile/profile_screen.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/notification_card/notification_card_widget.dart';
-// import '../history_transaction/history_transaction_screen.dart';
+import '../history_transaction/history_transaction_screen.dart';
 import '../home/home_page.dart';
-// import '../profile/profile_screen.dart';
+import '../profile/profile_screen.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({super.key});

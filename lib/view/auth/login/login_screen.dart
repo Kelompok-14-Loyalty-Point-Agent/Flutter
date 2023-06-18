@@ -1,8 +1,7 @@
 import 'package:capstone_14/service/auth/login/login_service.dart';
-import 'package:capstone_14/ui/auth/register/register_screen.dart';
-import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
-import 'package:capstone_14/ui/forgot_password/forgot_password_screen.dart';
-import 'package:capstone_14/ui/home/home_page.dart';
+import 'package:capstone_14/view/auth/register/register_screen.dart';
+import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/view/forgot_password/forgot_password_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
@@ -240,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             );
                             if (successLogin) {
                               // ignore: use_build_context_synchronously
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const BottomNavBar(

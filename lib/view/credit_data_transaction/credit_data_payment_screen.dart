@@ -1,6 +1,5 @@
 import 'package:capstone_14/constant/provider_icon_constant.dart';
-// import 'package:capstone_14/ui/bottom_navbar_page/bottom_navbar.dart';
-// import 'package:capstone_14/ui/credit_data_transaction/credit_data_view_model.dart';
+import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';

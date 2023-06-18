@@ -1,11 +1,8 @@
 import 'package:capstone_14/model/bills/bills_models.dart';
-// import 'package:capstone_14/ui/history_transaction/history_transaction_screen.dart';
-import 'package:capstone_14/ui/home/home_page.dart';
 import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
+import 'package:capstone_14/view/home/home_page.dart';
 import 'package:capstone_14/view/profile/profile_screen.dart';
 import 'package:capstone_14/view/update_feature/update_feature_screen.dart';
-// import 'package:capstone_14/ui/profile/profile_screen.dart';
-// import 'package:capstone_14/ui/update_feature/update_feature_screen.dart';
 import 'package:capstone_14/widgets/bills_widget/bills_container_widget.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';

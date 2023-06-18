@@ -1,10 +1,13 @@
-import 'package:capstone_14/ui/faq/faq2_screen.dart';
+// import 'package:capstone_14/ui/faq/faq2_screen.dart';
+import 'package:capstone_14/view/faq/faq2_screen.dart';
+import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
+import 'package:capstone_14/view/profile/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/textstyle_constant.dart';
-import '../history_transaction/history_transaction_screen.dart';
+// import '../history_transaction/history_transaction_screen.dart';
 import '../home/home_page.dart';
-import '../profile/profile_screen.dart';
+// import '../profile/profile_screen.dart';
 
 class FaqScreen extends StatefulWidget {
   const FaqScreen({Key? key}) : super(key: key);
