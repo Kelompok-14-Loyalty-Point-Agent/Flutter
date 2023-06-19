@@ -1,6 +1,8 @@
 // import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../constant/provider_icon_constant.dart';
+
 class CreditDataProvider extends ChangeNotifier {
   int _selectedIndex = 0;
   int get selectedIndex => _selectedIndex;
@@ -46,10 +48,13 @@ class PaymentMethodProvider with ChangeNotifier {
 }
 
 class UserData extends ChangeNotifier {
+  ProviderIconModel? providerIcon;
+
   String phoneNumber = '';
 
   void setPhoneNumber(String value) {
     phoneNumber = value;
+    providerIcon = providerIconModel(value);
     notifyListeners();
   }
 }

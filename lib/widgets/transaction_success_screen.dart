@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class TransactionSuccesScreen extends StatelessWidget {
   final String method;
-  final String price;
+  final int price;
   final String product;
   const TransactionSuccesScreen({
     Key? key,

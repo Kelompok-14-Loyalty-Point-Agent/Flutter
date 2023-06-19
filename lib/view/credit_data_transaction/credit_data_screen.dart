@@ -142,7 +142,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   SizedBox(
-                                    width: 295,
+                                    width: 262,
                                     height: 45,
                                     child: TextField(
                                       onChanged: (value) {
@@ -176,8 +176,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                                         suffixIcon: _phoneNumberController
                                                     .text.length >=
                                                 4
-                                            ? providerIcons(
-                                                _phoneNumberController.text)
+                                            ? userData.providerIcon!.namaIcon
                                             : null,
                                       ),
                                     ),
@@ -197,10 +196,16 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                                     children: [
                                       Row(
                                         children: [
-                                          buttonBuilder(const CreditButton(),
-                                              "Credit", 0),
                                           buttonBuilder(
-                                              const DataButton(), "Data", 1),
+                                            const CreditButton(),
+                                            "Credit",
+                                            0,
+                                          ),
+                                          buttonBuilder(
+                                            const DataButton(),
+                                            "Data",
+                                            1,
+                                          ),
                                         ],
                                       ),
                                       if (_selectedIndex == 0)

@@ -83,7 +83,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             SizedBox(
-                              width: 295,
+                              width: 262,
                               height: 45,
                               child: TextFormField(
                                 keyboardType: TextInputType.number,
@@ -110,9 +110,10 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                                   ),
                                   contentPadding:
                                       const EdgeInsets.fromLTRB(10, 0, 0, 10),
-                                  suffixIcon: userData.phoneNumber.length >= 4
-                                      ? providerIcons(userData.phoneNumber)
-                                      : null,
+                                  suffixIcon:
+                                      _phoneNumberController.text.length >= 4
+                                          ? userData.providerIcon!.namaIcon
+                                          : null,
                                 ),
                               ),
                             ),
@@ -275,7 +276,8 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                           builder: (context) => TransactionSuccesScreen(
                             product: widget.selectedTestModel.product!,
                             method: paymentMethodProvider.selectedPaymentMethod,
-                            price: widget.selectedTestModel.price!,
+                            price: int.parse(widget.selectedTestModel.price!
+                                .replaceAll(".", "")),
                           ),
                         ),
                       );

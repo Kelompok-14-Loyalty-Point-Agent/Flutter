@@ -1,11 +1,10 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
+import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
-import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import '../../constant/provider_icon_constant.dart';
+import 'package:provider/provider.dart';
 
 class DetailRewardScreen extends StatefulWidget {
   const DetailRewardScreen({super.key});
@@ -36,6 +35,7 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final userData = Provider.of<UserData>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -135,9 +135,11 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                           ),
                           contentPadding:
                               const EdgeInsets.fromLTRB(5, 0, 0, 10),
-                          suffixIcon: _phoneNumberController.text.length >= 4
-                              ? providerIcons(_phoneNumberController.text)
-                              : null,
+                          suffixIcon: _phoneNumberController
+                                                      .text.length >=
+                                                  4
+                                              ? userData.providerIcon!.namaIcon
+                                              : null,
                         ),
                       ),
                     ),
