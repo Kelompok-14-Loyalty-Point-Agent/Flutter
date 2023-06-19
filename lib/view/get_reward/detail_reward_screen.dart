@@ -158,11 +158,11 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
               ),
               ButtonCustome(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const TransactionSuccesScreen()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) =>
+                  //             const TransactionSuccesScreen()));
                 },
                 title: 'Reedem your point',
                 backgroundColour: const Color(0xff030F51),

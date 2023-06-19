@@ -34,7 +34,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
           : Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
+                  padding: const EdgeInsets.only(top: 48),
                   child: TopBarPage(
                     icon: Image.asset(
                       "assets/icons/swap-coin.png",

@@ -21,6 +21,14 @@ class CreditDataScreen extends StatefulWidget {
   State<CreditDataScreen> createState() => _CreditDataScreenState();
 }
 
+class UserPhoneNumber {
+  String phoneNumber;
+
+  UserPhoneNumber({
+    required this.phoneNumber,
+  });
+}
+
 class _CreditDataScreenState extends State<CreditDataScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
   final CreditDataProvider _creditDataProvider = CreditDataProvider();
@@ -51,6 +59,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
 
   Widget buttonBuilder(Widget selectedButton, String title, int myIndex) {
     final creditDataProvider = Provider.of<CreditDataProvider>(context);
+
     return GestureDetector(
       onTap: () {
         creditDataProvider.selectedIndex = myIndex;
@@ -92,6 +101,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final userData = Provider.of<UserData>(context, listen: false);
     return ChangeNotifierProvider(
       create: (context) => _creditDataProvider,
       child: Scaffold(
@@ -100,7 +110,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
             ? pages[index ?? 0]
             : SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 62),
+                  padding: const EdgeInsets.only(top: 48),
                   child: Column(
                     children: [
                       TopBarPage(
@@ -135,6 +145,9 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                                     width: 295,
                                     height: 45,
                                     child: TextField(
+                                      onChanged: (value) {
+                                        userData.setPhoneNumber(value);
+                                      },
                                       keyboardType: TextInputType.number,
                                       inputFormatters: <TextInputFormatter>[
                                         FilteringTextInputFormatter.digitsOnly,
@@ -179,7 +192,7 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
                                 ],
                               ),
                             ),
-                            _phoneNumberController.text.length >= 4
+                            _phoneNumberController.text.length >= 10
                                 ? Column(
                                     children: [
                                       Row(

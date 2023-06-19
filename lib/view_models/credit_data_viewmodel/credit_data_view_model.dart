@@ -1,3 +1,4 @@
+// import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:flutter/foundation.dart';
 
 class CreditDataProvider extends ChangeNotifier {
@@ -40,6 +41,15 @@ class PaymentMethodProvider with ChangeNotifier {
 
   void toggleDropdown() {
     isDropdownOpen = !isDropdownOpen;
+    notifyListeners();
+  }
+}
+
+class UserData extends ChangeNotifier {
+  String phoneNumber = '';
+
+  void setPhoneNumber(String value) {
+    phoneNumber = value;
     notifyListeners();
   }
 }

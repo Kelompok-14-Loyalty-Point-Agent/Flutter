@@ -53,7 +53,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           ? pages[index ?? 0]
           : SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(top: 62),
+                padding: const EdgeInsets.only(top: 48),
                 child: Column(
                   children: [
                     TopBarPage(
