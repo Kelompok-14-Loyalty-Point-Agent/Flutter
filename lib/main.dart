@@ -25,6 +25,9 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => UserData(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => CreditDataViewModel(),
+        ),
       ],
       child: const MyApp(),
     ),
