@@ -61,11 +61,11 @@ class UserData extends ChangeNotifier {
   }
 }
 
-class CreditDataViewModel with ChangeNotifier {
+class CreditDataViewModel extends ChangeNotifier {
   int _selectedIndex = 0;
   int get selectedIndex => _selectedIndex;
   final TextEditingController phoneNumberController = TextEditingController();
-  final CreditDataProvider creditDataProvider = CreditDataProvider();
+  // final CreditDataProvider creditDataProvider = CreditDataProvider();
   String phoneNumber = '';
   ProviderIconModel? providerIcons;
   ProviderIconModel? data;
