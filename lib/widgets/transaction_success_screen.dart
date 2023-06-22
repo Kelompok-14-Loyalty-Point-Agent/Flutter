@@ -9,11 +9,13 @@ class TransactionSuccesScreen extends StatelessWidget {
   final String method;
   final int price;
   final String product;
+  final double point;
   const TransactionSuccesScreen({
     Key? key,
     required this.method,
     required this.price,
     required this.product,
+    required this.point,
   }) : super(key: key);
 
   @override
@@ -134,7 +136,7 @@ class TransactionSuccesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "You get 7 tPoint",
+                      point.toString(),
                       style: TextStyleConst.description3WithColor(
                         const Color(0xffB26801),
                       ),

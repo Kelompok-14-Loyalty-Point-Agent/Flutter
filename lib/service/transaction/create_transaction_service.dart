@@ -15,6 +15,7 @@ class CreateTransactionService {
     required String paymentMethod,
     required int userId,
     required int price,
+    required double point,
     required String product,
   }) async {
     try {
@@ -48,6 +49,7 @@ class CreateTransactionService {
               method: paymentMethod,
               price: price,
               product: product,
+              point: point,
             ),
           ),
         );

@@ -276,6 +276,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                             product: productName(widget.selectedStock.stockId!),
                             method: paymentMethodProvider.selectedPaymentMethod,
                             price: widget.selectedStock.price!,
+                            point: widget.selectedStock.price! / 1000,
                           ),
                         ),
                       );
