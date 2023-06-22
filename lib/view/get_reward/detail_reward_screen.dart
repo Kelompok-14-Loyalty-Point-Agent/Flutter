@@ -15,7 +15,7 @@ class DetailRewardScreen extends StatefulWidget {
 
 class _DetailRewardScreenState extends State<DetailRewardScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
-  int _selectedIndex = 0;
+  // int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -35,7 +35,7 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final userData = Provider.of<UserData>(context, listen: false);
+    // final userData = Provider.of<CreditDataViewModel>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -135,11 +135,7 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                           ),
                           contentPadding:
                               const EdgeInsets.fromLTRB(5, 0, 0, 10),
-                          suffixIcon: _phoneNumberController
-                                                      .text.length >=
-                                                  4
-                                              ? userData.providerIcon!.namaIcon
-                                              : null,
+                          suffixIcon: CreditDataViewModel().data?.namaIcon,
                         ),
                       ),
                     ),

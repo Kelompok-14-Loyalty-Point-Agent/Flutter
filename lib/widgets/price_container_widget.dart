@@ -35,6 +35,7 @@ class PriceContainerWidget extends StatelessWidget {
               color: Color(0xFF030F51),
             ),
           ),
+          const SizedBox(height: 4),
           Text(
             price,
             style: const TextStyle(

@@ -1,54 +1,48 @@
+import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CreditButton extends StatefulWidget {
-  const CreditButton({super.key});
+  const CreditButton({Key? key}) : super(key: key);
 
   @override
   State<CreditButton> createState() => _CreditButtonState();
 }
 
 class _CreditButtonState extends State<CreditButton> {
-  TestModel? selectTestModel;
+  StockModel? selectedStock;
 
-  List<TestModel> listTest = [
-    TestModel(amount: "5.000", price: "7.000", product: "Credit"),
-    TestModel(amount: "10.000", price: "11.000", product: "Credit"),
-    TestModel(amount: "15.000", price: "16.500", product: "Credit"),
-    TestModel(amount: "25.000", price: "27.500", product: "Credit"),
-    TestModel(amount: "30.000", price: "32.000", product: "Credit"),
-    TestModel(amount: "50.000", price: "52.000", product: "Credit"),
-    TestModel(amount: "100.000", price: "102.000", product: "Credit"),
-    TestModel(amount: "200.000", price: "201.500", product: "Credit"),
-    TestModel(amount: "300.000", price: "301.000", product: "Credit"),
-    TestModel(amount: "500.000", price: "498.500", product: "Credit"),
-    TestModel(amount: "1.000.000", price: "999.000", product: "Credit"),
-  ];
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
+    return Consumer<CreditDataViewModel>(
+      builder: (context, value, child) => Column(
         children: [
-          Wrap(
-            children: List.generate(
-              listTest.length,
-              (index) => GestureDetector(
+          GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 70,
+            ),
+            shrinkWrap: true,
+            itemCount: value.hasilData.length,
+            itemBuilder: (context, index) {
+              final stockModel = value.hasilData[index];
+              return GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectTestModel = listTest[index];
+                    selectedStock = stockModel;
                   });
-                  print(selectTestModel);
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
-                    product: listTest[index].product!,
-                    amount: listTest[index].amount!,
-                    price: "Pay : Rp ${listTest[index].price!}",
-                    containerShadow: selectTestModel == listTest[index]
+                    product: '${stockModel.stockId}',
+                    amount: '${stockModel.stock}',
+                    price: "Pay : Rp ${stockModel.price}",
+                    containerShadow: selectedStock == stockModel
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
                             blurRadius: 2,
@@ -63,8 +57,8 @@ class _CreditButtonState extends State<CreditButton> {
                           ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
           Padding(
             padding: const EdgeInsets.only(right: 32, top: 18, bottom: 21),
@@ -80,7 +74,7 @@ class _CreditButtonState extends State<CreditButton> {
                 Navigator.pushNamed(
                   context,
                   '/creditDataPaymentScreen',
-                  arguments: selectTestModel,
+                  arguments: selectedStock,
                 );
               },
             ),

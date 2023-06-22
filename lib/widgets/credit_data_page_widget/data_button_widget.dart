@@ -1,6 +1,9 @@
+import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DataButton extends StatefulWidget {
   const DataButton({super.key});
@@ -10,45 +13,35 @@ class DataButton extends StatefulWidget {
 }
 
 class _DataButtonState extends State<DataButton> {
-  TestModel? selectTestModel;
-
-  List<TestModel> listTest = [
-    TestModel(amount: "1GB 3D", price: "5.000", product: "Data"),
-    TestModel(amount: "3GB 3D", price: "10.000", product: "Data"),
-    TestModel(amount: "8GB 7D", price: "7.000", product: "Data"),
-    TestModel(amount: "16GB 7D", price: "32.000", product: "Data"),
-    TestModel(amount: "32GB 7D", price: "50.000", product: "Data"),
-    TestModel(amount: "10GB 14D", price: "25.000", product: "Data"),
-    TestModel(amount: "14GB 14D", price: "30.000", product: "Data"),
-    TestModel(amount: "28GB 14D", price: "45.000", product: "Data"),
-    TestModel(amount: "10GB 30D", price: "40.000", product: "Data"),
-    TestModel(amount: "50GB 30D", price: "80.000", product: "Data"),
-    TestModel(amount: "100GB", price: "120.000", product: "Data"),
-  ];
+  StockModel? selectedStock;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16),
-      child: Column(
+    return Consumer<CreditDataViewModel>(
+      builder: (context, value, child) => Column(
         children: [
-          Wrap(
-            children: List.generate(
-              listTest.length,
-              (index) => GestureDetector(
+          GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 70,
+            ),
+            shrinkWrap: true,
+            itemCount: value.hasilData2.length,
+            itemBuilder: (context, index) {
+              final stockModel = value.hasilData2[index];
+              return GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectTestModel = listTest[index];
+                    selectedStock = stockModel;
                   });
-                  print(selectTestModel);
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
-                    product: listTest[index].product!,
-                    amount: listTest[index].amount!,
-                    price: "Pay : Rp ${listTest[index].price!}",
-                    containerShadow: selectTestModel == listTest[index]
+                    product: '${stockModel.stockId}',
+                    amount: '${stockModel.stock} GB',
+                    price: "Pay : Rp ${stockModel.price}",
+                    containerShadow: selectedStock == stockModel
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
                             blurRadius: 2,
@@ -63,8 +56,8 @@ class _DataButtonState extends State<DataButton> {
                           ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
           Padding(
             padding: const EdgeInsets.only(right: 32, top: 18, bottom: 21),
@@ -80,7 +73,7 @@ class _DataButtonState extends State<DataButton> {
                 Navigator.pushNamed(
                   context,
                   '/creditDataPaymentScreen',
-                  arguments: selectTestModel,
+                  arguments: selectedStock,
                 );
               },
             ),
@@ -89,16 +82,4 @@ class _DataButtonState extends State<DataButton> {
       ),
     );
   }
-}
-
-class TestModel {
-  String? amount;
-  String? price;
-  String? product;
-
-  TestModel({
-    this.amount,
-    this.price,
-    this.product,
-  });
 }
