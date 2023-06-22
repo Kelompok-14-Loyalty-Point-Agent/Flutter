@@ -19,7 +19,11 @@ class _DataButtonState extends State<DataButton> {
     return Consumer<CreditDataViewModel>(
       builder: (context, value, child) => Column(
         children: [
-          ListView.builder(
+          GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 85,
+            ),
             shrinkWrap: true,
             itemCount: value.hasilData2.length,
             itemBuilder: (context, index) {
@@ -37,20 +41,19 @@ class _DataButtonState extends State<DataButton> {
                     product: '${value.hasilData2[index]['stockId']}',
                     amount: '${value.hasilData2[index]['stock']} GB',
                     price: "Pay : Rp ${value.hasilData2[index]['price']}",
-                    containerShadow:
-                        selectTestModel == value.hasilData2[index]
-                            ? BoxShadow(
-                                color: Colors.blue.withOpacity(1),
-                                blurRadius: 2,
-                                spreadRadius: 2,
-                              )
-                            : BoxShadow(
-                                offset: const Offset(2, 3),
-                                color: Color.fromARGB(0.25.toInt(), 0, 0, 0)
-                                    .withOpacity(0.3),
-                                blurRadius: 8,
-                                spreadRadius: 2,
-                              ),
+                    containerShadow: selectTestModel == value.hasilData2[index]
+                        ? BoxShadow(
+                            color: Colors.blue.withOpacity(1),
+                            blurRadius: 2,
+                            spreadRadius: 2,
+                          )
+                        : BoxShadow(
+                            offset: const Offset(2, 3),
+                            color: Color.fromARGB(0.25.toInt(), 0, 0, 0)
+                                .withOpacity(0.3),
+                            blurRadius: 8,
+                            spreadRadius: 2,
+                          ),
                   ),
                 ),
               );

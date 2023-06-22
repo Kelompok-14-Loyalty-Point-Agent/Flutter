@@ -1,3 +1,4 @@
+import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
@@ -13,14 +14,19 @@ class CreditButton extends StatefulWidget {
 }
 
 class _CreditButtonState extends State<CreditButton> {
-  TestModel? selectTestModel;
+  StockModel? selectTestModel;
+  // List<StockModel> listCreditModel = CreditDataViewModel.hasilData.length;
 
   @override
   Widget build(BuildContext context) {
     return Consumer<CreditDataViewModel>(
       builder: (context, value, child) => Column(
         children: [
-          ListView.builder(
+          GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisExtent: 85,
+            ),
             shrinkWrap: true,
             itemCount: value.hasilData.length,
             itemBuilder: (context, index) {
@@ -28,7 +34,7 @@ class _CreditButtonState extends State<CreditButton> {
                 onTap: () {
                   setState(() {
                     // selectTestModel = listTest[index];
-                    value.hasilData[index];
+                    selectTestModel == value.hasilData[index];
                   });
                   // print(selectTestModel);
                 },
