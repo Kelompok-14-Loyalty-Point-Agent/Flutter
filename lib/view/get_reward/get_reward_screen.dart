@@ -5,7 +5,9 @@ import 'package:capstone_14/widgets/article_box_custom.dart';
 import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../view_models/point_view_model.dart';
 import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
@@ -19,12 +21,20 @@ class GetRewardScreen extends StatefulWidget {
 
 class _GetRewardScreenState extends State<GetRewardScreen> {
   int? index;
+  double? point;
+  late PointViewModel pointViewModel;
 
   final List<Widget> pages = [
     const HomePage(),
     const HistoryTransaction(),
     const ProfileScreen(),
   ];
+
+  @override
+  void initState() {
+    pointViewModel = Provider.of<PointViewModel>(context, listen: false);
+    pointViewModel.fetchPoint(1);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,14 +98,17 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                                     Colors.white)),
                             const SizedBox(height: 5),
                             Text(
-                              '1030',
+                              (point ?? 0).toString(),
                               style: TextStyleConst.description1WithColor(
                                   Colors.white),
                             ),
-                            const SizedBox(height: 5),
-                            Text('Redeem your point before December 31, 2023',
-                                style: TextStyleConst.description4WithColor(
-                                    Colors.white)),
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 5, top: 5),
+                              child: Text(
+                                  'Redeem your point before December 31, 2023',
+                                  style: TextStyleConst.description4WithColor(
+                                      Colors.white)),
+                            ),
                           ],
                         ),
                       ),
@@ -115,7 +128,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailRewardScreen(),
+                              builder: (context) => const DetailRewardScreen(),
                             ),
                           );
                         },
@@ -132,7 +145,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailRewardScreen(),
+                              builder: (context) => const DetailRewardScreen(),
                             ),
                           );
                         },
@@ -148,7 +161,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailRewardScreen(),
+                              builder: (context) => const DetailRewardScreen(),
                             ),
                           );
                         },
@@ -164,7 +177,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => DetailRewardScreen(),
+                              builder: (context) => const DetailRewardScreen(),
                             ),
                           );
                         },
