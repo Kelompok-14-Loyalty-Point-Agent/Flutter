@@ -30,8 +30,7 @@ class UserPhoneNumber {
 }
 
 class _CreditDataScreenState extends State<CreditDataScreen> {
-  final TextEditingController _phoneNumberController = TextEditingController();
-  final CreditDataProvider _creditDataProvider = CreditDataProvider();
+  final CreditDataViewModel _creditDataProvider = CreditDataViewModel();
   late CreditDataViewModel vm;
 
   @override
@@ -96,183 +95,179 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final userData = Provider.of<UserData>(context, listen: false);
     final creditDataProvider = Provider.of<CreditDataViewModel>(context);
-    return ChangeNotifierProvider(
-      create: (context) => _creditDataProvider,
-      child: WillPopScope(
-        onWillPop: () async {
-          vm.data = null;
-          vm.phoneNumberController.clear();
-          Navigator.pop(context);
-          return false;
-        },
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: index != null
-              ? pages[index ?? 0]
-              : SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 48),
-                    child: Consumer<CreditDataViewModel>(
-                      builder: (context, value, child) => Column(
-                        children: [
-                          TopBarPage(
-                            icon: Image.asset(
-                              "assets/icons/simcard.png",
-                              scale: 4,
-                            ),
-                            useContainer: true,
+    return WillPopScope(
+      onWillPop: () async {
+        vm.data = null;
+        vm.phoneNumberController.clear();
+        Navigator.pop(context);
+        return false;
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: index != null
+            ? pages[index ?? 0]
+            : SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 48),
+                  child: Consumer<CreditDataViewModel>(
+                    builder: (context, value, child) => Column(
+                      children: [
+                        TopBarPage(
+                          icon: Image.asset(
+                            "assets/icons/simcard.png",
+                            scale: 4,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(32, 14, 0, 0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  "Credit/Data",
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    color: Color(
-                                      0xFF1d1d1d,
-                                    ),
+                          useContainer: true,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(32, 14, 0, 0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "Credit/Data",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(
+                                    0xFF1d1d1d,
                                   ),
                                 ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 15),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SizedBox(
-                                        width: 262,
-                                        height: 45,
-                                        child: TextField(
-                                          onChanged: (value) {
-                                            vm.getData(value);
-                                          },
-                                          keyboardType: TextInputType.number,
-                                          inputFormatters: <TextInputFormatter>[
-                                            FilteringTextInputFormatter
-                                                .digitsOnly,
-                                          ],
-                                          controller: vm.phoneNumberController,
-                                          style: const TextStyle(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: Color(0xFF1d1d1d),
-                                          ),
-                                          decoration: InputDecoration(
-                                            hintText: "Phone Number",
-                                            hintStyle: const TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                            floatingLabelBehavior:
-                                                FloatingLabelBehavior.always,
-                                            border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(6),
-                                            ),
-                                            contentPadding:
-                                                const EdgeInsets.fromLTRB(
-                                                    10, 0, 0, 10),
-                                            suffixIcon: vm.data?.namaIcon,
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(right: 32),
-                                        child: Image.asset(
-                                          "assets/icons/contact_icon.png",
-                                          scale: 3,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                vm.phoneNumberController.text.length >= 10
-                                    ? Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              buttonBuilder(
-                                                const CreditButton(),
-                                                "Credit",
-                                                0,
-                                              ),
-                                              buttonBuilder(
-                                                const DataButton(),
-                                                "Data",
-                                                1,
-                                              ),
-                                            ],
-                                          ),
-                                          if (creditDataProvider.selectedIndex ==
-                                              0)
-                                            const CreditButton(),
-                                          if (_creditDataProvider.selectedIndex ==
-                                              1)
-                                            const DataButton(),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 15),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SizedBox(
+                                      width: 262,
+                                      height: 45,
+                                      child: TextField(
+                                        onChanged: (value) {
+                                          vm.getData(value);
+                                        },
+                                        keyboardType: TextInputType.number,
+                                        inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter
+                                              .digitsOnly,
                                         ],
-                                      )
-                                    : const Text(
-                                        "Input your phone number.",
-                                        style: TextStyle(
+                                        controller: vm.phoneNumberController,
+                                        style: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w400,
-                                          color: Color(
-                                            0xFF008284,
+                                          color: Color(0xFF1d1d1d),
+                                        ),
+                                        decoration: InputDecoration(
+                                          hintText: "Phone Number",
+                                          hintStyle: const TextStyle(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
                                           ),
+                                          floatingLabelBehavior:
+                                              FloatingLabelBehavior.always,
+                                          border: OutlineInputBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(6),
+                                          ),
+                                          contentPadding:
+                                              const EdgeInsets.fromLTRB(
+                                                  10, 0, 0, 10),
+                                          suffixIcon: vm.data?.namaIcon,
                                         ),
                                       ),
-                              ],
-                            ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 32),
+                                      child: Image.asset(
+                                        "assets/icons/contact_icon.png",
+                                        scale: 3,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              vm.phoneNumberController.text.length >= 10
+                                  ? Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            buttonBuilder(
+                                              const CreditButton(),
+                                              "Credit",
+                                              0,
+                                            ),
+                                            buttonBuilder(
+                                              const DataButton(),
+                                              "Data",
+                                              1,
+                                            ),
+                                          ],
+                                        ),
+                                        if (creditDataProvider.selectedIndex ==
+                                            0)
+                                          const CreditButton(),
+                                        if (_creditDataProvider.selectedIndex ==
+                                            1)
+                                          const DataButton(),
+                                      ],
+                                    )
+                                  : const Text(
+                                      "Input your phone number.",
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Color(
+                                          0xFF008284,
+                                        ),
+                                      ),
+                                    ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-          bottomNavigationBar: SizedBox(
-            height: 50,
-            child: BottomNavigationBar(
-              currentIndex: index ?? 0,
-              onTap: (int i) {
-                setState(() {
-                  index = i;
-                });
-              },
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.grey,
-              iconSize: 20,
-              backgroundColor: const Color(0xFF030F51),
-              showSelectedLabels: false,
-              showUnselectedLabels: false,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.only(left: 100),
-                    child: Icon(Icons.home),
-                  ),
-                  label: "Home",
+              ),
+        bottomNavigationBar: SizedBox(
+          height: 50,
+          child: BottomNavigationBar(
+            currentIndex: index ?? 0,
+            onTap: (int i) {
+              setState(() {
+                index = i;
+              });
+            },
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+            iconSize: 20,
+            backgroundColor: const Color(0xFF030F51),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(left: 100),
+                  child: Icon(Icons.home),
                 ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.history_edu_outlined),
-                  label: "history transaction",
+                label: "Home",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history_edu_outlined),
+                label: "history transaction",
+              ),
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(right: 100),
+                  child: Icon(Icons.person),
                 ),
-                BottomNavigationBarItem(
-                  icon: Padding(
-                    padding: EdgeInsets.only(right: 100),
-                    child: Icon(Icons.person),
-                  ),
-                  label: "profile",
-                ),
-              ],
-            ),
+                label: "profile",
+              ),
+            ],
           ),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
@@ -12,7 +13,7 @@ class DataButton extends StatefulWidget {
 }
 
 class _DataButtonState extends State<DataButton> {
-  TestModel? selectTestModel;
+  StockModel? selectedStock;
 
   @override
   Widget build(BuildContext context) {
@@ -22,26 +23,25 @@ class _DataButtonState extends State<DataButton> {
           GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisExtent: 85,
+              mainAxisExtent: 70,
             ),
             shrinkWrap: true,
             itemCount: value.hasilData2.length,
             itemBuilder: (context, index) {
+              final stockModel = value.hasilData2[index];
               return GestureDetector(
                 onTap: () {
                   setState(() {
-                    // selectTestModel = listTest[index];
-                    value.hasilData2[index];
+                    selectedStock = stockModel;
                   });
-                  // print(selectTestModel);
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
-                    product: '${value.hasilData2[index]['stockId']}',
-                    amount: '${value.hasilData2[index]['stock']} GB',
-                    price: "Pay : Rp ${value.hasilData2[index]['price']}",
-                    containerShadow: selectTestModel == value.hasilData2[index]
+                    product: '${stockModel.stockId}',
+                    amount: '${stockModel.stock} GB',
+                    price: "Pay : Rp ${stockModel.price}",
+                    containerShadow: selectedStock == stockModel
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
                             blurRadius: 2,
@@ -73,7 +73,7 @@ class _DataButtonState extends State<DataButton> {
                 Navigator.pushNamed(
                   context,
                   '/creditDataPaymentScreen',
-                  arguments: selectTestModel,
+                  arguments: selectedStock,
                 );
               },
             ),
@@ -82,16 +82,4 @@ class _DataButtonState extends State<DataButton> {
       ),
     );
   }
-}
-
-class TestModel {
-  String? amount;
-  String? price;
-  String? product;
-
-  TestModel({
-    this.amount,
-    this.price,
-    this.product,
-  });
 }

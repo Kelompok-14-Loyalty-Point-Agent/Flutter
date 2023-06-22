@@ -1,3 +1,4 @@
+import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/view/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/view/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
@@ -16,15 +17,15 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => CreditDataProvider(),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => CreditDataProvider(),
+        // ),
         ChangeNotifierProvider(
           create: (_) => PaymentMethodProvider(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => UserData(),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => UserData(),
+        // ),
         ChangeNotifierProvider(
           create: (_) => CreditDataViewModel(),
         ),
@@ -57,9 +58,9 @@ class MyApp extends StatelessWidget {
             return _buildFadeRoute(const CreditDataScreen());
 
           case CreditDataPaymentScreen.routeName:
-            final selectedTestModel = settings.arguments as TestModel;
+            final selectedStock = settings.arguments as StockModel;
             return _buildFadeRoute(
-                CreditDataPaymentScreen(selectedTestModel: selectedTestModel));
+                CreditDataPaymentScreen(selectedStock: selectedStock));
           default:
             return null;
         }

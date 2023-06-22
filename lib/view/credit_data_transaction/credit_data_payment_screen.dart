@@ -1,5 +1,7 @@
 // import 'package:capstone_14/constant/provider_icon_constant.dart';
 // import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
+import 'package:capstone_14/constant/product_constant.dart';
+import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
@@ -12,11 +14,11 @@ import 'package:provider/provider.dart';
 
 class CreditDataPaymentScreen extends StatefulWidget {
   static const routeName = '/creditDataPaymentScreen';
-  final TestModel selectedTestModel;
+  final StockModel selectedStock;
 
   const CreditDataPaymentScreen({
     Key? key,
-    required this.selectedTestModel,
+    required this.selectedStock,
   }) : super(key: key);
 
   @override
@@ -25,6 +27,8 @@ class CreditDataPaymentScreen extends StatefulWidget {
 }
 
 class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
+  final CreditDataViewModel _creditDataProvider = CreditDataViewModel();
+  late CreditDataViewModel vm;
   final TextEditingController _phoneNumberController = TextEditingController();
   PaymentMethodProvider paymentMethodProvider = PaymentMethodProvider();
   bool isDropdownOpen = false;
@@ -33,28 +37,25 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
 
   @override
   void initState() {
+    vm = Provider.of<CreditDataViewModel>(context, listen: false);
     super.initState();
-    _phoneNumberController.addListener(() {
-      setState(() {});
-    });
   }
 
   @override
   void dispose() {
-    _phoneNumberController.dispose();
+    vm.phoneNumberController;
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    final userData = Provider.of<UserData>(context);
     return ChangeNotifierProvider(
       create: (context) => paymentMethodProvider,
       child: Scaffold(
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 62),
+            padding: const EdgeInsets.only(top: 48),
             child: Column(
               children: [
                 TopBarPage(
@@ -90,8 +91,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly,
                                 ],
-                                controller: TextEditingController(
-                                    text: userData.phoneNumber),
+                                controller: vm.phoneNumberController,
                                 style: const TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -110,10 +110,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                                   ),
                                   contentPadding:
                                       const EdgeInsets.fromLTRB(10, 0, 0, 10),
-                                  suffixIcon:
-                                      _phoneNumberController.text.length >= 4
-                                          ? userData.providerIcon!.namaIcon
-                                          : null,
+                                  suffixIcon: vm.data?.namaIcon,
                                 ),
                               ),
                             ),
@@ -128,9 +125,9 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                         ),
                       ),
                       PriceContainerWidget(
-                        product: widget.selectedTestModel.product!,
-                        amount: widget.selectedTestModel.amount!,
-                        price: "Pay : Rp ${widget.selectedTestModel.price!}",
+                        product: widget.selectedStock.stockId!.toString(),
+                        amount: widget.selectedStock.stock!.toString(),
+                        price: "Pay : Rp ${widget.selectedStock.price!}",
                         containerShadow: BoxShadow(
                           offset: const Offset(2, 3),
                           color: Color.fromARGB(0.25.toInt(), 0, 0, 0)
@@ -268,19 +265,22 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                     fontWeight: FontWeight.w400,
                   ),
                   onPressed: () {
+                    print(widget.selectedStock.stockId!);
+                    print(productName(widget.selectedStock.stockId!));
                     if (paymentMethodProvider.selectedPaymentMethod !=
                         'Choose Payment') {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => TransactionSuccesScreen(
-                            product: widget.selectedTestModel.product!,
+                            product: productName(widget.selectedStock.stockId!),
                             method: paymentMethodProvider.selectedPaymentMethod,
-                            price: int.parse(widget.selectedTestModel.price!
-                                .replaceAll(".", "")),
+                            price: widget.selectedStock.price!,
                           ),
                         ),
                       );
+                      vm.data = null;
+                      vm.phoneNumberController.clear();
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

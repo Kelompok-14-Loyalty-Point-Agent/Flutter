@@ -1,19 +1,20 @@
 // import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
+import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/service/stock/credit_stock_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/provider_icon_constant.dart';
 
-class CreditDataProvider extends ChangeNotifier {
-  int _selectedIndex = 0;
-  int get selectedIndex => _selectedIndex;
+// class CreditDataProvider extends ChangeNotifier {
+//   int _selectedIndex = 0;
+//   int get selectedIndex => _selectedIndex;
 
-  set selectedIndex(int index) {
-    _selectedIndex = index;
-    notifyListeners();
-  }
-}
+//   set selectedIndex(int index) {
+//     _selectedIndex = index;
+//     notifyListeners();
+//   }
+// }
 
 class PaymentMethodProvider with ChangeNotifier {
   bool isDropdownOpen = false;
@@ -49,19 +50,7 @@ class PaymentMethodProvider with ChangeNotifier {
   }
 }
 
-class UserData extends ChangeNotifier {
-  ProviderIconModel? providerIcon;
-
-  String phoneNumber = '';
-
-  void setPhoneNumber(String value) {
-    phoneNumber = value;
-    providerIcon = providerIconModel(value);
-    notifyListeners();
-  }
-}
-
-class CreditDataViewModel extends ChangeNotifier {
+class CreditDataViewModel with ChangeNotifier {
   int _selectedIndex = 0;
   int get selectedIndex => _selectedIndex;
   final TextEditingController phoneNumberController = TextEditingController();
@@ -70,11 +59,28 @@ class CreditDataViewModel extends ChangeNotifier {
   ProviderIconModel? providerIcons;
   ProviderIconModel? data;
 
-  List hasilData = [];
-  List hasilData2 = [];
+  final CreditStockService _creditStockService = CreditStockService();
+  List<StockModel> hasilData = [];
+  List<StockModel> hasilData2 = [];
 
   set selectedIndex(int index) {
     _selectedIndex = index;
+    notifyListeners();
+  }
+
+  Future<void> getData(String value) async {
+    data = getProviderData(value);
+    print(data?.idCredit);
+    print(data?.idData);
+    print(data?.namaIcon);
+    if (data != null) {
+      hasilData = await _creditStockService.getCreditStock(data!.idCredit!);
+      hasilData2 = await _creditStockService.getCreditStock(data!.idData!);
+      print(hasilData);
+    } else {
+      hasilData.clear();
+      hasilData2.clear();
+    }
     notifyListeners();
   }
 
@@ -203,20 +209,5 @@ class CreditDataViewModel extends ChangeNotifier {
       phoneNumberController.clear();
       notifyListeners();
     }
-  }
-
-  Future<void> getData(String value) async {
-    data = getProviderData(value);
-    print(data?.idCredit);
-    print(data?.idData);
-    print(data?.namaIcon);
-    if (data != null) {
-      hasilData = await CreditStockService().getCreditStock(data!.idCredit!);
-      hasilData2 = await CreditStockService().getCreditStock(data!.idData!);
-      print(hasilData);
-    } else {
-      hasilData.clear();
-    }
-    notifyListeners();
   }
 }

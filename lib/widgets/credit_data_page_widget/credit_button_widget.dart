@@ -14,8 +14,7 @@ class CreditButton extends StatefulWidget {
 }
 
 class _CreditButtonState extends State<CreditButton> {
-  StockModel? selectTestModel;
-  // List<StockModel> listCreditModel = CreditDataViewModel.hasilData.length;
+  StockModel? selectedStock;
 
   @override
   Widget build(BuildContext context) {
@@ -25,26 +24,25 @@ class _CreditButtonState extends State<CreditButton> {
           GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisExtent: 85,
+              mainAxisExtent: 70,
             ),
             shrinkWrap: true,
             itemCount: value.hasilData.length,
             itemBuilder: (context, index) {
+              final stockModel = value.hasilData[index];
               return GestureDetector(
                 onTap: () {
                   setState(() {
-                    // selectTestModel = listTest[index];
-                    selectTestModel == value.hasilData[index];
+                    selectedStock = stockModel;
                   });
-                  // print(selectTestModel);
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 16, right: 32),
                   child: PriceContainerWidget(
-                    product: '${value.hasilData[index]['stockId']}',
-                    amount: '${value.hasilData[index]['stock']}',
-                    price: "Pay : Rp ${value.hasilData[index]['price']}",
-                    containerShadow: selectTestModel == value.hasilData[index]
+                    product: '${stockModel.stockId}',
+                    amount: '${stockModel.stock}',
+                    price: "Pay : Rp ${stockModel.price}",
+                    containerShadow: selectedStock == stockModel
                         ? BoxShadow(
                             color: Colors.blue.withOpacity(1),
                             blurRadius: 2,
@@ -76,7 +74,7 @@ class _CreditButtonState extends State<CreditButton> {
                 Navigator.pushNamed(
                   context,
                   '/creditDataPaymentScreen',
-                  arguments: selectTestModel,
+                  arguments: selectedStock,
                 );
               },
             ),

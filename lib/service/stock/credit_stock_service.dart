@@ -10,11 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../constant/api_constant.dart';
 
 class CreditStockService {
-  Future<List> getCreditStock(int id) async {
-    // int? idCreditAPI;
-
-    // ProviderIconModel(idCredit: idCreditAPI);
-
+  Future<List<StockModel>> getCreditStock(int id) async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
 
@@ -28,15 +24,12 @@ class CreditStockService {
         ),
       );
 
-      print(response.data);
+      final List<StockModel> stocks = (response.data['data'] as List)
+          .map((stock) => StockModel.fromMap(stock))
+          .toList();
 
-      // final List<StockResponseBody> listStock = (response.data['data'] as List)
-      //     .map((stock) => StockResponseBody.fromJson(stock))
-      //     .toList();
-
-      return response.data['data'];
+      return stocks;
     } on DioError {
-      // ignore: use_build_context_synchronously
       rethrow;
     }
   }
