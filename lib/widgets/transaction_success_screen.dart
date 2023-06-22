@@ -136,7 +136,7 @@ class TransactionSuccesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      point.toString(),
+                      "You get ${point.toString()} tPoint",
                       style: TextStyleConst.description3WithColor(
                         const Color(0xffB26801),
                       ),
