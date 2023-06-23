@@ -1,3 +1,5 @@
+import 'package:capstone_14/constant/product_constant.dart';
+import 'package:capstone_14/model/transaction/history_transaction_response_body.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -9,30 +11,16 @@ class HistoryButtonWidget extends StatefulWidget {
 }
 
 class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
-  List<HistoryModel> listHistory = [
-    HistoryModel(
-      image: Image.asset('assets/icons/simcard.png'),
-      transaction: "Data (Telkomsel)",
-      process: "Successful",
-      price: "45.000",
-      dateTime: "23/04/2023 | 13:23:10 WIB",
-    ),
-    HistoryModel(
-      image: Image.asset('assets/icons/simcard.png'),
-      transaction: "Credit (Axis)",
-      process: "Successful",
-      price: "52.000",
-      dateTime: "23/04/2023 | 13:23:10 WIB",
-    )
-  ];
+  List<TransactionHistoryModel> transactionHistoryData = [];
 
   @override
   Widget build(BuildContext context) {
+    print(transactionHistoryData.length);
     return Padding(
       padding: const EdgeInsets.only(top: 16),
       child: Wrap(
         children: List.generate(
-          listHistory.length,
+          transactionHistoryData.length,
           (index) => Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,11 +28,11 @@ class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
                 padding: const EdgeInsets.only(top: 10),
                 child: Row(
                   children: [
-                    SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: listHistory[index].image,
-                    ),
+                    // SizedBox(
+                    //   width: 20,
+                    //   height: 20,
+                    //   child: listHistory[index].image,
+                    // ),
                     const SizedBox(
                       width: 23,
                     ),
@@ -53,14 +41,14 @@ class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            listHistory[index].transaction,
+                            productName(transactionHistoryData[index].stockId!),
                             style: GoogleFonts.expletusSans(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,
                                 color: Colors.black),
                           ),
                           Text(
-                            listHistory[index].process,
+                            transactionHistoryData[index].status!,
                             style: GoogleFonts.ptSans(
                                 fontSize: 10,
                                 fontWeight: FontWeight.w400,
@@ -73,14 +61,14 @@ class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          listHistory[index].price,
+                          transactionHistoryData[index].price!.toString(),
                           style: GoogleFonts.ptSans(
                               fontSize: 10,
                               fontWeight: FontWeight.w400,
                               color: Colors.black),
                         ),
                         Text(
-                          listHistory[index].dateTime,
+                          transactionHistoryData[index].createdAt!.toString(),
                           style: GoogleFonts.ptSans(
                               fontSize: 10,
                               fontWeight: FontWeight.w400,
@@ -94,7 +82,7 @@ class _HistoryButtonWidgetState extends State<HistoryButtonWidget> {
               const SizedBox(
                 height: 10,
               ),
-              if (listHistory.length > 1)
+              if (transactionHistoryData.length > 1)
                 const Divider(
                   color: Colors.black,
                   height: 1,
