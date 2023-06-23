@@ -6,6 +6,7 @@ import 'package:capstone_14/view/splash_screen/splash_screen.dart';
 import 'package:capstone_14/view/splash_screen/splash_screen_1.dart';
 import 'package:capstone_14/view/splash_screen/splash_screen_2.dart';
 import 'package:capstone_14/view/splash_screen/splash_screen_3.dart';
+import 'package:capstone_14/view_models/history_view_model/history_view_model.dart';
 import 'package:capstone_14/view_models/point_view_model.dart';
 // import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 // import 'package:capstone_14/view/voucher/voucher_screen.dart';
@@ -32,6 +33,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (_) => PointViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => HistoryTransactionViewModel(),
         ),
       ],
       child: const MyApp(),
