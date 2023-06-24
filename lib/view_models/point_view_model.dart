@@ -7,13 +7,13 @@ import '../service/point/point_service.dart';
 
 class PointViewModel extends ChangeNotifier {
   final PointService _pointService = PointService();
-  double point = 0.0;
+  Double? point;
 
   Future<void> fetchPoint(int id) async {
     try {
       final Double fetchedPoint = await _pointService.getPoint(id);
       if (fetchedPoint != null) {
-        point = fetchedPoint as double;
+        point = fetchedPoint;
       }
 
       notifyListeners();
@@ -23,3 +23,17 @@ class PointViewModel extends ChangeNotifier {
     }
   }
 }
+
+  // Future<void> fetchPoint(int id) async {
+  //   try {
+  //     final Double fetchedPoint = await _pointService.getPoint(id);
+  //     point = fetchedPoint as double;
+
+  //     notifyListeners();
+     
+  //     print(point);
+  //   } catch (e) {
+  //     print('Failed to fetch point: $e');
+  //   }
+  // }
+

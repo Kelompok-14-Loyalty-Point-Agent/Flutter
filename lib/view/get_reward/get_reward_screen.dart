@@ -25,6 +25,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
   int? index;
   late PointViewModel pm;
   late VoucherViewModel voucherViewModel;
+  final PointViewModel pointViewModel = PointViewModel();
 
   final List<Widget> pages = [
     const HomePage(),
@@ -35,15 +36,13 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
   @override
   void initState() {
     super.initState();
-    pm = Provider.of<PointViewModel>(context, listen: false);
+    // pm = Provider.of<PointViewModel>(context, listen: false);
     voucherViewModel = VoucherViewModel(VoucherService());
     voucherViewModel.getVouchers();
-    pm.fetchPoint(5);
   }
 
   @override
   Widget build(BuildContext context) {
-    final PointViewModel pointViewModel = Provider.of<PointViewModel>(context);
     return Scaffold(
       body: index != null
           ? pages[index ?? 0]
