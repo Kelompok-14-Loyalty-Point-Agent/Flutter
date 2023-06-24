@@ -8,6 +8,7 @@ import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../service/reward/voucher_service.dart';
 import '../../view_models/point_view_model.dart';
 import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
@@ -25,7 +26,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
   double? point;
   var voucher;
   late PointViewModel pointViewModel;
-  VoucherViewModel voucherViewModel = VoucherViewModel();
+  late VoucherViewModel voucherViewModel;
 
   final List<Widget> pages = [
     const HomePage(),
@@ -33,10 +34,18 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
     const ProfileScreen(),
   ];
 
+  // @override
+  // void initState() {
+  //   pointViewModel = Provider.of<PointViewModel>(context, listen: false);
+  //   pointViewModel.fetchPoint(1);
+  // }
+
   @override
   void initState() {
+    super.initState();
     pointViewModel = Provider.of<PointViewModel>(context, listen: false);
-    pointViewModel.fetchPoint(1);
+    voucherViewModel = VoucherViewModel(VoucherService());
+    voucherViewModel.getVouchers();
   }
 
   @override
@@ -125,82 +134,98 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                 ),
                 Expanded(
                   child: ListView.builder(
+                    itemCount: VoucherViewModel.vouchers?.data.length ?? 0,
                     itemBuilder: (context, index) {
-                      return const Card(
+                      final voucher = VoucherViewModel.vouchers?.data[index];
+                      return Card(
                         child: ListTile(
-                          title: Text('data'),
-                          subtitle: Text('data'),
+                          leading: Image.asset('assets/images/photobox.png'),
+                          title: Text(voucher?.product ?? ''),
+                          subtitle: Text(voucher?.benefit ?? ''),
+                          trailing: Text(voucher?.cost.toString() ?? ''),
                         ),
                       );
                     },
                   ),
                 ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(),
-                      ),
-                      const SizedBox(height: 20),
-                      // GestureDetector(
-                      //   onTap: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //         builder: (context) => const DetailRewardScreen(),
-                      //       ),
-                      //     );
-                      //   },
-                      //   child: ArticleBox(
-                      //       images: 'images',
-                      //       description: 'description',
-                      //       title: 'title',
-                      //       price: 'price'),
-                      // ),
-                      // const SizedBox(height: 20),
-                      // GestureDetector(
-                      //   onTap: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //         builder: (context) => const DetailRewardScreen(),
-                      //       ),
-                      //     );
-                      //   },
-                      //   child: ArticleBox(
-                      //       images: 'images',
-                      //       description: 'description',
-                      //       title: 'title',
-                      //       price: 'price'),
-                      // ),
-                      // const SizedBox(height: 20),
-                      // GestureDetector(
-                      //   onTap: () {
-                      //     Navigator.push(
-                      //       context,
-                      //       MaterialPageRoute(
-                      //         builder: (context) => const DetailRewardScreen(),
-                      //       ),
-                      //     );
-                      //   },
-                      //   child: ArticleBox(
-                      //       images: 'images',
-                      //       description: 'description',
-                      //       title: 'title',
-                      //       price: 'price'),
-                      // ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                )
+                // Expanded(
+                //   child: ListView(
+                //     children: [
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const DetailRewardScreen(),
+                //             ),
+                //           );
+                //         },
+                //         child: ArticleBox(),
+                //       ),
+                //       const SizedBox(height: 20),
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const DetailRewardScreen(),
+                //             ),
+                //           );
+                //         },
+                //         child: ArticleBox(),
+                //       ),
+
+                //       // GestureDetector(
+                //       //   onTap: () {
+                //       //     Navigator.push(
+                //       //       context,
+                //       //       MaterialPageRoute(
+                //       //         builder: (context) => const DetailRewardScreen(),
+                //       //       ),
+                //       //     );
+                //       //   },
+                //       //   child: ArticleBox(
+                //       //       images: 'images',
+                //       //       description: 'description',
+                //       //       title: 'title',
+                //       //       price: 'price'),
+                //       // ),
+                //       // const SizedBox(height: 20),
+                //       // GestureDetector(
+                //       //   onTap: () {
+                //       //     Navigator.push(
+                //       //       context,
+                //       //       MaterialPageRoute(
+                //       //         builder: (context) => const DetailRewardScreen(),
+                //       //       ),
+                //       //     );
+                //       //   },
+                //       //   child: ArticleBox(
+                //       //       images: 'images',
+                //       //       description: 'description',
+                //       //       title: 'title',
+                //       //       price: 'price'),
+                //       // ),
+                //       // const SizedBox(height: 20),
+                //       // GestureDetector(
+                //       //   onTap: () {
+                //       //     Navigator.push(
+                //       //       context,
+                //       //       MaterialPageRoute(
+                //       //         builder: (context) => const DetailRewardScreen(),
+                //       //       ),
+                //       //     );
+                //       //   },
+                //       //   child: ArticleBox(
+                //       //       images: 'images',
+                //       //       description: 'description',
+                //       //       title: 'title',
+                //       //       price: 'price'),
+                //       // ),
+                //       const SizedBox(height: 20),
+                //     ],
+                //   ),
+                // )
               ],
             ),
       bottomNavigationBar: Container(

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../constant/api_constant.dart';
 
 class VoucherService {
-  Future<List<Data>> getVoucher(int id) async {
+  Future<List<Datum>> getVoucher() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
     // final baseUrl = '{{BASE_URL}}';
@@ -17,7 +17,7 @@ class VoucherService {
 
     try {
       final response = await Dio().get(
-        ('$baseUrl/vouchers/$id'),
+        ('$baseUrl/vouchers'),
         options: Options(
           headers: {
             "Authorization": "Bearer $token",
@@ -25,11 +25,11 @@ class VoucherService {
         ),
       );
 
-      final List<Data> voucher = (response.data['data'] as List)
-          .map((voucher) => Data.fromJson(voucher))
+      final List<Datum> vouchers = (response.data['data'] as List)
+          .map((voucher) => Datum.fromMap(voucher))
           .toList();
 
-      return voucher;
+      return vouchers;
     } on DioError {
       rethrow;
     }

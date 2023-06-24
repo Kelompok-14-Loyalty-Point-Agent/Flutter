@@ -1,30 +1,27 @@
 import 'package:capstone_14/model/reward/voucher_models.dart';
-import 'package:flutter/material.dart';
 
 import '../service/reward/voucher_service.dart';
 
-class VoucherViewModel extends ChangeNotifier {
-  final VoucherService _voucherService = VoucherService();
-  List<Data> _vouchers = [];
-  bool _isLoading = false;
-  String _errorMessage = '';
+class VoucherViewModel {
+  final VoucherService _voucherService;
+  static VoucherModels? vouchers; // Ubah properti voucher menjadi vouchers
 
-  List<Data> get vouchers => _vouchers;
-  bool get isLoading => _isLoading;
-  String get errorMessage => _errorMessage;
+  VoucherViewModel(this._voucherService);
 
-  Future<void> fetchVouchers(int id) async {
+  Future<void> getVouchers() async {
     try {
-      _isLoading = true;
-      notifyListeners();
-
-      _vouchers = await _voucherService.getVoucher(id);
-      _isLoading = false;
-      notifyListeners();
-    } catch (error) {
-      _isLoading = false;
-      _errorMessage = 'Failed to fetch vouchers: $error';
-      notifyListeners();
+      List<Datum> vouchersList = await _voucherService.getVoucher();
+      vouchers = VoucherModels(
+        status: "success",
+        message: "Vouchers retrieved successfully",
+        data: vouchersList,
+      );
+    } catch (e) {
+      vouchers = VoucherModels(
+        status: "error",
+        message: "Failed to retrieve vouchers",
+        data: [],
+      );
     }
   }
 }

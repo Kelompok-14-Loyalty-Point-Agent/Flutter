@@ -32,9 +32,9 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => CreditDataViewModel(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => VoucherViewModel(),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => VoucherViewModel(),
+        // ),
         ChangeNotifierProvider(
           create: (_) => PointViewModel(),
         ),
