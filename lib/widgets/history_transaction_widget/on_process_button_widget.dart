@@ -1,7 +1,6 @@
+import 'package:capstone_14/model/transaction/history_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'history_button_widget.dart';
 
 class OnProcessButtonWidget extends StatefulWidget {
   const OnProcessButtonWidget({super.key});

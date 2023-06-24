@@ -1,10 +1,5 @@
-import 'dart:ffi';
-
-import 'package:capstone_14/constant/provider_icon_constant.dart';
 import 'package:capstone_14/model/stock/stock_response_body.dart';
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constant/api_constant.dart';
