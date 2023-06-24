@@ -21,6 +21,7 @@ class PointService {
 
       final profileModels = ProfileModels.fromJson(response.data);
       final point = profileModels.data?.profile?.point;
+      
 
       print(point);
 

@@ -15,16 +15,6 @@ class VoucherModels {
       });
     }
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['status'] = status;
-    data['message'] = message;
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
 }
 
 class Data {
@@ -42,12 +32,5 @@ class Data {
     cost = json['cost'];
   }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['product'] = product;
-    data['benefit'] = benefit;
-    data['cost'] = cost;
-    return data;
-  }
+  get data => null;
 }
