@@ -15,6 +15,7 @@ class DetailRewardScreen extends StatefulWidget {
 
 class _DetailRewardScreenState extends State<DetailRewardScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
+
   // int _selectedIndex = 0;
 
   @override
@@ -27,14 +28,15 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
     });
   }
 
-  @override
-  void dispose() {
-    _phoneNumberController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _phoneNumberController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
+    
     // final userData = Provider.of<CreditDataViewModel>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
@@ -58,11 +60,11 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
               Padding(
                 padding: const EdgeInsets.only(
                     top: 20, bottom: 10, right: 15, left: 15),
-                child: ArticleBox(
-                    images: "images",
-                    description: "description",
-                    title: "title",
-                    price: "price"),
+                // child: ArticleBox(
+                //     images: "images",
+                //     description: "description",
+                //     title: "title",
+                //     price: "price"),
               ),
               const SizedBox(height: 14),
               Container(

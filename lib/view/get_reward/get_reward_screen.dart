@@ -120,77 +120,78 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                   child: Text('Redeem your tPoint',
                       style: TextStyleConst.heading3WithColor(Colors.black)),
                 ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                          images: 'images',
-                          description: 'description',
-                          title: 'title',
-                          price: 'price',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                            images: 'images',
-                            description: 'description',
-                            title: 'title',
-                            price: 'price'),
-                      ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                            images: 'images',
-                            description: 'description',
-                            title: 'title',
-                            price: 'price'),
-                      ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                            images: 'images',
-                            description: 'description',
-                            title: 'title',
-                            price: 'price'),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                )
+                
+                // Expanded(
+                //   child: ListView(
+                //     children: [
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const DetailRewardScreen(),
+                //             ),
+                //           );
+                //         },
+                //         child: ArticleBox(
+                //           images: 'images',
+                //           description: 'description',
+                //           title: 'title',
+                //           price: 'price',
+                //         ),
+                //       ),
+                //       const SizedBox(height: 20),
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const DetailRewardScreen(),
+                //             ),
+                //           );
+                //         },
+                //         child: ArticleBox(
+                //             images: 'images',
+                //             description: 'description',
+                //             title: 'title',
+                //             price: 'price'),
+                //       ),
+                //       const SizedBox(height: 20),
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const DetailRewardScreen(),
+                //             ),
+                //           );
+                //         },
+                //         child: ArticleBox(
+                //             images: 'images',
+                //             description: 'description',
+                //             title: 'title',
+                //             price: 'price'),
+                //       ),
+                //       const SizedBox(height: 20),
+                //       GestureDetector(
+                //         onTap: () {
+                //           Navigator.push(
+                //             context,
+                //             MaterialPageRoute(
+                //               builder: (context) => const DetailRewardScreen(),
+                //             ),
+                //           );
+                //         },
+                //         child: ArticleBox(
+                //             images: 'images',
+                //             description: 'description',
+                //             title: 'title',
+                //             price: 'price'),
+                //       ),
+                //       const SizedBox(height: 20),
+                //     ],
+                //   ),
+                // )
               ],
             ),
       bottomNavigationBar: Container(
