@@ -132,22 +132,10 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                   child: Text('Redeem your tPoint',
                       style: TextStyleConst.heading3WithColor(Colors.black)),
                 ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: VoucherViewModel.vouchers?.data.length ?? 0,
-                    itemBuilder: (context, index) {
-                      final voucher = VoucherViewModel.vouchers?.data[index];
-                      return Card(
-                        child: ListTile(
-                          leading: Image.asset('assets/images/photobox.png'),
-                          title: Text(voucher?.product ?? ''),
-                          subtitle: Text(voucher?.benefit ?? ''),
-                          trailing: Text(voucher?.cost.toString() ?? ''),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                const Expanded(child: RedeemContentWidget()),
+                // Expanded(
+                //   child:
+                // ),
                 // Expanded(
                 //   child: ListView(
                 //     children: [
