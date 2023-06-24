@@ -264,7 +264,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     print(widget.selectedStock.stockId!);
                     print(productName(widget.selectedStock.stockId!));
                     if (paymentMethodProvider.selectedPaymentMethod !=
