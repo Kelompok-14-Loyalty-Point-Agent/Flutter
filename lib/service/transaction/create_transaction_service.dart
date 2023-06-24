@@ -27,13 +27,15 @@ class CreateTransactionService {
       var jwt = token;
       Map<String, dynamic> decodedToken = JwtDecoder.decode(jwt!);
 
-      print(decodedToken["id"]);
+      int userId = decodedToken["id"];
+
+      print(userId);
 
       Map data = {
         "phone": phone,
         "stockDetailsId": stockDetailsId,
-        "paymentMethod": TransactionModel(paymentMethod: paymentMethod),
-        "userId": decodedToken["id"],
+        "paymentMethod": CreateTransactionModel(paymentMethod: paymentMethod),
+        "userId": userId,
       };
 
       final response = await Dio().post(

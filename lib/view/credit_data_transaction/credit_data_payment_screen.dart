@@ -1,10 +1,9 @@
 // import 'package:capstone_14/constant/provider_icon_constant.dart';
 // import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/constant/product_constant.dart';
-import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/model/transaction/create_transaction_response_body.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
-import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:capstone_14/widgets/transaction_success_screen.dart';
@@ -14,7 +13,7 @@ import 'package:provider/provider.dart';
 
 class CreditDataPaymentScreen extends StatefulWidget {
   static const routeName = '/creditDataPaymentScreen';
-  final StockModel selectedStock;
+  final CreateTransactionModel selectedStock;
 
   const CreditDataPaymentScreen({
     Key? key,
@@ -27,9 +26,7 @@ class CreditDataPaymentScreen extends StatefulWidget {
 }
 
 class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
-  final CreditDataViewModel _creditDataProvider = CreditDataViewModel();
   late CreditDataViewModel vm;
-  final TextEditingController _phoneNumberController = TextEditingController();
   PaymentMethodProvider paymentMethodProvider = PaymentMethodProvider();
   bool isDropdownOpen = false;
   String selectedPaymentMethod = "Choose Payment";
@@ -126,7 +123,7 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                       ),
                       PriceContainerWidget(
                         product: widget.selectedStock.stockId!.toString(),
-                        amount: widget.selectedStock.stock!.toString(),
+                        amount: widget.selectedStock.stockId!.toString(),
                         price: "Pay : Rp ${widget.selectedStock.price!}",
                         containerShadow: BoxShadow(
                           offset: const Offset(2, 3),

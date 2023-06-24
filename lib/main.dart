@@ -1,4 +1,5 @@
 import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/model/transaction/create_transaction_response_body.dart';
 import 'package:capstone_14/view/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/view/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
@@ -66,7 +67,7 @@ class MyApp extends StatelessWidget {
             return _buildFadeRoute(const CreditDataScreen());
 
           case CreditDataPaymentScreen.routeName:
-            final selectedStock = settings.arguments as StockModel;
+            final selectedStock = settings.arguments as CreateTransactionModel;
             return _buildFadeRoute(
                 CreditDataPaymentScreen(selectedStock: selectedStock));
           default:
