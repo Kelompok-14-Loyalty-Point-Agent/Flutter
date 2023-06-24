@@ -34,22 +34,10 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
   late CreditDataViewModel vm;
 
   @override
-  void initState() {
-    vm = Provider.of<CreditDataViewModel>(context, listen: false);
-    super.initState();
-  }
-
-  @override
   void dispose() {
     vm.phoneNumberController;
     super.dispose();
   }
-
-  // void _updateSelectedIndex() {
-  //   final creditDataProvider =
-  //       Provider.of<CreditDataViewModel>(context, listen: false);
-  //   _selectedIndex = creditDataProvider.selectedIndex;
-  // }
 
   Widget buttonBuilder(Widget selectedButton, String title, int myIndex) {
     final creditDataProvider = Provider.of<CreditDataViewModel>(context);

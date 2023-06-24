@@ -23,9 +23,7 @@ class GetRewardScreen extends StatefulWidget {
 
 class _GetRewardScreenState extends State<GetRewardScreen> {
   int? index;
-  double? point;
-  var voucher;
-  late PointViewModel pointViewModel;
+  late PointViewModel pm;
   late VoucherViewModel voucherViewModel;
 
   final List<Widget> pages = [
@@ -34,22 +32,18 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
     const ProfileScreen(),
   ];
 
-  // @override
-  // void initState() {
-  //   pointViewModel = Provider.of<PointViewModel>(context, listen: false);
-  //   pointViewModel.fetchPoint(1);
-  // }
-
   @override
   void initState() {
     super.initState();
-    pointViewModel = Provider.of<PointViewModel>(context, listen: false);
+    pm = Provider.of<PointViewModel>(context, listen: false);
     voucherViewModel = VoucherViewModel(VoucherService());
     voucherViewModel.getVouchers();
+    pm.fetchPoint(5);
   }
 
   @override
   Widget build(BuildContext context) {
+    final PointViewModel pointViewModel = Provider.of<PointViewModel>(context);
     return Scaffold(
       body: index != null
           ? pages[index ?? 0]
@@ -109,10 +103,14 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                                 style: TextStyleConst.description2WithColor(
                                     Colors.white)),
                             const SizedBox(height: 5),
-                            Text(
-                              (point ?? 0).toString(),
-                              style: TextStyleConst.description1WithColor(
-                                  Colors.white),
+                            Consumer<PointViewModel>(
+                              builder: (context, pointViewModel, child) {
+                                return Text(
+                                  pointViewModel.point.toString(),
+                                  style: TextStyleConst.description1WithColor(
+                                      Colors.white),
+                                );
+                              },
                             ),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5, top: 5),
@@ -133,87 +131,6 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                       style: TextStyleConst.heading3WithColor(Colors.black)),
                 ),
                 const Expanded(child: RedeemContentWidget()),
-                // Expanded(
-                //   child:
-                // ),
-                // Expanded(
-                //   child: ListView(
-                //     children: [
-                //       GestureDetector(
-                //         onTap: () {
-                //           Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //               builder: (context) => const DetailRewardScreen(),
-                //             ),
-                //           );
-                //         },
-                //         child: ArticleBox(),
-                //       ),
-                //       const SizedBox(height: 20),
-                //       GestureDetector(
-                //         onTap: () {
-                //           Navigator.push(
-                //             context,
-                //             MaterialPageRoute(
-                //               builder: (context) => const DetailRewardScreen(),
-                //             ),
-                //           );
-                //         },
-                //         child: ArticleBox(),
-                //       ),
-
-                //       // GestureDetector(
-                //       //   onTap: () {
-                //       //     Navigator.push(
-                //       //       context,
-                //       //       MaterialPageRoute(
-                //       //         builder: (context) => const DetailRewardScreen(),
-                //       //       ),
-                //       //     );
-                //       //   },
-                //       //   child: ArticleBox(
-                //       //       images: 'images',
-                //       //       description: 'description',
-                //       //       title: 'title',
-                //       //       price: 'price'),
-                //       // ),
-                //       // const SizedBox(height: 20),
-                //       // GestureDetector(
-                //       //   onTap: () {
-                //       //     Navigator.push(
-                //       //       context,
-                //       //       MaterialPageRoute(
-                //       //         builder: (context) => const DetailRewardScreen(),
-                //       //       ),
-                //       //     );
-                //       //   },
-                //       //   child: ArticleBox(
-                //       //       images: 'images',
-                //       //       description: 'description',
-                //       //       title: 'title',
-                //       //       price: 'price'),
-                //       // ),
-                //       // const SizedBox(height: 20),
-                //       // GestureDetector(
-                //       //   onTap: () {
-                //       //     Navigator.push(
-                //       //       context,
-                //       //       MaterialPageRoute(
-                //       //         builder: (context) => const DetailRewardScreen(),
-                //       //       ),
-                //       //     );
-                //       //   },
-                //       //   child: ArticleBox(
-                //       //       images: 'images',
-                //       //       description: 'description',
-                //       //       title: 'title',
-                //       //       price: 'price'),
-                //       // ),
-                //       const SizedBox(height: 20),
-                //     ],
-                //   ),
-                // )
               ],
             ),
       bottomNavigationBar: Container(
