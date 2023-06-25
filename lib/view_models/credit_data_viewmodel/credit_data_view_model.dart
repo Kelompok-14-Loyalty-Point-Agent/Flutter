@@ -1,6 +1,7 @@
 // import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/service/stock/credit_stock_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/provider_icon_constant.dart';
@@ -208,6 +209,5 @@ class CreditDataViewModel with ChangeNotifier {
       phoneNumberController.clear();
       notifyListeners();
     }
-    return null;
   }
 }
