@@ -1,107 +1,78 @@
+import 'package:capstone_14/constant/textstyle_constant.dart';
+import 'package:capstone_14/view/get_reward/detail_reward_screen.dart';
+import 'package:capstone_14/view_models/voucher_view_models.dart';
 import 'package:flutter/material.dart';
 
-import '../constant/textstyle_constant.dart';
-
-class ArticleBox extends StatelessWidget {
-  final String images;
-  final String description;
-  final String title;
-  final String price;
-
-  ArticleBox({
-    required this.images,
-    required this.description,
-    required this.title,
-    required this.price,
-  });
+class RedeemContentWidget extends StatelessWidget {
+  const RedeemContentWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 13, right: 13),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2,
-              blurRadius: 7,
-              offset: const Offset(0, 3),
+    return ListView.builder(
+      itemCount: VoucherViewModel.vouchers?.data.length ?? 0,
+      itemBuilder: (context, index) {
+        final voucher = VoucherViewModel.vouchers?.data[index];
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const DetailRewardScreen(),
+              ),
+            );
+          },
+          child: Card(
+            margin: const EdgeInsets.symmetric(
+              horizontal: 12,
+              vertical: 8,
             ),
-          ]),
-      child: Column(
-        children: [
-          Image.asset(
-            'assets/images/photobox.png',
-            fit: BoxFit.cover,
-          ),
-          const SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 20),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Phone Balance',
-                        style:
-                            TextStyleConst.description4WithColor(Colors.black),
-                      ),
-                      const SizedBox(height: 5),
-                      Text('Rp. 10.000',
-                          style:
-                              TextStyleConst.heading5WithColor(Colors.black)),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: Container(),
-              ),
-              Expanded(
-                child: ListTile(
-                  leading: Image.asset(
-                    'assets/icons/coin.png',
-                    width: 20,
-                    height: 20,
-                  ),
-                  title: Text(
-                    '300',
-                    style: TextStyleConst.heading5WithColor(
-                      const Color(0xffFFC107),
+            child: Container(
+              height: 210,
+              child: Column(
+                children: [
+                  Image.asset('assets/images/photobox.png'),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 20, 15, 11),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              voucher?.product ?? '',
+                              style: TextStyleConst.description4,
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              voucher?.benefit ?? '',
+                              style: TextStyleConst.heading5WithColor(
+                                  Colors.black),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              'assets/icons/coin.png',
+                              scale: 4,
+                            ),
+                            const SizedBox(width: 9),
+                            Text(
+                              voucher?.cost.toString() ?? '',
+                              style: TextStyleConst.heading4WithColor(
+                                  const Color(0xffB26801)),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                ),
+                  )
+                ],
               ),
-
-              // Expanded(
-              //   child: Padding(
-              //     padding: const EdgeInsets.fromLTRB(170, 7, 0, 0),
-              //     child: Image.asset(
-              //       'assets/icons/coin.png',
-              //       width: 20,
-              //       height: 20,
-              //     ),
-              //   ),
-              // ),
-              // Expanded(
-              //   child: Padding(
-              //     padding: const EdgeInsets.fromLTRB(5, 7, 15, 0),
-              //     child: Text(
-              //       '300',
-              //       style: TextStyleConst.heading5WithColor(
-              //         const Color(0xffFFC107),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-            ],
+            ),
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

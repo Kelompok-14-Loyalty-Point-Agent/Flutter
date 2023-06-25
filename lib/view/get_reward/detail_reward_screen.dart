@@ -15,6 +15,7 @@ class DetailRewardScreen extends StatefulWidget {
 
 class _DetailRewardScreenState extends State<DetailRewardScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
+
   // int _selectedIndex = 0;
 
   @override
@@ -27,11 +28,11 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
     });
   }
 
-  @override
-  void dispose() {
-    _phoneNumberController.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _phoneNumberController.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +56,7 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                 ),
                 child: Text('Detail Reward', style: TextStyleConst.heading2),
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 20, bottom: 10, right: 15, left: 15),
-                child: ArticleBox(
-                    images: "images",
-                    description: "description",
-                    title: "title",
-                    price: "price"),
-              ),
+              // const Expanded(child: RedeemContentWidget()),
               const SizedBox(height: 14),
               Container(
                 decoration: BoxDecoration(

@@ -1,14 +1,13 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
-import 'package:capstone_14/view/get_reward/detail_reward_screen.dart';
 import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
+import 'package:capstone_14/view_models/voucher_view_models.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
-import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../service/reward/voucher_service.dart';
 import '../../view_models/point_view_model.dart';
-import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
 
@@ -21,8 +20,9 @@ class GetRewardScreen extends StatefulWidget {
 
 class _GetRewardScreenState extends State<GetRewardScreen> {
   int? index;
-  double? point;
-  late PointViewModel pointViewModel;
+  late PointViewModel pm;
+  late VoucherViewModel voucherViewModel;
+  final PointViewModel pointViewModel = PointViewModel();
 
   final List<Widget> pages = [
     const HomePage(),
@@ -32,8 +32,12 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
 
   @override
   void initState() {
-    pointViewModel = Provider.of<PointViewModel>(context, listen: false);
-    pointViewModel.fetchPoint(1);
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<PointViewModel>(context, listen: false).fetchPoint();
+    });
+    voucherViewModel = VoucherViewModel(VoucherService());
+    voucherViewModel.getVouchers();
   }
 
   @override
@@ -97,10 +101,14 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                                 style: TextStyleConst.description2WithColor(
                                     Colors.white)),
                             const SizedBox(height: 5),
-                            Text(
-                              (point ?? 0).toString(),
-                              style: TextStyleConst.description1WithColor(
-                                  Colors.white),
+                            Consumer<PointViewModel>(
+                              builder: (context, pointViewModel, child) {
+                                return Text(
+                                  pointViewModel.point.toString(),
+                                  style: TextStyleConst.description1WithColor(
+                                      Colors.white),
+                                );
+                              },
                             ),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 5, top: 5),
@@ -120,77 +128,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                   child: Text('Redeem your tPoint',
                       style: TextStyleConst.heading3WithColor(Colors.black)),
                 ),
-                Expanded(
-                  child: ListView(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                          images: 'images',
-                          description: 'description',
-                          title: 'title',
-                          price: 'price',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                            images: 'images',
-                            description: 'description',
-                            title: 'title',
-                            price: 'price'),
-                      ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                            images: 'images',
-                            description: 'description',
-                            title: 'title',
-                            price: 'price'),
-                      ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DetailRewardScreen(),
-                            ),
-                          );
-                        },
-                        child: ArticleBox(
-                            images: 'images',
-                            description: 'description',
-                            title: 'title',
-                            price: 'price'),
-                      ),
-                      const SizedBox(height: 20),
-                    ],
-                  ),
-                )
+                const Expanded(child: RedeemContentWidget()),
               ],
             ),
       bottomNavigationBar: Container(
