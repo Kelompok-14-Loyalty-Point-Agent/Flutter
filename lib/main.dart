@@ -28,9 +28,9 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => HistoryTransactionViewModel(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => RedeemVoucherViewModel(),
-        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => RedeemVoucherViewModel(),
+        // ),
       ],
       child: const MyApp(),
     ),
