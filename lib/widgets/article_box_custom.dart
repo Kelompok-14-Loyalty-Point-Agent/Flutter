@@ -17,7 +17,9 @@ class RedeemContentWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const DetailRewardScreen(),
+                builder: (context) => DetailRewardScreen(
+                  voucherId: voucher?.id,
+                ),
               ),
             );
           },
@@ -26,7 +28,7 @@ class RedeemContentWidget extends StatelessWidget {
               horizontal: 12,
               vertical: 8,
             ),
-            child: Container(
+            child: SizedBox(
               height: 210,
               child: Column(
                 children: [

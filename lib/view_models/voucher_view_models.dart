@@ -10,7 +10,7 @@ class VoucherViewModel {
 
   Future<void> getVouchers() async {
     try {
-      List<Datum> vouchersList = await _voucherService.getVoucher();
+      List<VoucherData> vouchersList = await _voucherService.getVoucher();
       vouchers = VoucherModels(
         status: "success",
         message: "Vouchers retrieved successfully",

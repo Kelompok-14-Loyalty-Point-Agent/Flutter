@@ -1,17 +1,22 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/model/reward/voucher_models.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 import '../../service/reward/redeem_voucher_service.dart';
-import '../../view_models/redeem_voucher_view_model.dart';
 import '../../widgets/transaction_success_screen.dart';
 
 class DetailRewardScreen extends StatefulWidget {
-  const DetailRewardScreen({super.key});
+  final int? voucherId;
+
+  const DetailRewardScreen({
+    super.key,
+    this.voucherId,
+  });
 
   @override
   State<DetailRewardScreen> createState() => _DetailRewardScreenState();
@@ -19,7 +24,6 @@ class DetailRewardScreen extends StatefulWidget {
 
 class _DetailRewardScreenState extends State<DetailRewardScreen> {
   final TextEditingController _phoneNumberController = TextEditingController();
-  final RedeemVoucherService _redeemVoucherService = RedeemVoucherService();
 
   @override
   void initState() {
@@ -147,35 +151,30 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
               ),
               ButtonCustome(
                 onPressed: () async {
-                  String phoneNumber = _phoneNumberController.text;
-                  int voucherId = 1;
                   String paymentMethod = 'tPoint';
-                  int price = 300;
-                  double point = 9999;
-                  String product = 'phone balance';
 
-                  bool success = await _redeemVoucherService.postRedeemVoucher(
+                  bool successRedeem =
+                      await RedeemVoucherService().postRedeemVoucher(
                     context,
-                    phone: phoneNumber,
-                    voucherId: voucherId,
-                    paymentMethod: paymentMethod,
-                    price: price,
-                    point: point,
-                    product: product,
+                    phone: _phoneNumberController.text,
+                    voucherId: widget.voucherId,
                   );
 
-                  if (success) {
+                  if (successRedeem) {
+                    final redeem = VoucherData();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => TransactionSuccesScreen(
                           method: paymentMethod,
-                          price: price,
-                          product: product,
-                          point: point,
+                          price: redeem.cost,
+                          product: redeem.product = "",
+                          point: redeem.cost / 1000,
                         ),
                       ),
                     );
+                  } else {
+                    _phoneNumberController.clear();
                   }
                 },
                 title: 'Reedem your point',

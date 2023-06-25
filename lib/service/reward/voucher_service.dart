@@ -5,14 +5,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../constant/api_constant.dart';
 
 class VoucherService {
-  Future<List<Datum>> getVoucher() async {
+  Future<List<VoucherData>> getVoucher() async {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
-    // final baseUrl = '{{BASE_URL}}';
-
-    // var jwt = token;
-    // Map<String, dynamic> decodedToken = JwtDecoder.decode(jwt!);
-    // int userId = decodedToken["id"];
 
     try {
       final response = await Dio().get(
@@ -24,8 +19,8 @@ class VoucherService {
         ),
       );
 
-      final List<Datum> vouchers = (response.data['data'] as List)
-          .map((voucher) => Datum.fromMap(voucher))
+      final List<VoucherData> vouchers = (response.data['data'] as List)
+          .map((voucher) => VoucherData.fromMap(voucher))
           .toList();
 
       return vouchers;
