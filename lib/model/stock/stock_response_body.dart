@@ -36,7 +36,7 @@ class StockResponseBody {
       };
 }
 
-class  StockModel with ChangeNotifier {
+class StockModel with ChangeNotifier {
   int? id;
   DateTime? createdAt;
   DateTime? updatedAt;
