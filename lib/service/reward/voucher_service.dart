@@ -1,6 +1,5 @@
 import 'package:capstone_14/model/reward/voucher_models.dart';
 import 'package:dio/dio.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constant/api_constant.dart';

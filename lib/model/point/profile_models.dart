@@ -1,115 +1,161 @@
-import 'dart:ffi';
+// To parse this JSON data, do
+//
+//     final profileResponseBody = profileResponseBodyFromMap(jsonString);
 
-class ProfileModels {
-  String status;
-  String message;
-  Data data;
+import 'dart:convert';
 
-  ProfileModels({
-    required this.status,
-    required this.message,
-    required this.data,
-  });
+class ProfileResponseBody {
+    String? status;
+    String? message;
+    Data? data;
 
-  factory ProfileModels.fromJson(Map<String, dynamic> json) {
-    return ProfileModels(
-      status: json['status'],
-      message: json['message'],
-      data: Data.fromJson(json['data']),
+    ProfileResponseBody({
+        this.status,
+        this.message,
+        this.data,
+    });
+
+    factory ProfileResponseBody.fromJson(String str) => ProfileResponseBody.fromMap(json.decode(str));
+
+    String toJson() => json.encode(toMap());
+
+    factory ProfileResponseBody.fromMap(Map<String, dynamic> json) => ProfileResponseBody(
+        status: json["status"],
+        message: json["message"],
+        data: json["data"] == null ? null : Data.fromMap(json["data"]),
     );
-  }
+
+    Map<String, dynamic> toMap() => {
+        "status": status,
+        "message": message,
+        "data": data?.toMap(),
+    };
 }
 
 class Data {
-  int id;
-  DateTime createdAt;
-  DateTime updatedAt;
-  dynamic deletedAt;
-  String name;
-  String email;
-  String password;
-  String role;
-  int profileId;
-  Profile profile;
+    int? id;
+    DateTime? createdAt;
+    DateTime? updatedAt;
+    dynamic deletedAt;
+    String? name;
+    String? email;
+    String? password;
+    String? role;
+    int? profileId;
+    Profile? profile;
 
-  Data({
-    required this.id,
-    required this.createdAt,
-    required this.updatedAt,
-    this.deletedAt,
-    required this.name,
-    required this.email,
-    required this.password,
-    required this.role,
-    required this.profileId,
-    required this.profile,
-  });
+    Data({
+        this.id,
+        this.createdAt,
+        this.updatedAt,
+        this.deletedAt,
+        this.name,
+        this.email,
+        this.password,
+        this.role,
+        this.profileId,
+        this.profile,
+    });
 
-  factory Data.fromJson(Map<String, dynamic> json) {
-    return Data(
-      id: json['id'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
-      deletedAt: json['deletedAt'],
-      name: json['name'],
-      email: json['email'],
-      password: json['password'],
-      role: json['role'],
-      profileId: json['profileId'],
-      profile: Profile.fromJson(json['profile']),
+    factory Data.fromJson(String str) => Data.fromMap(json.decode(str));
+
+    String toJson() => json.encode(toMap());
+
+    factory Data.fromMap(Map<String, dynamic> json) => Data(
+        id: json["id"],
+        createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
+        updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
+        deletedAt: json["deleted_at"],
+        name: json["name"],
+        email: json["email"],
+        password: json["password"],
+        role: json["role"],
+        profileId: json["profile_id"],
+        profile: json["profile"] == null ? null : Profile.fromMap(json["profile"]),
     );
-  }
+
+    Map<String, dynamic> toMap() => {
+        "id": id,
+        "created_at": createdAt?.toIso8601String(),
+        "updated_at": updatedAt?.toIso8601String(),
+        "deleted_at": deletedAt,
+        "name": name,
+        "email": email,
+        "password": password,
+        "role": role,
+        "profile_id": profileId,
+        "profile": profile?.toMap(),
+    };
 }
 
 class Profile {
-  int id;
-  DateTime createdAt;
-  DateTime updatedAt;
-  dynamic deletedAt;
-  String address;
-  int age;
-  String gender;
-  String phone;
-  Double point;
-  String member;
-  int transactionMade;
-  int monthlyTransaction;
-  int totalRedeem;
-  String url;
+    int? id;
+    DateTime? createdAt;
+    DateTime? updatedAt;
+    dynamic deletedAt;
+    String? address;
+    int? age;
+    String? gender;
+    String? phone;
+    int? point;
+    String? member;
+    int? transactionMade;
+    int? monthlyTransaction;
+    int? totalRedeem;
+    String? url;
 
-  Profile({
-    required this.id,
-    required this.createdAt,
-    required this.updatedAt,
-    this.deletedAt,
-    required this.address,
-    required this.age,
-    required this.gender,
-    required this.phone,
-    required this.point,
-    required this.member,
-    required this.transactionMade,
-    required this.monthlyTransaction,
-    required this.totalRedeem,
-    required this.url,
-  });
+    Profile({
+        this.id,
+        this.createdAt,
+        this.updatedAt,
+        this.deletedAt,
+        this.address,
+        this.age,
+        this.gender,
+        this.phone,
+        this.point,
+        this.member,
+        this.transactionMade,
+        this.monthlyTransaction,
+        this.totalRedeem,
+        this.url,
+    });
 
-  factory Profile.fromJson(Map<String, dynamic> json) {
-    return Profile(
-      id: json['id'],
-      createdAt: DateTime.parse(json['createdAt']),
-      updatedAt: DateTime.parse(json['updatedAt']),
-      deletedAt: json['deletedAt'],
-      address: json['address'],
-      age: json['age'],
-      gender: json['gender'],
-      phone: json['phone'],
-      point: json['point'],
-      member: json['member'],
-      transactionMade: json['transactionMade'],
-      monthlyTransaction: json['monthlyTransaction'],
-      totalRedeem: json['totalRedeem'],
-      url: json['url'],
+    factory Profile.fromJson(String str) => Profile.fromMap(json.decode(str));
+
+    String toJson() => json.encode(toMap());
+
+    factory Profile.fromMap(Map<String, dynamic> json) => Profile(
+        id: json["ID"],
+        createdAt: json["CreatedAt"] == null ? null : DateTime.parse(json["CreatedAt"]),
+        updatedAt: json["UpdatedAt"] == null ? null : DateTime.parse(json["UpdatedAt"]),
+        deletedAt: json["DeletedAt"],
+        address: json["Address"],
+        age: json["Age"],
+        gender: json["Gender"],
+        phone: json["Phone"],
+        point: json["Point"],
+        member: json["Member"],
+        transactionMade: json["TransactionMade"],
+        monthlyTransaction: json["MonthlyTransaction"],
+        totalRedeem: json["TotalRedeem"],
+        url: json["URL"],
     );
-  }
+
+    Map<String, dynamic> toMap() => {
+        "ID": id,
+        "CreatedAt": createdAt?.toIso8601String(),
+        "UpdatedAt": updatedAt?.toIso8601String(),
+        "DeletedAt": deletedAt,
+        "Address": address,
+        "Age": age,
+        "Gender": gender,
+        "Phone": phone,
+        "Point": point,
+        "Member": member,
+        "TransactionMade": transactionMade,
+        "MonthlyTransaction": monthlyTransaction,
+        "TotalRedeem": totalRedeem,
+        "URL": url,
+    };
 }

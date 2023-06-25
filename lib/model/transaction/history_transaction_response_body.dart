@@ -45,7 +45,6 @@ class TransactionHistoryModel {
   int? price;
   String? product;
   String? paymentMethod;
-  int? point;
   String? status;
   String? description;
   int? userId;
@@ -61,7 +60,6 @@ class TransactionHistoryModel {
     this.price,
     this.product,
     this.paymentMethod,
-    this.point,
     this.status,
     this.description,
     this.userId,
@@ -88,7 +86,6 @@ class TransactionHistoryModel {
         price: json["price"],
         product: json["product"],
         paymentMethod: json["payment_method"],
-        point: json["point"],
         status: json["status"],
         description: json["description"],
         userId: json["user_id"],
@@ -105,7 +102,6 @@ class TransactionHistoryModel {
         "price": price,
         "product": product,
         "payment_method": paymentMethod,
-        "point": point,
         "status": status,
         "description": description,
         "user_id": userId,

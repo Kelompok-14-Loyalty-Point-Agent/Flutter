@@ -1,16 +1,13 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
-import 'package:capstone_14/view/get_reward/detail_reward_screen.dart';
 import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
 import 'package:capstone_14/view_models/voucher_view_models.dart';
 import 'package:capstone_14/widgets/article_box_custom.dart';
-import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../service/reward/voucher_service.dart';
 import '../../view_models/point_view_model.dart';
-import '../credit_data_transaction/credit_data_screen.dart';
 import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
 
@@ -36,7 +33,9 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
   @override
   void initState() {
     super.initState();
-    // pm = Provider.of<PointViewModel>(context, listen: false);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<PointViewModel>(context, listen: false).fetchPoint();
+    });
     voucherViewModel = VoucherViewModel(VoucherService());
     voucherViewModel.getVouchers();
   }
