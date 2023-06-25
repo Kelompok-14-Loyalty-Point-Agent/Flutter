@@ -32,6 +32,12 @@ class _CreditDataScreenState extends State<CreditDataScreen> {
   late CreditDataViewModel vm;
 
   @override
+  void initState() {
+    vm = Provider.of<CreditDataViewModel>(context, listen: false);
+    super.initState();
+  }
+
+  @override
   void dispose() {
     vm.phoneNumberController;
     super.dispose();
