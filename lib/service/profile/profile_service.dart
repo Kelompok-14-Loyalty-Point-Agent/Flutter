@@ -21,6 +21,7 @@ class ProfileService {
       );
 
       if (response.statusCode == 200) {
+        prefs.remove('token');
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(

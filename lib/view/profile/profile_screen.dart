@@ -4,7 +4,6 @@ import 'package:capstone_14/view/auth/login/login_screen.dart';
 import 'package:capstone_14/view/faq/faq_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

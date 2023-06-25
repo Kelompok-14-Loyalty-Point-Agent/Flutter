@@ -1,4 +1,3 @@
-import 'package:capstone_14/constant/provider_icon_constant.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/view/history_transaction/history_transaction_screen.dart';
 import 'package:capstone_14/widgets/credit_data_page_widget/credit_button_widget.dart';
@@ -9,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import '../bottom_navbar_page/bottom_navbar.dart';
 import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
 

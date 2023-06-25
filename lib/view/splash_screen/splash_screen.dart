@@ -1,8 +1,6 @@
 import 'dart:async';
 
-import 'package:capstone_14/service/auth/login/login_service.dart';
 import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
-import 'package:capstone_14/view/home/home_page.dart';
 import 'package:capstone_14/view/splash_screen/splash_screen_1.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,10 +1,8 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
-import 'package:capstone_14/widgets/article_box_custom.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 class DetailRewardScreen extends StatefulWidget {
   const DetailRewardScreen({super.key});

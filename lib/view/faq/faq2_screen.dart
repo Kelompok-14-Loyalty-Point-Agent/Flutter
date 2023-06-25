@@ -1,5 +1,4 @@
 import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
-import 'package:capstone_14/view/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/textstyle_constant.dart';

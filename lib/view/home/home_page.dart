@@ -2,8 +2,6 @@ import 'package:capstone_14/view/bills/bills_screen.dart';
 import 'package:capstone_14/view/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/view/ewallet/ewallet_screen.dart';
 import 'package:capstone_14/view/get_reward/get_reward_screen.dart';
-import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
-import 'package:capstone_14/view/update_feature/update_feature_screen.dart';
 import 'package:capstone_14/view/voucher/voucher_screen.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';

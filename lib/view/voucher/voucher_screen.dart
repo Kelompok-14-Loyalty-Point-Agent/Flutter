@@ -1,7 +1,6 @@
 import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../constant/textstyle_constant.dart';
 import '../../model/bills/bills_models.dart';

@@ -1,7 +1,6 @@
 import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
-import 'package:capstone_14/widgets/credit_data_page_widget/data_button_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
