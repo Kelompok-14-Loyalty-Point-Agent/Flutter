@@ -8,6 +8,7 @@ import 'package:capstone_14/view/splash_screen/splash_screen_2.dart';
 import 'package:capstone_14/view/splash_screen/splash_screen_3.dart';
 import 'package:capstone_14/view_models/history_transaction_viewmodel/history_transaction_view_model.dart';
 import 'package:capstone_14/view_models/point_view_model.dart';
+import 'package:capstone_14/view_models/redeem_voucher_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +27,9 @@ void main() {
         ),
         ChangeNotifierProvider(
           create: (_) => HistoryTransactionViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => RedeemVoucherViewModel(),
         ),
       ],
       child: const MyApp(),
