@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final createTransactionResponseBody = createTransactionResponseBodyFromMap(jsonString);
-
 import 'dart:convert';
 
 class CreateTransactionResponseBody {

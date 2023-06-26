@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final redeemVoucherResponseBody = redeemVoucherResponseBodyFromMap(jsonString);
-
 import 'dart:convert';
 
 class RedeemVoucherResponseBody {

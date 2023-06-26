@@ -18,13 +18,6 @@ class _OnProcessButtonWidgetState extends State<OnProcessButtonWidget> {
       price: "45.000",
       dateTime: "23/04/2023 | 13:23:10 WIB",
     ),
-    // HistoryModel(
-    //   image: Image.asset('assets/icons/simcard.png'),
-    //   transaction: "Credit (Axis)",
-    //   process: "Successful",
-    //   price: "52.000",
-    //   dateTime: "23/04/2023 | 13:23:10 WIB",
-    // )
   ];
   @override
   Widget build(BuildContext context) {

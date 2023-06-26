@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import '../service/reward/voucher_service.dart';
 
 class VoucherViewModel with ChangeNotifier {
-  // final VoucherService _voucherService;
   static VoucherModels? vouchers; // Ubah properti voucher menjadi vouchers
 
   bool isLoading = false;

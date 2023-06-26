@@ -31,9 +31,6 @@ void main() {
         ChangeNotifierProvider(
           create: (_) => VoucherViewModel(),
         ),
-        // ChangeNotifierProvider(
-        //   create: (_) => RedeemVoucherViewModel(),
-        // ),
       ],
       child: const MyApp(),
     ),
