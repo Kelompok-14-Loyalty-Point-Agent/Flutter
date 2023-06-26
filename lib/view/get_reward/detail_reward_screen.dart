@@ -5,7 +5,6 @@ import 'package:capstone_14/model/reward/voucher_models.dart';
 import 'package:capstone_14/view/get_reward/redeem_success_screen.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/view_models/point_view_model.dart';
-import 'package:capstone_14/view_models/redeem_voucher_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,11 +14,17 @@ import '../../service/reward/redeem_voucher_service.dart';
 import '../../widgets/transaction_success_screen.dart';
 
 class DetailRewardScreen extends StatefulWidget {
+  final String? product;
+  final String? benefit;
   final int? voucherId;
+  final int? cost;
 
   const DetailRewardScreen({
     super.key,
     this.voucherId,
+    this.product,
+    this.cost,
+    this.benefit,
   });
 
   @override
@@ -32,10 +37,6 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      Provider.of<RedeemViewModel>(context, listen: false).fetchCost();
-      Provider.of<RedeemViewModel>(context, listen: false).fetchProduct();
-    });
     _phoneNumberController.addListener(() {});
   }
 
@@ -173,15 +174,11 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Consumer<RedeemViewModel>(
-                          builder: (context, value, child) {
-                            return RedeemSuccesScreen(
-                              voucherId: widget.voucherId!,
-                              method: paymentMethod,
-                              cost: value.cost,
-                              product: value.product,
-                            );
-                          },
+                        builder: (context) => RedeemSuccesScreen(
+                          benefit: widget.benefit!,
+                          method: paymentMethod,
+                          cost: widget.cost,
+                          product: widget.product!,
                         ),
                       ),
                     );

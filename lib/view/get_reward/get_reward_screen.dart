@@ -106,7 +106,9 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                               Consumer<PointViewModel>(
                                 builder: (context, pointViewModel, child) {
                                   return Text(
-                                    pointViewModel.point.toString(),
+                                    pointViewModel.point == null
+                                        ? "0"
+                                        : pointViewModel.point.toString(),
                                     style: TextStyleConst.description1WithColor(
                                         Colors.white),
                                   );

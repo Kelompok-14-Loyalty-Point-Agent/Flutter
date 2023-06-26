@@ -1,14 +1,12 @@
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
 import 'package:capstone_14/view/get_reward/get_reward_screen.dart';
-import 'package:capstone_14/view_models/redeem_voucher_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 class RedeemSuccesScreen extends StatelessWidget {
-  final int voucherId;
+  final String benefit;
   final String method;
   final int? cost;
   final String product;
@@ -18,7 +16,7 @@ class RedeemSuccesScreen extends StatelessWidget {
     required this.method,
     required this.cost,
     required this.product,
-    required this.voucherId,
+    required this.benefit,
   }) : super(key: key);
 
   @override
@@ -95,6 +93,12 @@ class RedeemSuccesScreen extends StatelessWidget {
                         const Color(0xff1d1d1d),
                       ),
                     ),
+                    Text(
+                      benefit,
+                      style: TextStyleConst.description4WithColor(
+                        const Color(0xff1d1d1d),
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20, bottom: 5),
                       child: Text(
@@ -127,31 +131,13 @@ class RedeemSuccesScreen extends StatelessWidget {
                           scale: 5,
                         ),
                         const SizedBox(width: 7),
-                        Consumer<RedeemViewModel>(
-                          builder: (context, value, child) {
-                            return Text(
-                              value.cost == null ? "0" : value.cost.toString(),
-                              style: TextStyleConst.heading4WithColor(
-                                  const Color(0xffB26801)),
-                            );
-                          },
+                        Text(
+                          cost == null ? "0" : cost.toString(),
+                          style: TextStyleConst.heading4WithColor(
+                              const Color(0xffB26801)),
                         ),
                       ],
                     ),
-                    // Row(
-                    //   children: [
-                    //     Image.asset(
-                    //       'assets/icons/coin.png',
-                    //       scale: 4,
-                    //     ),
-                    //     const SizedBox(width: 9),
-                    //     Text(
-                    //       cost.toString(),
-                    //       style: TextStyleConst.heading4WithColor(
-                    //           const Color(0xffB26801)),
-                    //     ),
-                    //   ],
-                    // ),
                     const SizedBox(height: 44),
                     Image.asset(
                       "assets/icons/medal_icon.png",

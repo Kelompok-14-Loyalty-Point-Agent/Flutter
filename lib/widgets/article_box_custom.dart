@@ -19,9 +19,13 @@ class RedeemContentWidget extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) => DetailRewardScreen(
                   voucherId: voucher?.id,
+                  product: voucher?.product,
+                  cost: voucher?.cost,
+                  benefit: voucher?.benefit,
                 ),
               ),
             );
+            print(voucher?.cost);
           },
           child: Card(
             margin: const EdgeInsets.symmetric(
