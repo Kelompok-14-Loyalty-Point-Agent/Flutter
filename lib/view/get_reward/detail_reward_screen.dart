@@ -2,10 +2,14 @@
 
 import 'package:capstone_14/constant/textstyle_constant.dart';
 import 'package:capstone_14/model/reward/voucher_models.dart';
+import 'package:capstone_14/view/get_reward/redeem_success_screen.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
+import 'package:capstone_14/view_models/point_view_model.dart';
+import 'package:capstone_14/view_models/redeem_voucher_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../../service/reward/redeem_voucher_service.dart';
 import '../../widgets/transaction_success_screen.dart';
@@ -28,6 +32,10 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<RedeemViewModel>(context, listen: false).fetchCost();
+      Provider.of<RedeemViewModel>(context, listen: false).fetchProduct();
+    });
     _phoneNumberController.addListener(() {});
   }
 
@@ -161,15 +169,19 @@ class _DetailRewardScreenState extends State<DetailRewardScreen> {
                   );
 
                   if (successRedeem) {
-                    final redeem = VoucherData();
+                    // final redeem = VoucherData();
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => TransactionSuccesScreen(
-                          method: paymentMethod,
-                          price: redeem.cost,
-                          product: redeem.product = "",
-                          point: redeem.cost / 1000,
+                        builder: (context) => Consumer<RedeemViewModel>(
+                          builder: (context, value, child) {
+                            return RedeemSuccesScreen(
+                              voucherId: widget.voucherId!,
+                              method: paymentMethod,
+                              cost: value.cost,
+                              product: value.product,
+                            );
+                          },
                         ),
                       ),
                     );

@@ -9,6 +9,7 @@ class PointViewModel extends ChangeNotifier {
     try {
       final int? fetchedPoint = await PointService().getPoint();
       point = fetchedPoint;
+      point?.toDouble();
       notifyListeners();
     } catch (e) {
       print('Failed to fetch point: $e');
