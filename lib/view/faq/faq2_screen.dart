@@ -32,9 +32,11 @@ class _Faq2ScreenState extends State<Faq2Screen> {
                 style: TextStyleConst.heading2,
               ),
               Padding(
-                padding: EdgeInsets.only(top: 22),
-                child: Text("What transaction can be made on TRADE Poin?",
-                    style: TextStyleConst.description4),
+                padding: const EdgeInsets.only(top: 22),
+                child: Text(
+                  "What transaction can be made on TRADE Poin?",
+                  style: TextStyleConst.description4,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 22),
@@ -45,14 +47,14 @@ class _Faq2ScreenState extends State<Faq2Screen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 11, right: 40),
+                padding: const EdgeInsets.only(top: 11, right: 40),
                 child: Text(
                   "Note : You have to complete watching videos to earn tPoint.",
                   style: TextStyleConst.description4,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 40),
+                padding: const EdgeInsets.only(top: 40),
                 child: Text(
                   "After watching the video above, you can fill out the survey form below",
                   style: TextStyleConst.description4,
@@ -64,11 +66,13 @@ class _Faq2ScreenState extends State<Faq2Screen> {
               ButtonCustome(
                 onPressed: () {
                   Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const BottomNavBar(
-                                currentIndex: 0,
-                              )));
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const BottomNavBar(
+                        currentIndex: 0,
+                      ),
+                    ),
+                  );
                 },
                 title: 'Done',
                 backgroundColour: const Color(0xff030F51),

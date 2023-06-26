@@ -109,7 +109,7 @@ class _EwalletScreenState extends State<EwalletScreen> {
       body: index != null
           ? pages[index ?? 0]
           : Padding(
-              padding: const EdgeInsets.only(top: 48),
+              padding: const EdgeInsets.only(top: 34),
               child: Column(
                 children: [
                   TopBarPage(

@@ -25,7 +25,6 @@ class RedeemContentWidget extends StatelessWidget {
                 ),
               ),
             );
-            print(voucher?.cost);
           },
           child: Card(
             margin: const EdgeInsets.symmetric(

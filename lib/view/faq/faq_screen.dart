@@ -15,17 +15,17 @@ class FaqScreen extends StatefulWidget {
 
 class _FaqScreenState extends State<FaqScreen> {
   List<String> list = [
-    "1. Apa itu Kredit Data?",
-    "2. Apa itu Kredit Data?",
-    "3. Apa itu Kredit Data?",
-    "4. Apa itu Kredit Data?",
-    "5. Apa itu Kredit Data?",
-    "6. Apa itu Kredit Data?",
-    "7. Apa itu Kredit Data?",
-    "8. Apa itu Kredit Data?",
-    "9. Apa itu Kredit Data?",
-    "10. Apa itu Kredit Data?",
-    "11. Apa itu Kredit Data?",
+    "What Transaction can be made on TRADE Poin?",
+    "What payment methods are available on TRADE Poin",
+    "What types of credit/debit cards can be used for transaction on TRADE Poin?",
+    "Is there an admin fee changed for every transaction on TRADE Poin?",
+    "Why am I changed a service fee when transacting on TRADE Poin?",
+    "Why hasn’t the product I bought been received or accepted?",
+    "What is the status of my refund?",
+    "Why has the status of the bill not changed even though I have paid via TRADE Poin and have invoiced it in my account?",
+    "What if my TRADE Poin account is used by someone else?",
+    "I overpaid/underpaid the transaction, what should i do?",
+    "Why is my account blocked?",
   ];
   int? index;
 
@@ -49,7 +49,7 @@ class _FaqScreenState extends State<FaqScreen> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 50),
+                      padding: const EdgeInsets.only(top: 30),
                       child: Text(
                         'FAQ',
                         style: TextStyleConst.heading2,
@@ -77,9 +77,12 @@ class _FaqScreenState extends State<FaqScreen> {
                               child: Row(
                                 children: [
                                   Expanded(
-                                    child: Text(
-                                      list[index],
-                                      style: TextStyleConst.description3,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 4),
+                                      child: Text(
+                                        list[index],
+                                        style: TextStyleConst.description3,
+                                      ),
                                     ),
                                   ),
                                   const Icon(Icons.arrow_forward_ios, size: 12),

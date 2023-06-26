@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>  DetailRewardScreen(),
+                      builder: (context) =>  const DetailRewardScreen(),
                     ),
                   );
                 },
@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => DetailRewardScreen(),
+                      builder: (context) => const DetailRewardScreen(),
                     ),
                   );
                 },

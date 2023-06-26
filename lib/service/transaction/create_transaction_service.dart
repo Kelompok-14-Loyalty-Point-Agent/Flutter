@@ -1,7 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:capstone_14/model/transaction/create_transaction_response_body.dart';
-import 'package:capstone_14/widgets/transaction_success_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -24,8 +22,6 @@ class CreateTransactionService {
       Map<String, dynamic> decodedToken = JwtDecoder.decode(jwt!);
 
       int userId = decodedToken["id"];
-
-      print(userId);
 
       Map data = {
         "phone": phone,
@@ -56,11 +52,7 @@ class CreateTransactionService {
       }
 
       return true;
-    } on DioError catch (e) {
-      print(e.response?.data);
-      print("nomor hp $phone");
-      print("stock id $stockDetailsId");
-      print("payment method $paymentMethod");
+    } on DioError{
       throw ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(

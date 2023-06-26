@@ -1,20 +1,9 @@
 // import 'package:capstone_14/ui/credit_data_transaction/credit_data_screen.dart';
 import 'package:capstone_14/model/stock/stock_response_body.dart';
 import 'package:capstone_14/service/stock/credit_stock_service.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../constant/provider_icon_constant.dart';
-
-// class CreditDataProvider extends ChangeNotifier {
-//   int _selectedIndex = 0;
-//   int get selectedIndex => _selectedIndex;
-
-//   set selectedIndex(int index) {
-//     _selectedIndex = index;
-//     notifyListeners();
-//   }
-// }
 
 class PaymentMethodProvider with ChangeNotifier {
   bool isDropdownOpen = false;
@@ -70,13 +59,9 @@ class CreditDataViewModel with ChangeNotifier {
 
   Future<void> getData(String value) async {
     data = getProviderData(value);
-    print(data?.idCredit);
-    print(data?.idData);
-    print(data?.namaIcon);
     if (data != null) {
       hasilData = await _creditStockService.getCreditStock(data!.idCredit!);
       hasilData2 = await _creditStockService.getCreditStock(data!.idData!);
-      print(hasilData);
     } else {
       hasilData.clear();
       hasilData2.clear();
@@ -209,5 +194,6 @@ class CreditDataViewModel with ChangeNotifier {
       phoneNumberController.clear();
       notifyListeners();
     }
+    return null;
   }
 }

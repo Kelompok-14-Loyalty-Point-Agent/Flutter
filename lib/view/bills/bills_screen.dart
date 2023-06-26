@@ -46,7 +46,7 @@ class _BillsScreenState extends State<BillsScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 48),
+                  const SizedBox(height: 42),
                   TopBarPage(
                     icon: Image.asset(
                       "assets/icons/bill.png",

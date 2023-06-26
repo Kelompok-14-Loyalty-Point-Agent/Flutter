@@ -222,7 +222,6 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                                         listen: false,
                                       );
                                       paymentProvider.selectPaymentMethod(item);
-                                      print(item);
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.only(bottom: 7),
@@ -267,9 +266,6 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                     fontWeight: FontWeight.w400,
                   ),
                   onPressed: () async {
-                    print(widget.selectedStock.stockId!);
-                    print(productName(widget.selectedStock.stockId!));
-
                     bool successTransaction =
                         await CreateTransactionService().postTransaction(
                       context,

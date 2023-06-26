@@ -60,8 +60,6 @@ class RedeemVoucherService {
         );
       }
 
-      print("test ${e.response?.data}");
-
       throw ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(

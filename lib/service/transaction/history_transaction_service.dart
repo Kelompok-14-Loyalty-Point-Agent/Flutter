@@ -14,8 +14,6 @@ class TransactionHistoryService {
 
     int userId = decodedToken["id"];
 
-    print(userId);
-
     try {
       final response = await Dio().get(
         ('$baseUrl/transactions/users/$userId'),

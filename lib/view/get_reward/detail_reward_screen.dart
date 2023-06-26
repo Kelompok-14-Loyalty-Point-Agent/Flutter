@@ -1,17 +1,13 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:capstone_14/constant/textstyle_constant.dart';
-import 'package:capstone_14/model/reward/voucher_models.dart';
 import 'package:capstone_14/view/get_reward/redeem_success_screen.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
-import 'package:capstone_14/view_models/point_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 
 import '../../service/reward/redeem_voucher_service.dart';
-import '../../widgets/transaction_success_screen.dart';
 
 class DetailRewardScreen extends StatefulWidget {
   final String? product;

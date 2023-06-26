@@ -1,8 +1,8 @@
-// To parse this JSON data, do
-//
-//     final profileResponseBody = profileResponseBodyFromMap(jsonString);
-
 import 'dart:convert';
+
+ProfileResponseBody profileResponseBodyFromJson(String str) => ProfileResponseBody.fromJson(json.decode(str));
+
+String profileResponseBodyToJson(ProfileResponseBody data) => json.encode(data.toJson());
 
 class ProfileResponseBody {
     String? status;
@@ -15,20 +15,16 @@ class ProfileResponseBody {
         this.data,
     });
 
-    factory ProfileResponseBody.fromJson(String str) => ProfileResponseBody.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory ProfileResponseBody.fromMap(Map<String, dynamic> json) => ProfileResponseBody(
+    factory ProfileResponseBody.fromJson(Map<String, dynamic> json) => ProfileResponseBody(
         status: json["status"],
         message: json["message"],
-        data: json["data"] == null ? null : Data.fromMap(json["data"]),
+        data: json["data"] == null ? null : Data.fromJson(json["data"]),
     );
 
-    Map<String, dynamic> toMap() => {
+    Map<String, dynamic> toJson() => {
         "status": status,
         "message": message,
-        "data": data?.toMap(),
+        "data": data?.toJson(),
     };
 }
 
@@ -57,11 +53,7 @@ class Data {
         this.profile,
     });
 
-    factory Data.fromJson(String str) => Data.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Data.fromMap(Map<String, dynamic> json) => Data(
+    factory Data.fromJson(Map<String, dynamic> json) => Data(
         id: json["id"],
         createdAt: json["created_at"] == null ? null : DateTime.parse(json["created_at"]),
         updatedAt: json["updated_at"] == null ? null : DateTime.parse(json["updated_at"]),
@@ -71,10 +63,10 @@ class Data {
         password: json["password"],
         role: json["role"],
         profileId: json["profile_id"],
-        profile: json["profile"] == null ? null : Profile.fromMap(json["profile"]),
+        profile: json["profile"] == null ? null : Profile.fromJson(json["profile"]),
     );
 
-    Map<String, dynamic> toMap() => {
+    Map<String, dynamic> toJson() => {
         "id": id,
         "created_at": createdAt?.toIso8601String(),
         "updated_at": updatedAt?.toIso8601String(),
@@ -84,7 +76,7 @@ class Data {
         "password": password,
         "role": role,
         "profile_id": profileId,
-        "profile": profile?.toMap(),
+        "profile": profile?.toJson(),
     };
 }
 
@@ -93,11 +85,12 @@ class Profile {
     DateTime? createdAt;
     DateTime? updatedAt;
     dynamic deletedAt;
+    String? name;
     String? address;
     int? age;
     String? gender;
     String? phone;
-    int? point;
+    String? point;
     String? member;
     int? transactionMade;
     int? monthlyTransaction;
@@ -109,6 +102,7 @@ class Profile {
         this.createdAt,
         this.updatedAt,
         this.deletedAt,
+        this.name,
         this.address,
         this.age,
         this.gender,
@@ -121,20 +115,17 @@ class Profile {
         this.url,
     });
 
-    factory Profile.fromJson(String str) => Profile.fromMap(json.decode(str));
-
-    String toJson() => json.encode(toMap());
-
-    factory Profile.fromMap(Map<String, dynamic> json) => Profile(
+    factory Profile.fromJson(Map<String, dynamic> json) => Profile(
         id: json["ID"],
         createdAt: json["CreatedAt"] == null ? null : DateTime.parse(json["CreatedAt"]),
         updatedAt: json["UpdatedAt"] == null ? null : DateTime.parse(json["UpdatedAt"]),
         deletedAt: json["DeletedAt"],
+        name: json["Name"],
         address: json["Address"],
         age: json["Age"],
         gender: json["Gender"],
         phone: json["Phone"],
-        point: json["Point"],
+        point: json["Point"]?.toString(),
         member: json["Member"],
         transactionMade: json["TransactionMade"],
         monthlyTransaction: json["MonthlyTransaction"],
@@ -142,11 +133,12 @@ class Profile {
         url: json["URL"],
     );
 
-    Map<String, dynamic> toMap() => {
+    Map<String, dynamic> toJson() => {
         "ID": id,
         "CreatedAt": createdAt?.toIso8601String(),
         "UpdatedAt": updatedAt?.toIso8601String(),
         "DeletedAt": deletedAt,
+        "Name": name,
         "Address": address,
         "Age": age,
         "Gender": gender,

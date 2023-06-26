@@ -77,7 +77,6 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
                       fieldWidth: 50,
                       onCodeChanged: (String code) {},
                       onSubmit: (String verificationCode) {
-                        print(verificationCode);
                       },
                     ),
                   ),

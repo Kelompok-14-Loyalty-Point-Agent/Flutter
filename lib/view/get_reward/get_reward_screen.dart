@@ -6,7 +6,6 @@ import 'package:capstone_14/widgets/top_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../service/reward/voucher_service.dart';
 import '../../view_models/point_view_model.dart';
 import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
@@ -36,8 +35,9 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       Provider.of<PointViewModel>(context, listen: false).fetchPoint();
     });
-    voucherViewModel = VoucherViewModel(VoucherService());
-    voucherViewModel.getVouchers();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<VoucherViewModel>(context, listen: false).getVouchers();
+    });
   }
 
   @override
@@ -106,9 +106,12 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                               Consumer<PointViewModel>(
                                 builder: (context, pointViewModel, child) {
                                   return Text(
-                                    pointViewModel.point == null
+                                    // ignore: unnecessary_null_comparison
+                                    pointViewModel.profile == null
                                         ? "0"
-                                        : pointViewModel.point.toString(),
+                                        : pointViewModel
+                                            .profile!.data!.profile!.point
+                                            .toString(),
                                     style: TextStyleConst.description1WithColor(
                                         Colors.white),
                                   );
@@ -133,7 +136,15 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
                     child: Text('Redeem your tPoint',
                         style: TextStyleConst.heading3WithColor(Colors.black)),
                   ),
-                  const Expanded(child: RedeemContentWidget()),
+                  Consumer<VoucherViewModel>(
+                    builder: (context, voucherViewModel, child) {
+                      return Expanded(
+                        child: voucherViewModel.isLoading == true
+                            ? const CircularProgressIndicator()
+                            : const RedeemContentWidget(),
+                      );
+                    },
+                  ),
                 ],
               ),
         bottomNavigationBar: Theme(

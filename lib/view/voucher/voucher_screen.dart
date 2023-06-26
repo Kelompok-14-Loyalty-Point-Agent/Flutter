@@ -112,7 +112,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
       body: index != null
           ? pages[index ?? 0]
           : Padding(
-              padding: const EdgeInsets.only(top: 48),
+              padding: const EdgeInsets.only(top: 34),
               child: Column(
                 children: [
                   TopBarPage(
@@ -203,7 +203,7 @@ class _VoucherScreenState extends State<VoucherScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
         ),
-        child: Container(
+        child: SizedBox(
           height: 50,
           child: BottomNavigationBar(
             currentIndex: index ?? 0,

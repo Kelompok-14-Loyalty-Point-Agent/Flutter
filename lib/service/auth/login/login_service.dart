@@ -27,7 +27,6 @@ class LoginService {
       saveToken(token) async {
         final prefs = await SharedPreferences.getInstance();
         prefs.setString('token', response.data['data'].toString());
-        print(token);
       }
 
       if (response.statusCode == 200) {
