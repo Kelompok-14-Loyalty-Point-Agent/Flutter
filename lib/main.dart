@@ -60,8 +60,11 @@ class MyApp extends StatelessWidget {
 
           case CreditDataPaymentScreen.routeName:
             final selectedStock = settings.arguments as StockModel;
-            return _buildFadeRoute(
-                CreditDataPaymentScreen(selectedStock: selectedStock));
+            final stockId = settings.arguments as int;
+            return _buildFadeRoute(CreditDataPaymentScreen(
+              selectedStock: selectedStock,
+              stockId: stockId,
+            ));
           default:
             return null;
         }

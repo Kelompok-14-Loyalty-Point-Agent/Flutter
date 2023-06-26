@@ -5,6 +5,8 @@ import 'package:capstone_14/widgets/price_container_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../view/credit_data_transaction/credit_data_payment_screen.dart';
+
 class CreditButton extends StatefulWidget {
   const CreditButton({Key? key}) : super(key: key);
 
@@ -70,10 +72,14 @@ class _CreditButtonState extends State<CreditButton> {
                 fontWeight: FontWeight.w400,
               ),
               onPressed: () {
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  '/creditDataPaymentScreen',
-                  arguments: selectedStock,
+                  MaterialPageRoute(
+                    builder: (context) => CreditDataPaymentScreen(
+                      selectedStock: selectedStock!,
+                      stockId: selectedStock?.id,
+                    ),
+                  ),
                 );
               },
             ),

@@ -1,7 +1,10 @@
 // import 'package:capstone_14/constant/provider_icon_constant.dart';
 // import 'package:capstone_14/view/bottom_navbar_page/bottom_navbar.dart';
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:capstone_14/constant/product_constant.dart';
 import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/service/transaction/create_transaction_service.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
@@ -13,11 +16,13 @@ import 'package:provider/provider.dart';
 
 class CreditDataPaymentScreen extends StatefulWidget {
   static const routeName = '/creditDataPaymentScreen';
+  final int? stockId;
   final StockModel selectedStock;
 
   const CreditDataPaymentScreen({
     Key? key,
     required this.selectedStock,
+    required this.stockId,
   }) : super(key: key);
 
   @override
@@ -261,36 +266,50 @@ class _CreditDataPaymentScreenState extends State<CreditDataPaymentScreen> {
                     fontSize: 12,
                     fontWeight: FontWeight.w400,
                   ),
-                  onPressed: () {
+                  onPressed: () async {
                     print(widget.selectedStock.stockId!);
                     print(productName(widget.selectedStock.stockId!));
-                    if (paymentMethodProvider.selectedPaymentMethod !=
-                        'Choose Payment') {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => TransactionSuccesScreen(
-                            product: productName(widget.selectedStock.stockId!),
-                            method: paymentMethodProvider.selectedPaymentMethod,
-                            price: widget.selectedStock.price!,
-                            point: widget.selectedStock.price! / 1000,
-                          ),
-                        ),
-                      );
-                      vm.data = null;
-                      vm.phoneNumberController.clear();
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          duration: Duration(seconds: 1),
-                          backgroundColor: Color(0xFF931136),
-                          content: Center(
-                            child: Text(
-                              'Please Choose Payment Method!',
+
+                    bool successTransaction =
+                        await CreateTransactionService().postTransaction(
+                      context,
+                      phone: vm.phoneNumberController.text,
+                      stockDetailsId: widget.stockId!,
+                      paymentMethod:
+                          paymentMethodProvider.selectedPaymentMethod,
+                    );
+
+                    if (successTransaction) {
+                      if (paymentMethodProvider.selectedPaymentMethod !=
+                          'Choose Payment') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TransactionSuccesScreen(
+                              product: productName(
+                                  widget.selectedStock.stockId ?? 0),
+                              method:
+                                  paymentMethodProvider.selectedPaymentMethod,
+                              price: widget.selectedStock.price!,
+                              point: widget.selectedStock.price! / 1000,
                             ),
                           ),
-                        ),
-                      );
+                        );
+                        vm.data = null;
+                        vm.phoneNumberController.clear();
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            duration: Duration(seconds: 1),
+                            backgroundColor: Color(0xFF931136),
+                            content: Center(
+                              child: Text(
+                                'Please Choose Payment Method!',
+                              ),
+                            ),
+                          ),
+                        );
+                      }
                     }
                   },
                 ),

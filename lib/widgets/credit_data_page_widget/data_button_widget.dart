@@ -1,4 +1,5 @@
 import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/view/credit_data_transaction/credit_data_payment_screen.dart';
 import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
 import 'package:capstone_14/widgets/button_custome_widget.dart';
 import 'package:capstone_14/widgets/price_container_widget.dart';
@@ -70,10 +71,14 @@ class _DataButtonState extends State<DataButton> {
                 fontWeight: FontWeight.w400,
               ),
               onPressed: () {
-                Navigator.pushNamed(
+                Navigator.push(
                   context,
-                  '/creditDataPaymentScreen',
-                  arguments: selectedStock,
+                  MaterialPageRoute(
+                    builder: (context) => CreditDataPaymentScreen(
+                      selectedStock: selectedStock!,
+                      stockId: selectedStock?.id,
+                    ),
+                  ),
                 );
               },
             ),

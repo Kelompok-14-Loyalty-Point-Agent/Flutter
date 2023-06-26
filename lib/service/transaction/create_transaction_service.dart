@@ -15,10 +15,6 @@ class CreateTransactionService {
     required String phone,
     required int stockDetailsId,
     required String paymentMethod,
-    required int userId,
-    required int price,
-    required double point,
-    required String product,
   }) async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -33,9 +29,9 @@ class CreateTransactionService {
 
       Map data = {
         "phone": phone,
-        "stockDetailsId": stockDetailsId,
-        "paymentMethod": CreateTransactionModel(paymentMethod: paymentMethod),
-        "userId": userId,
+        "stock_details_id": stockDetailsId,
+        "payment_method": paymentMethod,
+        "user_id": userId,
       };
 
       final response = await Dio().post(
@@ -57,21 +53,14 @@ class CreateTransactionService {
             ),
           ),
         );
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => TransactionSuccesScreen(
-              method: paymentMethod,
-              price: price,
-              product: product,
-              point: point,
-            ),
-          ),
-        );
       }
 
       return true;
-    } on DioError {
+    } on DioError catch (e) {
+      print(e.response?.data);
+      print("nomor hp $phone");
+      print("stock id $stockDetailsId");
+      print("payment method $paymentMethod");
       throw ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
