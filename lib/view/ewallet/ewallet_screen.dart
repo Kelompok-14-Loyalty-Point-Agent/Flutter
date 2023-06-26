@@ -199,42 +199,48 @@ class _EwalletScreenState extends State<EwalletScreen> {
                 ],
               ),
             ),
-      bottomNavigationBar: SizedBox(
-        height: 50,
-        child: BottomNavigationBar(
-          currentIndex: index ?? 0,
-          onTap: (int i) {
-            setState(() {
-              index = i;
-            });
-          },
-          type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.grey,
-          iconSize: 20,
-          backgroundColor: const Color(0xFF030F51),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(left: 100),
-                child: Icon(Icons.home),
+      bottomNavigationBar: Theme(
+        data: ThemeData(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+        ),
+        child: SizedBox(
+          height: 50,
+          child: BottomNavigationBar(
+            currentIndex: index ?? 0,
+            onTap: (int i) {
+              setState(() {
+                index = i;
+              });
+            },
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+            iconSize: 20,
+            backgroundColor: const Color(0xFF030F51),
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(left: 100),
+                  child: Icon(Icons.home),
+                ),
+                label: "Home",
               ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.history_edu_outlined),
-              label: "history transaction",
-            ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: EdgeInsets.only(right: 100),
-                child: Icon(Icons.person),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.history_edu_outlined),
+                label: "history transaction",
               ),
-              label: "profile",
-            ),
-          ],
+              BottomNavigationBarItem(
+                icon: Padding(
+                  padding: EdgeInsets.only(right: 100),
+                  child: Icon(Icons.person),
+                ),
+                label: "profile",
+              ),
+            ],
+          ),
         ),
       ),
     );
