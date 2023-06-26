@@ -1,7 +1,43 @@
+import 'package:capstone_14/model/stock/stock_response_body.dart';
+import 'package:capstone_14/view/credit_data_transaction/credit_data_payment_screen.dart';
+import 'package:capstone_14/view/credit_data_transaction/credit_data_screen.dart';
+import 'package:capstone_14/view_models/credit_data_viewmodel/credit_data_view_model.dart';
+import 'package:capstone_14/view/splash_screen/splash_screen.dart';
+import 'package:capstone_14/view/splash_screen/splash_screen_1.dart';
+import 'package:capstone_14/view/splash_screen/splash_screen_2.dart';
+import 'package:capstone_14/view/splash_screen/splash_screen_3.dart';
+import 'package:capstone_14/view_models/history_transaction_viewmodel/history_transaction_view_model.dart';
+import 'package:capstone_14/view_models/point_view_model.dart';
+import 'package:capstone_14/view_models/voucher_view_models.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => PaymentMethodProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CreditDataViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => PointViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => HistoryTransactionViewModel(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => VoucherViewModel(),
+        ),
+        // ChangeNotifierProvider(
+        //   create: (_) => RedeemVoucherViewModel(),
+        // ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,58 +46,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      //Ganti disini kalau mau coba screen
+      home: const SplashScreen(),
+      // home: const LoginScreen(),
+      // home: const CreditDataScreen(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case SplashScreen1.routeName:
+            return _buildFadeRoute(const SplashScreen1());
+          case SplashScreen2.routeName:
+            return _buildFadeRoute(const SplashScreen2());
+          case SplashScreen3.routeName:
+            return _buildFadeRoute(const SplashScreen3());
+          case CreditDataScreen.routeName:
+            return _buildFadeRoute(const CreditDataScreen());
+
+          case CreditDataPaymentScreen.routeName:
+            final selectedStock = settings.arguments as StockModel;
+            final stockId = settings.arguments as int;
+            return _buildFadeRoute(CreditDataPaymentScreen(
+              selectedStock: selectedStock,
+              stockId: stockId,
+            ));
+          default:
+            return null;
+        }
+      },
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+  PageRouteBuilder _buildFadeRoute(Widget page) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
     );
   }
 }
