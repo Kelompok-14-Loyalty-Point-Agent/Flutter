@@ -14,7 +14,7 @@ class ProviderIconModel {
 
 ProviderIconModel providerIconModel(String phoneNumber) {
   bool useSuffix = true;
-  ProviderIconModel? _providerIconModel;
+  ProviderIconModel? providerIconModel;
   if (phoneNumber.substring(2, 3) == "3" && phoneNumber.substring(3, 4) == "1" ||
       phoneNumber.substring(2, 3) == "3" &&
           phoneNumber.substring(3, 4) == "2" ||
@@ -23,7 +23,7 @@ ProviderIconModel providerIconModel(String phoneNumber) {
       phoneNumber.substring(2, 3) == "3" &&
           phoneNumber.substring(3, 4) == "8") {
     useSuffix;
-    return _providerIconModel = ProviderIconModel(
+    return providerIconModel = ProviderIconModel(
       idData: 9,
       idCredit: 10,
       namaIcon: Image.asset(
@@ -44,13 +44,13 @@ ProviderIconModel providerIconModel(String phoneNumber) {
       phoneNumber.substring(2, 3) == "7" &&
           phoneNumber.substring(3, 4) == "8") {
     useSuffix;
-    return _providerIconModel = ProviderIconModel(
+    return providerIconModel = ProviderIconModel(
       idData: 3,
       idCredit: 4,
       namaIcon: Image.asset(
-      "assets/icons/provider_xl_icon.png",
-      scale: 4.5,
-    ),
+        "assets/icons/provider_xl_icon.png",
+        scale: 4.5,
+      ),
     );
   } else if (phoneNumber.substring(2, 3) == "1" &&
           phoneNumber.substring(3, 4) == "1" ||
@@ -71,13 +71,13 @@ ProviderIconModel providerIconModel(String phoneNumber) {
       phoneNumber.substring(2, 3) == "5" &&
           phoneNumber.substring(3, 4) == "3") {
     useSuffix;
-    return _providerIconModel = ProviderIconModel(
+    return providerIconModel = ProviderIconModel(
       idData: 3,
       idCredit: 4,
       namaIcon: Image.asset(
-      "assets/icons/provider_tsel_icon.png",
-      scale: 4,
-    ),
+        "assets/icons/provider_tsel_icon.png",
+        scale: 4,
+      ),
     );
   } else if (phoneNumber.substring(2, 3) == "9" &&
           phoneNumber.substring(3, 4) == "5" ||
@@ -90,13 +90,13 @@ ProviderIconModel providerIconModel(String phoneNumber) {
       phoneNumber.substring(2, 3) == "9" &&
           phoneNumber.substring(3, 4) == "9") {
     useSuffix;
-    return _providerIconModel = ProviderIconModel(
+    return providerIconModel = ProviderIconModel(
       idData: 3,
       idCredit: 4,
       namaIcon: Image.asset(
-      "assets/icons/provider_tri_icon.png",
-      scale: 4,
-    ),
+        "assets/icons/provider_tri_icon.png",
+        scale: 4,
+      ),
     );
   } else if (phoneNumber.substring(2, 3) == "8" &&
           phoneNumber.substring(3, 4) == "1" ||
@@ -117,15 +117,15 @@ ProviderIconModel providerIconModel(String phoneNumber) {
       phoneNumber.substring(2, 3) == "8" &&
           phoneNumber.substring(3, 4) == "9") {
     useSuffix;
-    return _providerIconModel = ProviderIconModel(
+    return providerIconModel = ProviderIconModel(
       idData: 3,
       idCredit: 4,
       namaIcon: Image.asset(
-      "assets/icons/provider_smartfren_icon.png",
-      scale: 4,
-    ),
+        "assets/icons/provider_smartfren_icon.png",
+        scale: 4,
+      ),
     );
   }
   useSuffix = false;
-  return _providerIconModel!;
+  return providerIconModel!;
 }

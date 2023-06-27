@@ -11,10 +11,12 @@ import '../home/home_page.dart';
 import '../profile/profile_screen.dart';
 
 class GetRewardScreen extends StatefulWidget {
-  const GetRewardScreen({Key? key});
+  const GetRewardScreen({
+    super.key,
+  });
 
   @override
-  _GetRewardScreenState createState() => _GetRewardScreenState();
+  State<GetRewardScreen> createState() => _GetRewardScreenState();
 }
 
 class _GetRewardScreenState extends State<GetRewardScreen> {
@@ -152,7 +154,7 @@ class _GetRewardScreenState extends State<GetRewardScreen> {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
           ),
-          child: Container(
+          child: SizedBox(
             height: 50,
             child: BottomNavigationBar(
               currentIndex: index ?? 0,

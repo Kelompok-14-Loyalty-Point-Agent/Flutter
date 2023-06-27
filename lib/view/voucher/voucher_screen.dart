@@ -14,7 +14,7 @@ class VoucherScreen extends StatefulWidget {
   const VoucherScreen({Key? key}) : super(key: key);
 
   @override
-  _VoucherScreenState createState() => _VoucherScreenState();
+  State<VoucherScreen> createState() => _VoucherScreenState();
 }
 
 class _VoucherScreenState extends State<VoucherScreen> {

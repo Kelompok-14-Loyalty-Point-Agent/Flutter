@@ -10,7 +10,7 @@ class FaqScreen extends StatefulWidget {
   const FaqScreen({Key? key}) : super(key: key);
 
   @override
-  _FaqScreenState createState() => _FaqScreenState();
+  State<FaqScreen> createState() => _FaqScreenState();
 }
 
 class _FaqScreenState extends State<FaqScreen> {
@@ -110,7 +110,7 @@ class _FaqScreenState extends State<FaqScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
         ),
-        child: Container(
+        child: SizedBox(
           height: 50,
           child: BottomNavigationBar(
             currentIndex: index ?? 2,

@@ -104,7 +104,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
         ),
-        child: Container(
+        child: SizedBox(
           height: 50,
           child: BottomNavigationBar(
             currentIndex: index ?? 0,
